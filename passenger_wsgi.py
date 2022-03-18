@@ -1,0 +1,1 @@
+from ProjectGroupOrder.wsgi import application

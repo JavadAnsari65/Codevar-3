@@ -1,0 +1,65 @@
+{% extends 'Base/BaseTemplate.html' %}
+{% load FilterTags %}
+{% block Title %}
+    نمونه کار ها
+{% endblock %}
+
+{% block Css %}
+    <link rel="stylesheet" href="/Static/Css/Member/Profile-Ws/index.css">
+    <link rel="stylesheet" href="/Static/Css/WorkSamples/index.css">
+{% endblock %}
+
+{% block Content %}
+    {% include 'Base/Header/Header.html' with Items='BtnSubmitProject,BtnJoinToTeam,Home,GroupMembers,Account,Logo' Place='Other' Style='Type1' User=User_Member %}
+    <div class="ContainerWorkSamples">
+        <img src="/Static/Img/Img-Design/Img-Blobs/Blob_6.jpg" alt="Img Blob Design" class="ImgDesignBlobTop">
+        <div class="ContainerTitle">
+            <p>نمونه کار ها</p>
+            <i class="far fa-file-certificate"></i>
+        </div>
+        <div class="WorkSamples">
+            {% for WorkSample in WorkSamples %}
+                <div class="WorkSample">
+                    <div Link class="LinkAddressWorkSample" onclick="GoToUrl('{{ WorkSample.Address }}','Blank')">آدرس
+                        نمونه کار
+                    </div>
+                    <div class="ContainerImageWorkSample">
+                        <img src="{{ WorkSample.Image.url }}" alt="{{ WorkSample.Title }}"
+                             title="{{ WorkSample.Title }}">
+                        <div class="DesignBoxElementWorkSample"></div>
+                        <div class="DesignBoxElementWorkSample"></div>
+                    </div>
+                    <div class="ItemLikeTimeWorkSample">
+                        <div class="TimePastWorkSample">
+                            <i class="far fa-clock"></i>
+                            <p>{{ WorkSample.GetTimePastCreate }}</p>
+                        </div>
+                        <div class="LikeWorkSample" title="پسندیدن">
+                            {% if User is not None %}
+                                <i class="{% if WorkSample.ListIDUserLiked|ValInList:User.id == 'true' %}fa{% else %}far{% endif %} fa-heart BtnLikeWorkSample"
+                                   onclick="LikeDisLikeWorkSample(this,'{{ WorkSample.id }}')"
+                                   Liked="{{ WorkSample.ListIDUserLiked|ValInList:User.id }}"></i>
+                            {% else %}
+                                <i class="far fa-heart CursorDefault BtnLikeWorkSample"></i>
+                            {% endif %}
+                            <p class="SplitNumber" NumberLike
+                               Number="{{ WorkSample.GetLenLikes }}"></p>
+                        </div>
+                    </div>
+                    <div class="ItemFieldWorkSample">
+                        <p class="TitleField">تکنولوژی</p>
+                        <p class="ResultField">{{ WorkSample.Technologies|truncatechars:50 }}</p>
+                    </div>
+                    <div class="ShowWorkSample" ID_Sample="{{ WorkSample.id }}">
+                        <button class="BtnStyle_1" onclick="GetWorkSample(this.parentNode)">مشاهده
+                        </button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% include 'Base/Footer/index.html' %}
+{% endblock %}
+{% block Js %}
+    <script src="/Static/Js/Member/Profile-Ws/index.js"></script>
+{% endblock %}

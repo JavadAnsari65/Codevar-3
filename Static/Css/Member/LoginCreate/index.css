@@ -1,0 +1,182 @@
+.ImageBackgroundFull {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.ContainerBase {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+}
+
+.ContainerForm {
+    position: absolute;
+    height: auto;
+    top: 20%;
+    left: 0;
+    padding: 5px;
+    padding-bottom: 10px;
+    background: rgba(234, 234, 234, 0.92);
+    text-align: right;
+    border-radius: 8px;
+    perspective: 2000px;
+}
+
+.HeaderForm {
+    font-family: IranSens;
+    margin-bottom: 15px;
+    margin-top: 0;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-top: 5px;
+    border-bottom: 1px solid rgba(23, 195, 178, 0.7);
+}
+
+.HeaderForm * {
+    display: inline-block;
+}
+
+
+.ContainerButtonForm {
+    margin: 10px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.ContainerButtonFormButton {
+    display: inline-block;
+    width: 200px;
+    padding: 7px 5px;
+    border-radius: 5px;
+    background: #ababab;
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.ContainerButtonFormButtonActive {
+    box-shadow: 0 7px 8px #aaaaaa;
+    cursor: pointer;
+    background: #55b69b;
+    color: white;
+    opacity: 1;
+}
+
+.ContainerButtonForm .ContainerButtonFormButtonActive:hover i {
+    transform: translateX(20px);
+}
+
+.ContainerButtonForm .ContainerButtonFormButtonActive:active {
+    transform: scale(.98);
+}
+
+.ContainerButtonForm div p {
+    display: inline-block;
+    margin: 0;
+    width: 80%;
+    text-align: center;
+    font-size: 110%;
+}
+
+.ContainerButtonForm div i {
+    vertical-align: middle;
+    width: 15%;
+    text-align: center;
+    font-size: 120%;
+    transition: all .5s;
+}
+
+
+#ContainerMessageLogin {
+    padding: 5px;
+    border-radius: 7px;
+    margin: 5px;
+}
+
+#ContainerMessageLogin p {
+    margin: 0;
+}
+
+#ContainerMessageCreate {
+    padding: 5px;
+    border-radius: 7px;
+    margin: 5px;
+}
+
+#ContainerMessageCreate p {
+    margin: 0;
+}
+
+.ContainerMessageSuccess {
+    background: rgba(186, 226, 222, 0.5);
+    color: rgb(24, 121, 103);
+}
+
+.ContainerMessageError {
+    background: rgba(250, 172, 167, 0.5);
+    color: rgba(152, 61, 66, 1);
+}
+
+.ContainerChangeForm {
+    margin: 30px 0 0 10px;
+    text-align: left;
+}
+
+.ContainerChangeForm div {
+    cursor: pointer;
+    display: inline-block;
+    color: #547ec3;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 7px 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    font-size: 85%;
+    box-shadow: 0 3px 4px #cecece;
+}
+
+.ContainerChangeForm div:hover {
+    color: #204fc3;
+}
+
+.ContainerChangeForm p {
+    margin: 0;
+    display: inline-block;
+}
+
+
+.ContainerForm3D {
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.ContainerFormLogin, .ContainerFormCreate {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+}
+
+.ContainerFormLogin {
+    transform: rotateY(180deg);
+}
+
+.ContainerFormLoginActive .ContainerForm3D {
+    transform: rotateY(180deg);
+}
+
+.ContainerFormCreateActive .ContainerForm3D {
+    transform: rotateY(0);
+}
+
+.ContainerFormLoginActiveHideFormCreate .ContainerFormCreate {
+    display: none;
+}
+
+.ContainerFormCreateActiveHideFormLogin .ContainerFormLogin {
+    display: none;
+}
+

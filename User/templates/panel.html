@@ -1,0 +1,443 @@
+{% extends 'Base/BaseTemplate.html' %}
+{% load FilterTags %}
+
+{% block Title %}
+    {{ User.GetNameAndFamily }}
+{% endblock %}
+
+{% block Css %}
+    <link rel="stylesheet" href="/Static/Css/User/ShowProject/index.css">
+    <link rel="stylesheet" href="/Static/Css/User/Panel/index.css">
+{% endblock %}
+
+{% block Content %}
+    <div id="ContainerMenuHamburger" class="MenuIsClose _ContainerMenu">
+        <div class="ContentMenu">
+            <div class="ContainerInfoMenu">
+                <div class="ContainerTitleAndSignOutMenu">
+                    <span>{{ User.GetNameAndFamily }}</span>
+                    <span>
+                        <i class="far fa-sign-out-alt" title="خروج" ClickFunc="SignOutAccountIconMenu()"></i>
+                    </span>
+                </div>
+                <div class="ContainerMainMenu">
+                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerProjectSubmit')">
+                        <p>ثبت پروژه</p>
+                        <i class="far fa-file-plus"></i>
+                    </div>
+                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerProjectChecking')">
+                        <p>پروژه های در حال بررسی</p>
+                        <i class="far fa-file-edit"></i>
+                    </div>
+                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerProjectCompleting')">
+                        <p>پروژه های در حال انجام</p>
+                        <i class="far fa-spinner"></i>
+                    </div>
+                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerProjectCompleted')">
+                        <p>پروژه های تمام شده</p>
+                        <i class="far fa-file-check"></i>
+                    </div>
+                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerInfo')">
+                        <p>اطلاعات</p>
+                        <i class="far fa-info"></i>
+                    </div>
+                    <div class="ItemBtnMenu" ClickFunc="GoToUrl(/)">
+                        <p>خانه</p>
+                        <i class="far fa-home"></i>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <div class="ContainerAside">
+        <div class="ItemAside">
+            <i class="far fa-bars IconHamburgerMenu" id="IconHamburgerMenu"
+               ClickFunc="OpenMenuHamburgerID(ContainerMenuHamburger)"></i>
+        </div>
+        <div class="ItemAside ItemAsideSignOut" ClickFunc="SignOutAccount()" AnimationScroll="AnimationTopToBottom">
+            <p>خروج</p>
+            <i class="far fa-sign-out-alt"></i>
+        </div>
+        <div class="ItemAside ItemAsideHome" ClickFunc="GoToUrl(/)" AnimationScroll="AnimationBottomToTop">
+            <p>خانه</p>
+            <i class="far fa-home"></i>
+        </div>
+        <div class="ItemAside ItemAsideWithContainer ItemAsideInfo" ClickShowContainer="Info"
+             AnimationScroll="AnimationTopToBottom">
+            <p>اطلاعات</p>
+            <i class="far fa-info"></i>
+        </div>
+        <div class="ItemAside ItemAsideWithContainer ItemSubmitProject" ClickShowContainer="ProjectSubmit"
+             AnimationScroll="AnimationBottomToTop">
+            <p>ثبت پروژه</p>
+            <i class="far fa-file-plus"></i>
+        </div>
+        <div class="ItemAside ItemAsideWithContainer ItemAsideProjectChecking" ClickShowContainer="ProjectChecking"
+             AnimationScroll="AnimationTopToBottom">
+            <p>پروژه های در حال بررسی</p>
+            <i class="far fa-file-edit"></i>
+        </div>
+        <div class="ItemAside ItemAsideWithContainer IconCompleting ItemAsideProjectCompleting"
+             ClickShowContainer="ProjectCompleting"
+             AnimationScroll="AnimationBottomToTop">
+            <p>پروژه های در حال انجام</p>
+            <i class="far fa-spinner"></i>
+        </div>
+        <div class="ItemAside ItemAsideWithContainer ItemAsideActive ItemAsideProjectCompleted"
+             ClickShowContainer="ProjectCompleted"
+             AnimationScroll="AnimationTopToBottom">
+            <p>پروژه های تمام شده</p>
+            <i class="far fa-file-check"></i>
+        </div>
+    </div>
+    <div class="ContainerMain">
+        <div class="ContainerBaseContent" ContainerItemMenu="Info" id="ContainerInfo">
+            <div class="ContainerTitle">
+                <p>اطلاعات</p>
+            </div>
+            <div class="Information">
+                <div class="ItemForm">
+                    <p class="LabelInput">نام و نام خانوادگی</p>
+                    <div class="ItemFormInput">
+                        <input type="text" InputNameAndFamilyUser InputForm InputFormInfo
+                               oninput="CheckInputValidations(this,'3','150','Icon','Text');StateButtonSubmitInfo()"
+                               value="{{ User.UserNameFamily|NoneVal:'' }}" CheckInputVal Bigger="3" Less="150"
+                               SetIn="Icon">
+                        <i class="far fa-times-circle"></i>
+                    </div>
+                </div>
+                <div class="ItemForm">
+                    <p class="LabelInput">تلفن همراه</p>
+                    <div class="ItemFormInput">
+                        <input type="text" InputPhoneNumberUser InputForm InputFormInfo
+                               oninput="CheckInputValidations(this,'10','12','Icon','Number');StateButtonSubmitInfo()"
+                               value="{{ User.PhoneNumber|NoneVal:'' }}" CheckInputVal Bigger="10" Less="12"
+                               SetIn="Icon" TypleVal="Number">
+                        <i class="far fa-times-circle"></i>
+                    </div>
+                </div>
+                <div class="ItemForm">
+                    <p class="LabelInput">ایمیل</p>
+                    <div class="ItemFormInput">
+                        <input type="text" InputEmailUser InputForm InputFormInfo
+                               oninput="CheckInputValidations(this,'3','150','Icon','Email');StateButtonSubmitInfo()"
+                               value="{{ User.Email|NoneVal:'' }}" CheckInputVal Bigger="3" Less="150" SetIn="Icon"
+                               TypeVal="Email">
+                        <i class="far fa-times-circle"></i>
+                    </div>
+                </div>
+                <div class="ItemForm">
+                    <p class="LabelInput">آدرس (دلخواه)</p>
+                    <div class="ItemFormInput">
+                        <textarea type="text" rows="4" InputAddressUser InputForm
+                                  oninput="CheckInputValidations(this,'1','300','None','Text');StateButtonSubmitInfo()"
+                                  CheckInputVal Bigger="1" Less="300"
+                                  SetIn="None">{{ User.Address|NoneVal:'' }}</textarea>
+                    </div>
+                </div>
+                <div class="ContainerButtonFormInfo">
+                    <button class="BtnStyle_5 Disabled" id="ButtonSubmitInfoUser">ثبت</button>
+                </div>
+            </div>
+        </div>
+        <div class="ContainerBaseContent ContainerContentIsShow" ContainerItemMenu="ProjectSubmit"
+             id="ContainerProjectSubmit">
+            <div class="ContainerTitle">
+                <p>ثبت پروژه</p>
+            </div>
+            <div class="ContainerSubmitProject">
+                <div class="ItemForm">
+                    <p class="LabelInput">عنوان پروژه</p>
+                    <div class="ItemFormInput">
+                        <input type="text" InputTitleSubmitProject InputForm InputFormSubmitProject
+                               oninput="CheckInputValidations(this,'4','65','Icon','Text');StateButtonSubmitProject()">
+                        <i class="far fa-times-circle"></i>
+                    </div>
+                </div>
+                <div class="ItemForm">
+                    <p class="LabelInput">تکنولوژی ها</p>
+                    <div class="ItemFormInput">
+                        <input type="text" InputTechnologiesSubmitProject InputForm InputFormSubmitProject
+                               onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
+                               oninput="CheckInputValidations(this,'4','100','Icon','Text');StateButtonSubmitProject()">
+                        <i class="far fa-times-circle"></i>
+                    </div>
+                </div>
+                <div class="ItemForm">
+                    <p class="LabelInput">مهلت تحویل (روز)</p>
+                    <div class="ItemFormInput">
+                        <input type="number" InputNumberDeadLineSubmitProject InputForm InputFormSubmitProject
+                               onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
+                               oninput="CheckInputValidations(this,'0','5','Icon','Number');StateButtonSubmitProject()"
+                               onkeypress="ValidationAlphabet(event)">
+                        <i class="far fa-times-circle"></i>
+                    </div>
+                </div>
+                <div class="ItemForm">
+                    <p class="LabelInput">بودجه (تومان)</p>
+                    <div class="ItemFormInput">
+                        <input type="number" InputBudgetSubmitProject InputForm InputFormSubmitProject
+                               onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
+                               oninput="CheckInputValidations(this,'2','50','Icon','Number');StateButtonSubmitProject();SetPriceInP(this.value)"
+                               onkeypress="ValidationAlphabet(event)">
+                        <i class="far fa-times-circle"></i>
+                    </div>
+                    <p class="PriceForProject text-left SplitPriceNumber" PriceForSubmitProject></p>
+                </div>
+                <div class="ItemForm">
+                    <p class="LabelInput">توضیحات</p>
+                    <div class="ItemFormInput">
+                        <textarea rows="5" InputDescriptionSubmitProject InputForm InputFormSubmitProject
+                                  onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
+                                  oninput="CheckInputValidations(this,'1','5000','Icon','Text');StateButtonSubmitProject()"></textarea>
+                        <i class="far fa-times-circle"></i>
+                    </div>
+                </div>
+                <div class="ContainerBtnSubmit">
+                    <button class="BtnStyle_5 Disabled" id="BtnSubmitProject">ثبت</button>
+                </div>
+            </div>
+            <div class="ContainerDesignSubmitProject">
+                <h2> با ما آسوده خاطر باشید</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, eaque?
+                </p>
+                <img src="/Static/Img/Img-Design/Img-Background/BackgroundPanel1.jpg" alt="Image Design" loading="lazy">
+            </div>
+        </div>
+        <div class="ContainerBaseContent" ContainerItemMenu="ProjectChecking" id="ContainerProjectChecking">
+            <div class="ContainerTitle">
+                <p>پروژه های در حال بررسی</p>
+            </div>
+            <div class="ContainerProjectChecking">
+                {% if ProjectChecking == None %}
+                    <div class="ContainerNotFoundContent">
+                        <div>
+                            موردی یافت نشد
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="Projects">
+                    {% for Project in ProjectChecking %}
+                        <div class="Project ProjectChecking" ProjectID="{{ Project.id }}">
+                            <div class="InfoProject">
+                                <div class="TitleProject">
+                                    {{ Project.Title }}
+                                </div>
+                                <i class="far fa-trash IconCancelProject"
+                                   onclick="CreateMessage_Alert(`ایا از لفو پروژه اطمینان دارید ؟`,CancelProject,{{ Project.id }})"></i>
+                            </div>
+                            <div class="ContentProject">
+                                <div class="TimeSubmit">
+                                    <div>
+                                        <p class="Label">ثبت شده در</p>
+                                        {{ Project.TimePastSubmit }}
+                                    </div>
+                                </div>
+                                <div class="StateProject">
+                                    <div>
+                                        <p class="Label">وضعیت</p>
+                                        <p class="ResultField">{{ Project.GetStateProject }}</p>
+                                    </div>
+                                </div>
+                                <div class="Budget">
+                                    {% if Project.StateProject == 'Checking' %}
+                                        <p class="Label">بودجه</p>
+                                        <p class="SplitNumber SplitPriceNumber"
+                                           Number="{{ Project.BudgetByUser }}">{{ Project.BudgetByUser }}</p>
+                                    {% else %}
+                                        <p class="Label">قیمت نهایی</p>
+                                        <p class="SplitNumber SplitPriceNumber"
+                                           Number="{{ Project.BudgetFinally }}">{{ Project.BudgetFinally }}</p>
+                                    {% endif %}
+                                    <p class="UnitPrice">تومان</p>
+                                </div>
+                                <div class="DeadLine">
+                                    <div>
+                                        <p class="Label">مهلت</p>
+                                        {% if Project.StateProject == 'Checking' %}
+                                            {{ Project.DeadLineByUser }}
+                                        {% else %}
+                                            {{ Project.DeadLineFinally }}
+                                        {% endif %}
+                                        روز
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                </div>
+                                <div class="Technologies">
+                                    <p class="Label">تکنولوژی ها</p>
+                                    <input type="text" class="form-control" value="{{ Project.Technologies }}" disabled>
+                                </div>
+                                <div class="Description">
+                                    <p class="Label">توضیحات</p>
+                                    <textarea class="form-control" rows="3"
+                                              disabled>{{ Project.Description }}</textarea>
+                                </div>
+                                <div class="ContainerBuyProject">
+                                    {% if Project.StateProject == 'Checking' %}
+                                        <button class="BtnStyle_5 Disabled">ادامه</button>
+                                    {% else %}
+                                        <button class="BtnStyle_5"
+                                                onclick="ShowAndPayProject({{ Project.id }},'WaitPay')">ادامه
+                                        </button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="ContainerBaseContent" ContainerItemMenu="ProjectCompleting" id="ContainerProjectCompleting">
+            <div class="ContainerTitle">
+                <p>پروژه های در حال انجام</p>
+            </div>
+            <div class="ContainerProjectChecking">
+                {% if ProjectWorkingOn == None %}
+                    <div class="ContainerNotFoundContent">
+                        <div>
+                            موردی یافت نشد
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="Projects">
+                    {% for Project in ProjectWorkingOn %}
+                        <div class="Project ProjectWorkingOn" ProjectID="{{ Project.id }}">
+                            <div class="InfoProject">
+                                <div class="TitleProject">
+                                    {{ Project.Title }}
+                                </div>
+                                {#                            <i class="far fa-trash IconCancelProject"#}
+                                {#                               onclick="CreateMessage_Alert(`ایا از لفو پروژه اطمینان دارید ؟`,CancelProject,{{ Project.id }})"></i>#}
+                            </div>
+                            <div class="ContentProject">
+                                <div class="TimeSubmit">
+                                    <div>
+                                        <p class="Label">ثبت شده در</p>
+                                        {{ Project.TimePastSubmit }}
+                                    </div>
+                                </div>
+                                <div class="StateProject">
+                                    <div>
+                                        <p class="Label">وضعیت</p>
+                                        <p class="ResultField">{{ Project.GetStateProject }}</p>
+                                    </div>
+                                </div>
+                                <div class="Budget">
+                                    <p class="Label">قیمت نهایی</p>
+                                    <p class="SplitNumber SplitPriceNumber"
+                                       Number="{{ Project.BudgetFinally }}">{{ Project.BudgetFinally|NoneVal:'نامشخص' }}</p>
+                                    {% if Project.BudgetFinally is not None %}
+                                        <p class="UnitPrice">تومان</p>
+                                    {% endif %}
+                                </div>
+                                <div class="DeadLine">
+                                    <div>
+                                        <p class="Label">مهلت</p>
+                                        {{ Project.DeadLineByUser }}
+                                        روز
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                </div>
+                                <div class="Technologies">
+                                    <p class="Label">تکنولوژی ها</p>
+                                    <input type="text" class="form-control" value="{{ Project.Technologies }}" disabled>
+                                </div>
+                                <div class="Description">
+                                    <p class="Label">توضیحات</p>
+                                    <textarea class="form-control" rows="3"
+                                              disabled>{{ Project.Description }}</textarea>
+                                </div>
+                                <div class="ContainerBuyProject">
+                                    <button class="BtnStyle_6" onclick="ShowAndPayProject({{ Project.id }},'Info')">
+                                        اطلاعات
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="ContainerBaseContent" ContainerItemMenu="ProjectCompleted" id="ContainerProjectCompleted">
+            <div class="ContainerTitle">
+                <p>پروژه های اتمام شده</p>
+            </div>
+            <div class="ContainerProjectChecking">
+                {% if ProjectEnded == None %}
+                    <div class="ContainerNotFoundContent">
+                        <div>
+                            موردی یافت نشد
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="Projects">
+                    {% for Project in ProjectEnded %}
+                        <div class="Project ProjectEnded" ProjectID="{{ Project.id }}">
+                            <div class="InfoProject">
+                                <div class="TitleProject">
+                                    {{ Project.Title }}
+                                </div>
+                                {#                            <i class="far fa-trash IconCancelProject"#}
+                                {#                               onclick="CreateMessage_Alert(`ایا از لفو پروژه اطمینان دارید ؟`,CancelProject,{{ Project.id }})"></i>#}
+                                <div class="badge badge-success badge-pill text-left float-left mx-1 p-1">
+                                    تکمیل شده
+                                </div>
+                            </div>
+                            <div class="ContentProject">
+                                <div class="TimeSubmit">
+                                    <div>
+                                        <p class="Label">ثبت شده در</p>
+                                        {{ Project.TimePastSubmit }}
+                                    </div>
+                                </div>
+                                <div class="StateProject">
+                                    <div>
+                                        <p class="Label">وضعیت</p>
+                                        <p class="ResultField">{{ Project.GetStateProject }}</p>
+                                    </div>
+                                </div>
+                                <div class="Budget">
+                                    <p class="Label">قیمت نهایی</p>
+                                    <p class="SplitNumber SplitPriceNumber"
+                                       Number="{{ Project.BudgetFinally }}">{{ Project.BudgetFinally }}</p>
+                                    <p class="UnitPrice">تومان</p>
+                                </div>
+                                <div class="DeadLine">
+                                    <div>
+                                        <p class="Label">مهلت</p>
+                                        {{ Project.DeadLineByUser }}
+                                        روز
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                </div>
+                                <div class="Technologies">
+                                    <p class="Label">تکنولوژی ها</p>
+                                    <input type="text" class="form-control" value="{{ Project.Technologies }}" disabled>
+                                </div>
+                                <div class="Description">
+                                    <p class="Label">توضیحات</p>
+                                    <textarea class="form-control" rows="3"
+                                              disabled>{{ Project.Description }}</textarea>
+                                </div>
+                                <div class="ContainerBuyProject">
+                                    <button class="BtnStyle_6" onclick="ShowAndPayProject({{ Project.id }},'Info')">
+                                        اطلاعات
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block Js %}
+    <script src="/Static/Js/User/ShowProject/index.js"></script>
+    <script src="/Static/Js/User/Panel/index.js"></script>
+{% endblock %}

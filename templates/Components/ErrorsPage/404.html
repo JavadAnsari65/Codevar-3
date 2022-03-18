@@ -1,0 +1,23 @@
+{% extends 'Base/BaseTemplate.html' %}
+{% load FilterTags %}
+
+{% block Title %}
+    404 | چیزی یافت نشد
+{% endblock %}
+
+{% block Css %}
+    <link rel="stylesheet" href="/Static/Css/Errors/Base/index.css">
+{% endblock %}
+
+{% block Content %}
+    {% include 'Base/Header/Header.html' with Items='BtnSubmitProject,BtnJoinToTeam,Home,WorkSamples,Account,Logo' Place='Other' Style='Type1' User=User_Member %}
+    <section class="error-container">
+        <span class="four"><span class="screen-reader-text"></span></span>
+        <span class="zero"><span class="screen-reader-text"></span></span>
+        <span class="four"><span class="screen-reader-text">4</span></span>
+    </section>
+    <div class="ContainerTitlePage">
+        <h2>چیزی یافت نشد</h2>
+    </div>
+{% endblock %}
+

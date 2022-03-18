@@ -1,0 +1,263 @@
+{% extends 'Base/BaseTemplate.html' %}
+{% load FilterTags %}
+{% load static %}
+{% block Title %}
+    پروفایل | {{ User }}
+{% endblock %}
+{% block Css %}
+    <link rel="stylesheet" href="{% static 'Css/Member/Profile-Ws/index.css' %}">
+    <link rel="stylesheet" href="/Static/Css/Member/Panel/index.css">
+    <link rel="stylesheet" href="/Static/Css/Member/Components/Profile/index.css">
+{% endblock %}
+{% block Content %}
+    <aside class="ContainerAsideMenu">
+        <div class="ItemAsideMenu ItemAsideMenuActive" ItemMenu="Profile">
+            <p>پروفایل</p>
+            <i class="fa fa-user"></i>
+        </div>
+        <div class="ItemAsideMenu" ItemMenu="Skills">
+            <p>مهارت ها</p>
+            <i class="fal fa-wreath"></i>
+        </div>
+        <div class="ItemAsideMenu" ItemMenu="WorkSamples">
+            <p>نمونه کارها</p>
+            <i class="fal fa-file-alt"></i>
+        </div>
+        <div class="ItemAsideMenu" ItemMenu="Info">
+            <p>مشخصات</p>
+            <i class="fal fa-info"></i>
+        </div>
+        <div class="ItemAsideMenu ItemHome" ClickFunc="GoToUrl(/)">
+            <p>خانه</p>
+            <i class="fal fa-home-alt"></i>
+        </div>
+        <div class="ItemAsideMenu ItemSignOutAccount" ClickFunc="SignOutAccount()">
+            <p>خروج</p>
+            <i class="fal fa-sign-out-alt"></i>
+        </div>
+    </aside>
+    <main id="ContainerMain">
+
+        {% include 'Components/Profile/Profile.html' with ViewBy="Member" MemberProfile=Member %} {#  Profile  #}
+
+        <div class="ContainerItemAsideMenu" ContainerItemMenu="Info">
+            <div class="ContainerTitle">
+                <p>مشخصات</p>
+                <i class="fa fa-info float-left ColorBlue"></i>
+            </div>
+            <form action="/M/Profile/Submit/Info" enctype="multipart/form-data" method="POST" id="ContainerFormInfo" accept-charset="utf-8" content="utf-8">
+                {% csrf_token %}
+                <div class="ContainerRightFormInfo">
+                    <div class="ContainerItemForm">
+                        <p class="LabelInput">نام و نام خانوادگی</p>
+                        <div class="ContainerInputIcon">
+                            <input type="text" value="{{ User.UserNameFamily|NoneNull }}" name="UserNameFamily"
+                                   minlength="5" maxlength="150"
+                                   oninput="CheckInputValidations(this,'5','150','Input','Text');SetStateButtonSubmitFormInfo()"
+                                   Bigger="5" Less="150"
+                                   TypeVal="Text"
+                                   CheckInputVal InputFormInformation>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="ContainerItemForm">
+                        <p class="LabelInput">شماره همراه</p>
+                        <div class="ContainerInputIcon">
+                            <input type="text" value="{{ User.PhoneNumber|NoneNull }}" name="PhoneNumber" maxlength="15"
+                                   oninput="CheckInputValidations(this,'10','12','Input','Number');SetStateButtonSubmitFormInfo()"
+                                   Bigger="10" Less="12" TypeVal="Number" CheckInputVal InputFormInformation>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="ContainerItemForm">
+                        <p class="LabelInput">تلفن ثابت</p>
+                        <div class="ContainerInputIcon">
+                            <input type="text" name="Phone" maxlength="15" value="{{ User.Phone|NoneNull }}"
+                                   oninput="CheckInputValidations(this,'7','15','Input','Number');SetStateButtonSubmitFormInfo()"
+                                   Bigger="7"
+                                   Less="15" TypeVal="Number" CheckInputVal InputFormInformation>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="ContainerItemForm">
+                        <p class="LabelInput">ایمیل</p>
+                        <div class="ContainerInputIcon">
+                            <input type="text" name="Email" maxlength="100" value="{{ User.Email|NoneNull }}"
+                                   oninput="CheckInputValidations(this,'0','100','Input','Email');SetStateButtonSubmitFormInfo()"
+                                   Bigger="0" Less="100" TypeVal="Email" CheckInputVal InputFormInformation>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="ContainerItemForm">
+                        <p class="LabelInput">کد ملی</p>
+                        <div class="ContainerInputIcon">
+                            <input type="text" name="NationalCode" maxlength="10"
+                                   value="{{ User.NationalCode|NoneNull }}"
+                                   oninput="CheckInputValidations(this,'9','11','Input','Text');SetStateButtonSubmitFormInfo()"
+                                   Bigger="9" Less="11" TypeVal="Number" CheckInputVal InputFormInformation>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="ContainerItemForm">
+                        <p class="LabelInput">عنوان شغلی</p>
+                        <div class="ContainerInputIcon">
+                            <input type="text" name="TitleJob" maxlength="300" value="{{ User.TitleJob|NoneNull }}"
+                                   oninput="CheckInputValidations(this,'1','300','Input','Text');SetStateButtonSubmitFormInfo()"
+                                   Bigger="1" Less="300" TypeVal="Text" CheckInputVal InputFormInformation
+                                   placeholder="به عنوان مثال :  Backend Developer ">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="ContainerItemForm">
+                        <p class="LabelInput">آدرس</p>
+                        <div class="ContainerInputIcon">
+                        <textarea type="text" name="Address" rows="5" maxlength="1000"
+                                  oninput="CheckInputValidations(this,'5','1000','Input','Text');SetStateButtonSubmitFormInfo()"
+                                  Bigger="5" Less="1000"
+                                  TypeVal="Text" CheckInputVal
+                                  InputFormInformation>{{ User.Address|NoneNull }}</textarea>
+                        </div>
+                    </div>
+                    <div class="ContainerItemForm">
+                        <p class="LabelInput">درباره خود</p>
+                        <div class="ContainerInputIcon">
+                        <textarea type="text" name="AboutMe" rows="5" maxlength="1000"
+                                  oninput="CheckInputValidations(this,'5','1000','Input','Text');SetStateButtonSubmitFormInfo()"
+                                  Bigger="5" Less="1000"
+                                  TypeVal="Text" CheckInputVal
+                                  InputFormInformation>{{ User.AboutMe|NoneNull }}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="ContainerLeftFormInfo">
+                    {% if User.Image|TrueOrFalse == 'true' %}
+                        <div class="ContainerItemForm ContainerItemFormImage text-center">
+                            <p class="LabelInput">عکس</p>
+                            <div class="ContainerInputIcon">
+                                <input type="file" name="Image" State="PastImage"
+                                       oninput="ValidationFile(this);SetStateButtonSubmitFormInfo();SetStateInputFile(this)"
+                                       TypeVal="File" CheckInputVal InputFormInformation id="InputImageFormInfo">
+                                <a href="/Media/{{ User.Image }}">{{ User.Image|truncatechars:35 }}</a>
+                            </div>
+                        </div>
+                        <div class="ContainerImageFormInfo">
+                            <img src="{{ User.Image.url }}" alt="Image User" id="ImageFormInfo">
+                        </div>
+                        <input type="hidden" name="ImageState" value="PastImage" id="ImageStateFormInfo">
+                    {% else %}
+                        <div class="ContainerItemForm ContainerItemFormImage">
+                            <p class="LabelInput">عکس</p>
+                            <div class="ContainerInputIcon text-center">
+                                <input type="file" name="Image" State="MostGet"
+                                       oninput="ValidationFile(this);SetStateButtonSubmitFormInfo();SetStateInputFile(this)"
+                                       TypeVal="File" CheckInputVal InputFormInformation id="InputImageFormInfo">
+                            </div>
+                        </div>
+                        <div class="ContainerImageFormInfo">
+                            <img src="" alt="Image User" id="ImageFormInfo">
+                        </div>
+                        <input type="hidden" name="ImageState" value="MostGet" id="ImageStateFormInfo">
+                    {% endif %}
+                </div>
+                <div class="ContainerButtonSubmitFormInfo">
+                    <button type="button" id="ButtonSubmitFormInfo">ثبت</button>
+                </div>
+            </form>
+        </div>
+        <div class="ContainerItemAsideMenu" ContainerItemMenu="Skills">
+            <div class="ContainerTitle">
+                <p>مهارت ها</p>
+                <i class="fa fa-wreath float-left ColorPaper"></i>
+            </div>
+            <div class="ContainerSkills">
+                <button id="ButtonAddSkill">
+                    افزودن مهارت
+                    <i class="fa fa-plus"></i>
+                </button>
+                <div class="Skills" id="ContainerSkills">
+                    {% for Skill in User.GetSkills %}
+                        <div class="Skill" Skill>
+                            <div class="ContainerEditDeleteSkill">
+                                <i class="fa fa-trash"
+                                   onclick="RemoveSkill({{ Skill.id }},this.parentNode.parentNode)"></i>
+                            </div>
+                            <div class="TitleSkill">
+                                <p TitleSkill>{{ Skill.Title }}</p>
+                            </div>
+                            <div class="ContainerProgress ">
+                                {% with Skill.ValueSkill as V %}
+                                    <progress
+                                            class="ProgressSkill {% if V >= 75 %}ProgressSkillGood{% elif V <= 74 and V >= 55 %}ProgressSkillAverage{% elif V <= 54 and V >= 35 %}ProgressSkillLow{% else %}ProgressSkillVeryLow{% endif %}"
+                                            max="100"
+                                            value="{{ Skill.ValueSkill }}"></progress>
+                                    <p class="ValueRangeSkill">{{ Skill.ValueSkill }}%</p>
+                                {% endwith %}
+                            </div>
+                            <div class="ContainerDescriptionSkill">
+                                <p>{{ Skill.Description|NoneVal:'توضیحی وجود ندارد' }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="ContainerItemAsideMenu" ContainerItemMenu="WorkSamples">
+            <div class="ContainerTitle">
+                <p>نمونه کار</p>
+                <i class="fa fa-file-alt float-left ColorGreen "></i>
+            </div>
+            <div class="ContainerWorkSamples">
+                <button id="ButtonAddWorkSample">
+                    افزودن نمونه کار
+                    <i class="fa fa-plus"></i>
+                </button>
+                <div class="Samples">
+                    {% for Sample in User.GetWorkSamples %}
+                        <div class="Sample" ID_Sample="{{ Sample.id }}">
+                            <div class="ItemsHeader">
+                                <i class="far fa-trash" onclick="RemoveSample(this.parentNode.parentNode)"></i>
+                                <i class="far fa-pen" onclick="EditSample(this.parentNode.parentNode)"></i>
+                            </div>
+                            <div class="TimePastSimple">
+                                <i class="far fa-clock"></i>
+                                <p class="m-0 d-inline-block">{{ Sample.GetTimePastCreate }}</p>
+                            </div>
+                            <div class="ContentSample">
+                                <img src="{{ Sample.Image.url }}" alt="{{ Sample.Title }}" title="{{ Sample.Title }}">
+                                <p class="LabelTitle">موضوع</p>
+                                <p class="TitleSample">{{ Sample.Title|truncatechars:25 }}</p>
+                            </div>
+                            <div class="ShowSample" onclick="GetWorkSample(this.parentNode)">
+                                مشاهده
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+{% endblock %}
+{% block Js %}
+    <script src="{% static 'Js/Member/Profile-Ws/index.js' %}"></script>
+    <script src="/Static/Js/Member/Panel/index.js"></script>
+    <script>
+        //  Chart Skills Profile
+        anychart.onDocumentReady(function () {
+            let Container = document.getElementById('ContainerChartSkillsProfile')
+            let DataChartSkillsProfile = []
+            {% for Skill in User.GetSkills %}
+                DataChartSkillsProfile.push(
+                    {x: "{{ Skill.Title }}", value: "{{ Skill.ValueSkill }}"}
+                )
+            {% endfor %}
+            let Chart = anychart.pie();
+            Chart.data(DataChartSkillsProfile);
+            Chart.container(Container);
+            Chart.draw();
+            Chart.legend().position("left");
+            Chart.legend().itemsLayout("vertical");
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,343 @@
+
+.ContainerShowWorkSample {
+    direction: ltr;
+    padding: 20px;
+}
+
+.ContainerImageSample {
+    width: 30%;
+    margin-right: 2%;
+    display: inline-block;
+    text-align: left;
+    perspective: 1000px;
+    vertical-align: top;
+    background: none;
+}
+
+.ContainerImageSample img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    background: none;
+}
+
+
+.ContainerInfoSample {
+    width: 65%;
+    display: inline-block;
+}
+
+.ContainerItemInfoSample {
+    direction: rtl;
+}
+
+.ContainerItemInfoSample p {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.ContainerItemInfoSample[TitleSample] {
+    margin: 35px 0;
+    margin-top: 5px;
+    color: #17ca9e;
+}
+
+.ContainerItemInfoSample[TitleSample] p {
+    width: auto;
+}
+
+.ContainerItemInfoSample[TimePast] {
+    direction: ltr;
+    font-size: 85%;
+    color: #646464;
+    background: white;
+    padding: 3px 8px;
+    border-radius: 100px;
+}
+
+.ContainerItemInfoSample[TimePast] p {
+    direction: rtl;
+}
+
+.ContainerItemInfoSample[TimePast] i {
+    animation: AnimationRotateClock 7s infinite;
+}
+
+.ContainerItemInfoSample[Like] {
+    direction: ltr;
+    color: #646464;
+    background: white;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 85%;
+}
+
+.ContainerItemInfoSample[Like] p {
+    margin: 0;
+}
+
+.ContainerItemInfoSample[Like] i {
+    font-size: 150%;
+    cursor: pointer;
+}
+
+.ContainerItemInfoSample[Like] i:hover {
+    color: #fa4b5a;
+}
+
+
+.ContainerItemInfoSample[Description] {
+    padding: 10px;
+    margin-top: 15px;
+    background: #fafafa;
+    border-radius: 8px;
+}
+
+.TitleLabelSample {
+    font-size: 75%;
+    color: #a9a9a9;
+    width: 80px;
+    text-align: right;
+}
+
+.TitleSample {
+    font-size: 150%;
+    font-weight: 600;
+}
+
+.ResultLabelSample {
+    font-size: 103%;
+}
+
+.ContainerItemsInfoSample {
+    padding: 3px;
+    background: #fafafa;
+    border-radius: 8px;
+}
+
+.ContainerItemsInfoSample .ContainerItemInfoSample {
+    margin: 5px;
+    padding: 7px;
+}
+
+.fa-times {
+    font-size: 130%;
+    color: #fa4b5a;
+    cursor: pointer;
+}
+
+[Liked='true'] {
+    color: #fa4b5a;
+}
+
+.LabelTitle {
+    font-size: 70%!important;
+    margin: 0;
+    margin-right: 2px;
+    color: #aaaaaa;
+}
+
+
+.ContainerWorkSamples {
+    margin-top: 20px;
+}
+
+#ButtonAddWorkSample {
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background: #51b2ad;
+    color: white;
+    padding: 8px 18px;
+    transition: background-color .1s;
+}
+
+#ButtonAddWorkSample i {
+    vertical-align: middle;
+    transition: transform .1s;
+}
+
+#ButtonAddWorkSample:hover {
+    background: #4a9590;
+}
+
+#ButtonAddWorkSample:active i {
+    transform: rotate(90deg);
+}
+
+.Samples {
+    text-align: right !important;
+}
+
+.Sample {
+    width: 300px;
+    height: 310px;
+    margin: 10px!important;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    background: #ebf0f5;
+    box-shadow: 1px 6px 12px rgb(137 137 137 / 50%), -5px -5px 11px #f0f0f0;
+    display: inline-block;
+    /*text-align: right;*/
+}
+
+.Sample .ItemsHeader {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    background: rgb(234, 129, 145);
+    padding: 3px 10px;
+    border-radius: 10px;
+    box-shadow: 0 3px 5px #e2e2e2;
+}
+
+.TimePastSimple {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    font-size: 65%;
+    color: rgb(122, 122, 122);
+    background: white;
+    padding: 3px 7px;
+    border-radius: 15px;
+    border: 1px solid #eeeeee;
+}
+
+.ContentSample {
+    border-radius: 8px
+}
+
+.ContentSample img {
+    width: 100%;
+    height: 220px;
+    border-radius: 8px 8px 0 0;
+}
+
+.LabelTitle {
+    font-size: 82%;
+    margin: 0;
+    margin-right: 2px;
+    color: #999999;
+}
+
+
+.ContentSample .TitleSample {
+    padding: 5px;
+    padding-top: 1px;
+    font-size: 105%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    margin-right: 8px;
+}
+
+.ShowSample {
+    position: absolute;
+    padding: 5px 13px;
+    border-radius: 10px;
+    background: #2a79ff;
+    color: white;
+    left: 10px;
+    bottom: 10px;
+    cursor: pointer;
+    box-shadow: 0 3px 4px #aaaaaa;
+}
+
+.ShowSample:hover {
+    background: #1f5cff;
+}
+
+@media screen and (max-width: 1500px) {
+    .ContainerImageSample {
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin: 80px auto 30px auto;
+        vertical-align: bottom;
+    }
+
+    .ContainerImageSample img {
+        height: 320px;
+        width: 100%;
+    }
+
+    .ContainerItemInfoSample[TitleSample] {
+        position: absolute;
+        top: 20px;
+        right: 1%;
+        width: 98%;
+        font-size: 92%;
+    }
+
+    .ContainerInfoSample {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .ImageUserProfile {
+        position: static !important;
+        display: block;
+        margin: auto;
+        margin-bottom: 15px;
+        width: 300px !important;
+        height: 300px !important;
+    }
+
+    .LikeMemberProfile {
+        left: 10px !important;
+        top: 320px !important;
+    }
+
+    .InfoProfile {
+        width: 100% !important;
+    }
+
+
+    .ContainerItemInfoSample[TitleSample] {
+        position: absolute;
+        top: 20px;
+        right: 1%;
+        width: 98%;
+        font-size: 85%;
+    }
+
+    .ContainerImageSample {
+        margin-top: 100px;
+    }
+
+    .ContainerImageSample img {
+        height: 320px;
+        width: 100%;
+    }
+
+    .ContainerItemInfoSample {
+        font-size: 85%;
+    }
+
+    .Samples{
+        text-align: center!important;
+    }
+
+    .Sample {
+        width: 280px;
+        height: 320px;
+        text-align: right;
+    }
+
+}
+
+@media screen and (max-width: 440px) {
+     .Samples {
+        padding: 0;
+    }
+
+    .Sample {
+        width: 90%;
+        height: 320px;
+        border: 1px solid #e8e8e8;
+    }
+}

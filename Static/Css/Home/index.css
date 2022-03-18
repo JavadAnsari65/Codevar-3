@@ -1,0 +1,1017 @@
+.ContentMain {
+    text-align: center;
+}
+
+.SectionMain {
+    width: 95%;
+    margin: 10px auto;
+    overflow: hidden;
+    perspective: 1000px;
+    border-radius: 10px;
+}
+
+.SectionHeader {
+    position: relative;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    background: white;
+    margin-top: 100px;
+}
+
+.BackgroundHeader {
+    width: 63%;
+    display: block;
+    opacity: .9;
+    float: left;
+    margin: 10px !important;
+}
+
+
+.ContentAboutUs {
+    text-align: right;
+    padding: 40px;
+    margin-top: 60px;
+}
+
+.TitleGroup {
+    font-family: "KalameBlack";
+    text-align: center;
+    display: block;
+    margin: auto!important;
+    color: #18b2b5;
+    font-size: 280%;
+}
+
+.TitleGroup span {
+    display: inline-block;
+    font-size: 85%;
+    margin: 0;
+    font-weight: bold;
+    color: #676767;
+    margin-right: 10px;
+    font-family: 'Koodak';
+    vertical-align: top;
+}
+
+.TitleGroup p {
+    margin: 0 -12px;
+}
+
+.TextAboutUs {
+    margin: 15px;
+    margin-top: 50px;
+    text-align: justify;
+    line-height: 35px;
+    color: #444444;
+}
+
+.SectionMain[AnimationScroll]{
+    transform: translateY(40px);
+    opacity: 0;
+}
+
+
+.SectionMain[dir='ltr'] {
+    text-align: left;
+}
+
+.SectionMain[dir='rtl'] {
+    text-align: right;
+}
+
+
+.SectionMain img {
+    width: 60%;
+    display: inline-block;
+    margin: 0;
+    transform: rotate(0);
+    transition: all 2s;
+}
+
+
+.SectionMain * {
+    vertical-align: middle;
+}
+
+.SectionMain[SectionMainSubmitProject] {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    background: #fdfffb;
+    border-radius: 40vmin;
+    box-shadow: 0 -5px 12px #dddddd, 0 8px 12px #f3f3f3;
+}
+
+
+.SectionMain .ContentSection {
+    display: inline-block;
+    width: 35%;
+    margin: 0;
+    padding: 20px;
+    padding-bottom: 10px;
+    background: none;
+    text-align: center;
+}
+
+.SectionMain .ContentSection h2 {
+    text-align: right;
+    transform: translateY(-15px);
+    color: #5a6c9f;
+    font-weight: bold;
+    font-size: 250%;
+    font-family: "B-NasimBold";
+}
+
+.SectionMain .ContentSection h2 b {
+    color: #4aa8f0;
+}
+
+.SectionMain .ContentSection p {
+    margin: 4px;
+    line-height: 33px;
+    margin-bottom: 15px;
+    text-align: justify;
+    direction: rtl;
+}
+
+.BtnStyle_7 {
+    border: none;
+    outline: none;
+    background: #ff4f59;
+    color: white;
+    /*box-shadow: 0 5px 12px #ff687f;*/
+    font-size: 95%;
+    font-weight: bold;
+    padding: 11px 55px;
+    border-radius: 10px;
+    transition: all .2s;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
+}
+
+.BtnStyle_7:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.BtnStyle_7:active {
+    transform: scale(.98) !important;
+}
+
+.ContainerWorkSamples {
+    display: inline-block;
+    direction: ltr;
+    text-align: center;
+    background: linear-gradient(-100deg, #fffc9b, #ffc761, #ff8562);
+}
+
+.ImageBackgroundLastProjects {
+    width: 35% !important;
+    display: inline-block;
+}
+
+#SliderWorkSamples {
+    display: inline-block;
+    width: 62%;
+}
+
+.ContainerTitle {
+    text-align: right;
+    margin: 20px;
+    margin-top: 100px;
+    margin-bottom: 15px;
+}
+
+.ContainerTitle div {
+    position: relative;
+    display: inline-block;
+    padding: 9px 30px;
+    border-bottom: 2px solid rgba(51, 222, 146, 0.8);
+}
+
+
+.ContainerTitle p {
+    display: inline-block;
+    margin: 0;
+    font-size: 160% !important;
+    font-family: "MjCasablancaHeavy";
+}
+
+.ContainerTitle i {
+    float: left;
+    font-size: 190%;
+    padding-left: 10px;
+    color: #ff9999;
+}
+
+.ItemsService {
+    margin-top: 40px;
+    margin-bottom: -80px;
+    background: none;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.ItemService {
+    position: relative;
+    background: #f0eeec;
+    box-shadow: -6px -6px 12px #cecece, 5px 5px 10px #ffffff;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    padding: 5px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.ItemService img {
+    position: absolute;
+    width: 55%;
+    top: 30%;
+    left: 27%;
+    opacity: .5;
+    transform: rotate(300deg);
+}
+
+.ItemService div {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+}
+
+.ItemService i {
+    font-size: 600%;
+    margin-top: 20%;
+    margin-bottom: 15px;
+}
+
+.ItemService p {
+    margin: 0;
+    font-size: 115%;
+    color: #666666;
+}
+
+.ItemService:hover i {
+    font-weight: bold;
+    color: #25aaa3;
+}
+
+
+.WorkSample {
+    text-align: left;
+    overflow: hidden;
+    width: 80%;
+    height: 340px;
+    padding: 5px;
+    left: 10%;
+    margin-top: 70px;
+    perspective: 1000px;
+    direction: ltr;
+    border-radius: 20px;
+    position: relative;
+}
+
+.WorkSample img {
+    width: 150px;
+    height: 160px;
+    border-radius: 8px;
+    background: white;
+    display: inline-block;
+    vertical-align: middle;
+    float: left;
+    margin-right: 13px;
+}
+
+.ContentWorkSample {
+    display: inline-block;
+    width: 90%;
+    height: 90%;
+    padding: 15px;
+    margin-left: 5%;
+    text-align: right;
+    background: #f0f0f0;
+    box-shadow: 0 10px 15px rgba(100,100,100,.3);
+    border-radius: 10px;
+    margin-top: 20px;
+    vertical-align: top;
+    position: relative;
+    min-height: 90%;
+}
+
+.ContentWorkSample p {
+    margin: 0;
+}
+
+.HeaderWokSample {
+    margin-bottom: 25px;
+}
+
+.TitleWorkSample {
+    transform: translateY(-35px);
+    display: inline-block;
+    color: #404040;
+    font-weight: bold;
+    background: #f0f0f0;
+    border-radius: 7px 10px 0 0;
+    padding: 5px 10px;
+    margin-right: -15px;
+    width: 100%;
+    height: 35px;
+    overflow: hidden !important;
+    line-height: 30px;
+}
+
+.ItemLikeTimeWorkSample {
+    text-align: left;
+    float: left;
+    display: inline-block;
+}
+
+.TimePastWorkSample {
+    font-size: 80%;
+    background: white;
+    padding: 2px 6px;
+    border-radius: 15px;
+    color: #666666;
+}
+
+.TimePastWorkSample p {
+    direction: rtl;
+    display: inline-block;
+    margin: 0;
+}
+
+.TimePastWorkSample i {
+    animation: AnimationRotateClock 9s infinite;
+}
+
+.LikeWorkSample {
+    margin-top: 2px;
+    text-align: left;
+}
+
+.LikeWorkSample p {
+    margin: -7px 0 0 0;
+    padding-left: 22px;
+    text-align: left;
+    font-size: 75%;
+    color: #888888;
+}
+
+.BtnLikeWorkSample {
+    margin: 4px;
+    font-size: 180%;
+    color: #ff7e88;
+    cursor: pointer;
+}
+
+.ItemFieldWorkSample {
+    text-align: right;
+    direction: rtl;
+    margin: 8px;
+
+}
+
+.TitleField {
+    margin: 0;
+    display: inline-block;
+    color: #999999;
+    width: 85px;
+    font-size: 85%;
+}
+
+.ResultField {
+    margin: 0;
+    display: inline-block;
+    color: #444444;
+    font-size: 90%;
+}
+
+.DescriptionWorkSample {
+    padding: 5px;
+    line-height: 30px;
+    max-height: 70px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.ShowWorkSample {
+    text-align: left;
+    position: absolute;
+    bottom: 10px;
+    left: 14px;
+}
+
+
+.ContainerMembers {
+    background: #43b7ef;
+    box-shadow: 0 10px 10px #cccccc;
+    margin: 0 auto;
+}
+
+
+.Members {
+    padding: 0;
+    text-align: right;
+}
+
+.Members > img {
+    width: 30%;
+    border-top-right-radius: 10px;
+    vertical-align: top;
+}
+
+.ContentMembers {
+    display: inline-block;
+    /* background: linear-gradient(to right, rgb(145, 61, 183), #b551a0, #f755a3, #ff96c7);*/
+    width: 40%;
+    margin: 25px;
+    margin-right: 20%;
+    padding: 5px;
+    text-align: left;
+    border-radius: 20% 100% 20% 20%;
+}
+
+.Member {
+    margin: 8px;
+    display: inline-block;
+    background: #f4f4f4;
+    width: 300px;
+    height: 310px;
+    border-radius: 15px;
+    border: 1px solid #aaaaaa;
+    box-shadow: 0 8px 10px rgba(30,30,30,.2);
+    position: relative;
+    overflow: hidden;
+    transition: all .2s;
+}
+
+.Member:hover {
+    box-shadow: 0 8px 15px rgba(30,30,30,.4);
+}
+
+
+.ContentMember {
+    text-align: right;
+    background: #d4edf0;
+    border-radius: inherit;
+    height: 100%;
+}
+
+
+.ImageMember {
+    width: 100% !important;
+    height: 200px;
+    display: block;
+    background: white;
+    border-radius: 15px 15px 0 0;
+    transition: transform .2s !important;
+}
+
+.LikeMember {
+    display: inline-block;
+    float: left;
+    direction: ltr;
+    margin: 5px;
+}
+
+.BtnLikeMember {
+    font-size: 160%;
+    cursor: pointer;
+    color: #f45952;
+    transition: all .1s;
+}
+
+.BtnLikeMember:hover {
+    transform: scale(1.1);
+}
+
+.NameAndTitleJobMember {
+    display: inline-block;
+    padding: 5px;
+    text-align: right;
+    transform: translateY(-15px);
+}
+
+.NameMember {
+    margin: 0;
+    background: #545454;
+    color: white;
+    padding: 1px 4px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.TitleJobMember {
+    margin: 0;
+    margin-top: 1px;
+    font-size: 65%;
+    color: #444444;
+    font-family: Terafik;
+}
+
+.ShowProfileMember {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+
+.ContainerInfoTeam {
+    background: linear-gradient(50deg, #5ad6ae, #2eeea0, #50d48d);
+    padding: 10px;
+    box-shadow: 0 20px 10px #dddddd;
+    margin-bottom: 50px;
+}
+
+.ContainerInfoTeam img {
+    width: 40%;
+    float: right;
+    display: inline-block;
+}
+
+.ContentInfoTeam {
+    display: inline-block;
+    background: white;
+    border-radius: 7px;
+    box-shadow: 0 0 25px #bbbbbb;
+    padding: 20px;
+    margin-top: 70px;
+    width: 45%;
+}
+
+.ContentInfoTeam p {
+    margin: 0;
+    font-size: 105%;
+    text-align: right;
+}
+
+
+.ContainerInvitation {
+    margin: 50px auto;
+    margin-bottom: -80px;
+    text-align: right;
+    width: 95%;
+    padding: 20px;
+    border-radius: 10px;
+    direction: rtl;
+    /* background: linear-gradient(120deg, #ffb385, #ffc576, #ffb447);*/
+    border: 1px solid #dddddd;
+    background: #eaeaea;
+    color: black;
+    box-shadow: 0 0 15px #eeeeee;
+}
+
+.ContainerInvitation p {
+    display: inline-block;
+    margin: 0;
+    font-size: 115%;
+    border-right: 3px solid #21d69f;
+    padding-right: 10px;
+    color: #444444;
+}
+
+.ContainerInvitation button {
+    margin-top: -9px;
+    float: left;
+}
+
+
+.ContainerContactUs {
+    background: #f0f0f0;
+    padding: 10px;
+    margin: 10px auto;
+    text-align: right;
+    perspective: 1000px;
+}
+
+.ContainerContactUs img {
+    margin: 40px;
+    width: 280px;
+    height: 280px;
+    border-radius: 10%;
+    float: left;
+    transform: rotateY(12deg);
+    box-shadow: -13px 0 13px #dddddd;
+}
+
+
+.ContainerItemsContactUs {
+    width: 75%;
+    margin-top: 100px;
+}
+
+.TextContactUs {
+    padding: 5px;
+    margin-bottom: 100px;
+    text-align: justify;
+    direction: rtl;
+}
+
+.ContainerItemsContact {
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.ItemContact {
+    display: inline-block;
+    margin: 7px;
+    background: #f1f1f1;
+    padding: 7px 15px;
+    font-size: 180%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px #bbbbbb, -5px -5px 9px white;
+    cursor: pointer;
+}
+
+.ItemContact[Instagram] {
+    color: #ff4f48;
+}
+
+.ItemContact[Telegram] {
+    color: #104aff;
+}
+
+.ItemContact[Email] {
+    color: #ff1015;
+}
+
+.ItemContact[Phone] {
+    color: #3c3c3c;
+}
+
+.Sliders {
+    height: 470px;
+}
+
+.Slider {
+    background: none;
+    border: none;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 1440px) {
+    .ContentMembers {
+        width: 69%;
+        margin: 0;
+        padding: 0;
+        border-radius: 20% 80% 20% 20%;
+    }
+}
+
+@media screen and (max-width: 1360px) {
+    .ImageBackgroundLastProjects {
+        display: block !important;
+        width: 50% !important;
+    }
+
+    #SliderWorkSamples {
+        width: 100%;
+        margin: 20px 0;
+        margin-top: -10px;
+    }
+
+    .WorkSample {
+        margin: 0;
+    }
+}
+
+
+@media screen and (max-width: 1001px) {
+
+    .ContainerTitle div {
+        padding: 7px 20px;
+    }
+
+    .ContainerTitle p {
+        font-size: 130%;
+    }
+
+    .SectionHeader {
+        position: relative;
+    }
+
+    .SectionHeader img {
+        width: 100%;
+        left: 0;
+        top: 0;
+        margin: 0 !important;
+        float: none;
+    }
+
+    .ContentAboutUs {
+        padding: 0;
+        margin: 0;
+    }
+
+    .TextAboutUs {
+        margin: auto;
+        padding: 10px;
+        padding-bottom: 20px;
+        width: 90%;
+    }
+
+    .SectionHeader .TitleGroup {
+        padding: 5px;
+        margin-right: 15px;
+    }
+
+    [SectionMainSubmitProject] {
+        box-shadow: 0 5px 10px #dddddd !important;
+    }
+
+    [SectionMainSubmitProject] img {
+        display: block;
+        width: 100%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+
+    [SectionMainSubmitProject] .ContentSection {
+        display: block;
+        width: 80%;
+        margin: auto;
+        padding: 5px;
+        margin-bottom: 15px;
+    }
+
+    .ItemService {
+        width: 200px;
+        height: 200px;
+    }
+
+    .ItemService i {
+        font-size: 460%;
+    }
+
+    .ContentMembers {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .Members .ImageDesignMembers {
+        width: 60%;
+        margin-left: -6px;
+        margin-bottom: 20px;
+        float: left;
+        transform: rotate(-90deg);
+    }
+
+    .Members {
+        padding: 0 !important;
+    }
+
+    .Member {
+        width: 260px;
+        height: 270px;
+        margin: 15px 0;
+    }
+
+    .ImageMember {
+        height: 170px;
+    }
+
+    .NameMember {
+        transform: translateY(-6px);
+    }
+
+    .TitleJobMember{
+        margin-top: -5px;
+    }
+
+    .ContainerInvitation p {
+        font-size: 100%;
+    }
+
+    .ContainerInfoTeam {
+        direction: rtl;
+        background: linear-gradient(50deg, #42d6ad, #2bce88, #35d383);
+    }
+
+    .ContainerInfoTeam img {
+        width: 70%;
+    }
+
+    .ContentInfoTeam {
+        width: 90%;
+        transform: translateY(-25px);
+        box-shadow: none;
+        background: none;
+        color: white;
+    }
+
+    .ContentInfoTeam p {
+        text-align: justify;
+        font-size: 105%;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .ImageBackgroundLastProjects {
+        width: 60% !important;
+    }
+
+    .WorkSample {
+        width: 90%;
+        left: 5%;
+    }
+
+    .WorkSample {
+        height: 460px;
+    }
+
+    .HeaderWokSample {
+        margin: 0;
+    }
+
+    .TitleWorkSample {
+        display: block;
+        margin: 0;
+        font-size: 115%;
+    }
+
+    .ContentWorkSample img {
+        float: none;
+        margin: auto;
+        display: block;
+        margin-bottom: 5px;
+        margin-top: -30px;
+        width: 80%;
+        height: 250px;
+        box-shadow: 0 3px 6px #dddddd;
+
+    }
+
+    .ItemLikeTimeWorkSample {
+        float: none;
+        text-align: right;
+        direction: rtl;
+        font-size: 95%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .TimePastWorkSample {
+        display: inline-block;
+        font-size: 60%;
+        height: 18px;
+    }
+
+    .LikeWorkSample {
+        display: inline-block;
+        text-align: center;
+    }
+
+    .LikeWorkSample p {
+        text-align: center;
+    }
+
+    .MainWorkSample {
+        display: none;
+    }
+
+    .ShowWorkSample {
+        position: static;
+        text-align: center;
+        margin: 10px;
+    }
+
+    .ShowWorkSample button {
+        width: 35%;
+        padding: 10px;
+        background: #1d83f5;
+        color: white;
+        border: none;
+        box-shadow: 0 7px 5px #cccccc;
+        transition: all .2s;
+    }
+
+    .ContainerInvitation {
+        font-size: 85%;
+    }
+
+    .ContainerContactUs img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .ContainerItemsContactUs {
+        margin-top: 50px;
+    }
+
+}
+
+@media screen and (max-width: 570px) {
+    
+      .SectionHeader .TitleGroup {
+        fonst-size:140%!important;
+    }
+
+    .BackgroundHeader {
+        padding-top: 20px;
+        width: 100%;
+    }
+
+
+    .ContentSection {
+        font-size: 90%;
+    }
+
+
+    .ImageBackgroundLastProjects {
+        width: 95% !important;
+    }
+
+    .ContentWorkSample img {
+        width: 100%;
+    }
+
+    .TitleWorkSample {
+        font-size: 110%;
+    }
+
+    .ShowWorkSample button {
+        width: 50%;
+    }
+
+    .ImageDesignMembers {
+        width: 95% !important;
+    }
+
+    .ContainerInvitation {
+        text-align: left;
+        font-size: 95%;
+    }
+
+    .ContainerInvitation p {
+        display: block;
+        text-align: right;
+    }
+
+    .ContainerInvitation button {
+        float: none;
+        margin: 0;
+        margin-top: 15px;
+    }
+
+    .ContainerInfoTeam img {
+        width: 90%;
+    }
+
+    .ContainerContactUs {
+        background: white;
+    }
+
+    .ContainerContactUs img {
+        width: 100%;
+        display: block;
+        float: none;
+        transform: rotateY(12deg) rotateX(-8deg);
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .ContainerItemsContactUs {
+        width: 100%;
+    }
+
+    .ItemContact {
+        font-size: 145%;
+    }
+
+    .ContainerFooter svg {
+        display: none;
+    }
+
+    .ContentFooter {
+        margin-top: 40px;
+        position: static;
+        font-size: 95%;
+    }
+
+    .ItemService {
+        width: 150px;
+        height: 150px;
+    }
+
+    .ItemService i {
+        font-size: 360%;
+    }
+
+    .ItemService p {
+        margin: 0;
+        font-size: 92%;
+        color: #555555;
+    }
+}

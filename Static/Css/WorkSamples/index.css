@@ -1,0 +1,266 @@
+.ContainerWorkSamples {
+    margin: auto;
+    margin-top: 50px;
+    min-height: 75vh;
+    background: #fafafa;
+    width: 99%;
+    border-radius: 11px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.ContainerTitle {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.ContainerTitle p {
+    margin: 0;
+    font-size: 140%;
+    display: inline-block;
+    color: #555555;
+}
+
+.ContainerTitle i {
+    float: left;
+    font-size: 150%;
+    color: #ff812b;
+}
+
+.ImgDesignBlobTop {
+    width: 400px;
+    position: absolute;
+    filter: brightness(115%);
+    top: 65px;
+    right: 0;
+    transform: rotateY(180deg);
+    opacity: .5;
+    z-index: -1;
+}
+
+.DesignBoxElementWorkSample {
+    width: 70%;
+    height: 280px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 0 0 100px 0;
+
+}
+
+.DesignBoxElementWorkSample:nth-child(2) {
+    background: #ff7e85;
+    transform: rotate(14deg) translateY(-20px);
+    z-index: -3;
+}
+
+.DesignBoxElementWorkSample:nth-child(3) {
+    background: #c2e9ff;
+    transform: rotate(6deg) translateX(3px) translateY(-10px);
+    z-index: -2;
+
+}
+
+.WorkSamples {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.WorkSample {
+    display: inline-block;
+    width: 500px;
+    height: 380px;
+    background: #f8faff;
+    vertical-align: middle;
+    overflow: hidden;
+    position: relative;
+    margin: 10px;
+    border-radius: 15px;
+    z-index: 5;
+    transition: all .2s;
+    box-shadow: 0 4px 20px rgb(100,100,100, .3);
+    border: 1px solid #DDDDDD;
+}
+
+.WorkSample:hover {
+    box-shadow: 0 5px 23px rgb(100,100,100, .5);
+}
+
+.ContainerImageWorkSample {
+    display: block;
+    text-align: left;
+}
+
+
+.LinkAddressWorkSample {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 85%;
+}
+
+.ContainerImageWorkSample img {
+    width: 70%;
+    height: 280px;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    background: #f8f7f6;
+    border-radius: 0 0 100px 0;
+    padding: 5px;
+}
+
+
+.ItemLikeTimeWorkSample {
+    text-align: right;
+    font-size: 95%;
+    padding: 5px;
+    margin-top: -50px;
+    margin-right: 25px;
+}
+
+.TimePastWorkSample {
+    font-size: 80%;
+    background: white;
+    padding: 2px 6px;
+    border-radius: 15px;
+    color: #666666;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.TimePastWorkSample p {
+    direction: rtl;
+    display: inline-block;
+    margin: 0;
+}
+
+.TimePastWorkSample i {
+    animation: AnimationRotateClock 9s infinite;
+}
+
+.LikeWorkSample {
+    margin-top: 2px;
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.LikeWorkSample p {
+    margin: -7px 0 0 0;
+    padding-left: 22px;
+    text-align: left;
+    font-size: 75%;
+    color: #888888;
+}
+
+.BtnLikeWorkSample {
+    margin: 4px;
+    font-size: 180%;
+    color: #ff7e88;
+    cursor: pointer;
+}
+
+.ItemFieldWorkSample {
+    text-align: right;
+    direction: rtl;
+    margin: 8px;
+}
+
+.TitleField {
+    margin: 0;
+    display: inline-block;
+    color: #999999;
+    width: 85px;
+    font-size: 85%;
+}
+
+.ResultField {
+    margin: 0;
+    display: inline-block;
+    color: #444444;
+    font-size: 85%;
+}
+
+.ShowWorkSample {
+    text-align: left;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+}
+
+@media screen and (max-width: 550px) {
+    .WorkSample {
+        margin: 10px 0;
+        width: 400px;
+        height: 400px;
+    }
+
+    .ItemLikeTimeWorkSample {
+        font-size: 90%;
+    }
+
+    .ItemFieldWorkSample {
+        font-size: 90%;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    
+    .WorkSamples{
+        margin-bottom:100px;
+    }
+    
+    .WorkSample {
+        margin: 10px auto;
+        width: 90%;
+        height: 400px;
+    }
+
+    .WorkSample img {
+        width: 70%;
+        height: 260px;
+    }
+
+    .LinkAddressWorkSample {
+        background: white;
+        padding: 2px;
+        border-radius: 4px;
+        right: 10px;
+    }
+
+    .ItemLikeTimeWorkSample {
+        font-size: 85%;
+        margin-right: 2px;
+        margin-top: -25px;
+    }
+
+    .ItemFieldWorkSample {
+        font-size: 85%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .WorkSample {
+        margin: 10px auto;
+        width: 90%;
+        height: 420px;
+    }
+
+    .LinkAddressWorkSample {
+        background: white;
+        padding: 2px;
+        border-radius: 4px;
+        right: 10px;
+    }
+
+    .ItemLikeTimeWorkSample {
+        font-size: 85%;
+        margin-right: 0;
+    }
+
+    .ItemFieldWorkSample {
+        font-size: 85%;
+    }
+}

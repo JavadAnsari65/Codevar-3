@@ -1,0 +1,133 @@
+{% extends 'Base/BaseTemplate.html' %}
+
+{% block Title %}
+    ورود | ایجاد حساب
+{% endblock %}
+
+{% block Css %}
+    <link rel="stylesheet" href="/Static/Css/User/LoginCreate/index.css">
+{% endblock %}
+
+{% block Content %}
+    {% include 'Base/Header/Header.html' with Style='Type3' Place='Other' Items='Logo,Home,GroupMembers,WorkSamples'  %}
+    <svg height="100%" width="100%" id="svg" viewBox="0 0 1440 700" xmlns="http://www.w3.org/2000/svg"
+         class="transition duration-300 ease-in-out delay-150">
+        <defs>
+            <linearGradient id="gradient">
+                <stop offset="5%" stop-color="#f78da7ff"></stop>
+                <stop offset="95%" stop-color="#9900efff"></stop>
+            </linearGradient>
+        </defs>
+        <path d="M 0,700 C 0,700 0,350 0,350 C 49.083943535382915,425.3930846704909 98.16788707076583,500.7861693409818 145,473 C 191.83211292923417,445.2138306590182 236.41239525231964,314.2484073065637 284,297 C 331.58760474768036,279.7515926934363 382.1825319199556,376.22020143276325 434,421 C 485.8174680800444,465.77979856723675 538.857477067858,458.87078696238336 586,417 C 633.142522932142,375.12921303761664 674.3875598086124,298.2966507177034 719,280 C 763.6124401913876,261.7033492822966 811.5922836976923,301.9426101668032 860,340 C 908.4077163023077,378.0573898331968 957.2433054006185,413.93290861508365 1013,416 C 1068.7566945993815,418.06709138491635 1131.4344946998333,386.3257553728621 1173,345 C 1214.5655053001667,303.6742446271379 1235.0187158000476,252.764069893468 1276,252 C 1316.9812841999524,251.235930106532 1378.4906420999762,300.617965053266 1440,350 C 1440,350 1440,700 1440,700 Z"
+              stroke="none" stroke-width="0" fill="url(#gradient)"
+              class="transition-all duration-300 ease-in-out delay-150" transform="rotate(-180 720 350)"></path>
+    </svg>
+    <div class="ContainerMessage">
+        <h2>با <span>ما </span>باشید</h2>
+        <p>Lorem ipsum dolosto maxime neque odit omnis pariatur reiciendis sunt temporibus veritatis.</p>
+    </div>
+    <div class="ContainerLogin ContainerBase" AnimationScroll="AnimationTopToBottom"
+         id="ContainerLogin">
+        <div class="HeaderForm ">
+            <h4>ورود</h4>
+        </div>
+        <div id="ContainerMessageLogin">
+            <p></p>
+        </div>
+        <div class="ItemForm">
+            <p class="LabelInput">
+                نام کاربری
+            </p>
+            <div class="ItemFormInput">
+                <input type="text" InputUserNameLogin onfocus="EffectOnItemFormInput(this.parentNode)"
+                       onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
+                       oninput="ValidationInput(this.parentNode,this,'4','65');StateButtonLogin()"
+                       InputLogin
+                       onkeypress="ValidationAlphabet(event)">
+                <i class="far fa-times-circle"></i>
+            </div>
+        </div>
+        <div class="ItemForm">
+            <p class="LabelInput">گذرواژه</p>
+            <div class="ItemFormInput">
+                <input type="password" InputPasswordLogin onfocus="EffectOnItemFormInput(this.parentNode)"
+                       onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
+                       oninput="ValidationInput(this.parentNode,this,'7','65');StateButtonLogin()"
+                       InputLogin
+                       onkeypress="ValidationAlphabet(event)">
+                <i class="far fa-times-circle"></i>
+            </div>
+        </div>
+        <div class="ContainerRememberMe">
+            <p>مرا به خاطر بسپار</p>
+            <input type="checkbox" class="InputRememberME" id="InputRememberMELogin">
+        </div>
+        <div class="ContainerButtonForm">
+            <div class="ContainerButtonFormButton" id="ButtonLogin">
+                <p>ورود</p>
+                <i class="far fa-sign-in-alt"></i>
+            </div>
+        </div>
+        <div class="CreateLoginAccountText">
+            <p Link ClickFunc="ShowContainerCreate()">حسابی ندارید ؟ حسابی بسازید</p>
+        </div>
+
+    </div>
+    <div class="ContainerCreate ContainerIsHide ContainerBase" AnimationScroll="AnimationBottomToTop"
+         id="ContainerCreate">
+        <div class="HeaderForm ">
+            <h5>ایجاد حساب</h5>
+        </div>
+        <div id="ContainerMessageCreate">
+            <p></p>
+        </div>
+        <div class="ItemForm">
+            <p class="LabelInput">نام کاربری</p>
+            <div class="ItemFormInput">
+                <input type="text" InputUserNameCreate onfocus="EffectOnItemFormInput(this.parentNode)"
+                       onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
+                       oninput="CheckInputValidations(this,'4','65','Icon','Text',true);StateButtonCreate()"
+                       InputCreate
+                       onkeypress="ValidationAlphabet(event)">
+                <i class="far fa-times-circle"></i>
+            </div>
+        </div>
+        <div class="ItemForm">
+            <p class="LabelInput">ایمیل</p>
+            <div class="ItemFormInput">
+                <input type="text" InputEmailCreate onfocus="EffectOnItemFormInput(this.parentNode)"
+                       onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
+                       oninput="CheckInputValidations(this,'0','100','Icon','Email');StateButtonCreate()"
+                       InputCreate>
+                <i class="far fa-times-circle"></i>
+            </div>
+        </div>
+        <div class="ItemForm">
+            <p class="LabelInput">گذرواژه</p>
+            <div class="ItemFormInput">
+                <input type="password" InputPasswordCreate onfocus="EffectOnItemFormInput(this.parentNode)"
+                       onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
+                       oninput="CheckInputValidations(this,'7','100','Icon','Text');StateButtonCreate()"
+                       InputCreate>
+                <i class="far fa-times-circle"></i>
+            </div>
+        </div>
+        <div class="ContainerRememberMe">
+            <p>مرا به خاطر بسپار</p>
+            <input type="checkbox" class="InputRememberME" id="InputRememberMECreate">
+        </div>
+        <div class="ContainerButtonForm">
+            <div class="ContainerButtonFormButton" id="ButtonCreate">
+                <p>ایجاد حساب</p>
+                <i class="far fa-user-plus"></i>
+            </div>
+        </div>
+        <div class="CreateLoginAccountText">
+            <p Link ClickFunc="ShowContainerLogin()">وارد شوید</p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block Js %}
+    <script src="/Static/Js/User/LoginCreate/index.js"></script>
+{% endblock %}

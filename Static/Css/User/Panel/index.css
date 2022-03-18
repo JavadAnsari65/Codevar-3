@@ -1,0 +1,500 @@
+.ContainerAside {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: white;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.ItemAside {
+    display: inline-block;
+    padding: 8px;
+    margin: 5px 2px;
+    cursor: pointer;
+    color: #777777;
+    font-size: 90%;
+    transition: all .15s;
+}
+
+.ItemAside:hover {
+    color: #111111;
+}
+
+.ItemAsideActive {
+    color: #18c475 !important;
+}
+
+.ItemAsideActive i {
+    font-weight: bold;
+}
+
+.ItemAside p {
+    display: inline-block;
+    margin: 0;
+    font-size: 90%;
+}
+
+.ItemAside i {
+    font-size: 120%;
+}
+
+.IconCompleting:hover i {
+    animation: fa-spin 2s infinite linear;
+}
+
+
+.ContainerTitle {
+    text-align: right;
+}
+
+.ContainerTitle p {
+    font-size: 105%;
+    margin: 0;
+    color: #888888;
+    font-family: 'Yekan';
+    display: inline-block;
+    border-right: 3px solid #78c0c7;
+    padding-right: 10px;
+}
+
+.ContainerMain {
+    margin-top: 80px;
+    width: 100%;
+}
+
+.ContainerBaseContent {
+    width: 98%;
+    background: #f8f8f8;
+    box-shadow: 0 0 5px #e5e5e5;
+    padding: 10px;
+    margin: auto;
+    display: none;
+    border-radius: 3px;
+}
+
+.ContainerContentIsShow {
+    display: block;
+    animation: AnimationTopToBottom .3s forwards;
+}
+
+.ContainerSubmitProject {
+    width: 45%;
+    display: inline-block;
+    margin-top: 60px;
+}
+
+.ContainerDesignSubmitProject {
+    background: none;
+    width: 48%;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+}
+
+.ContainerDesignSubmitProject h2 {
+    text-align: right;
+    margin-right: 60px;
+    margin-top: 100px;
+    font-family: 'MjCasablancaHeavy';
+    color: rgb(55, 137, 199);
+}
+
+.ContainerDesignSubmitProject p {
+    text-align: right;
+    margin-right: 100px;
+}
+
+.ContainerDesignSubmitProject img {
+    width: 75%;
+}
+
+.PriceForProject {
+    width: 80%;
+    margin: 5px auto;
+    font-size: 75%;
+    color: #666666;
+}
+
+.ContainerBtnSubmit {
+    width: 80%;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.ContainerProjectChecking {
+    margin: 50px 0;
+}
+
+.Projects {
+    text-align: center;
+}
+
+.Project {
+    width: 450px;
+    display: inline-block;
+    background: white;
+    margin: 7px;
+    box-shadow: 0 0 50px #e3e3e3;
+    border-radius: 5px;
+    vertical-align: top;
+    border: 1px solid #e2e2e2;
+    transition: all .2s;
+}
+
+.Project:hover {
+    transform: translateY(-10px);
+}
+
+.Project p {
+    margin: 0;
+    display: inline-block;
+}
+
+.Project input {
+    width: 95%;
+    margin: auto;
+}
+
+.Project textarea {
+    width: 95%;
+    margin: auto;
+}
+
+.InfoProject {
+    background: #f0f5f5;
+    padding: 3px;
+}
+
+.InfoProject div {
+    display: inline-block;
+}
+
+.InfoProject .Label {
+    margin: 0;
+}
+
+.ContentProject {
+    padding: 3px;
+}
+
+.TitleProject {
+    width: 70%;
+    font-size: 95%;
+    color: #333333;
+}
+
+.IconCancelProject {
+    float: left;
+    margin: 4px;
+    color: #e06340;
+    cursor: pointer;
+}
+
+.IconCancelProject:hover {
+    font-weight: bold;
+}
+
+.TimeSubmit {
+    font-size: 70%;
+    display: inline-block;
+    width: 48%;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    text-align: right;
+}
+
+.TimeSubmit div {
+    display: inline-block;
+    background: #fff5e1;
+    border: 1px solid #ffd5b7;
+    color: #995c47;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.StateProject {
+    display: inline-block;
+    width: 48%;
+    text-align: left;
+    font-size: 70%;
+    padding: 0;
+    color: #666666;
+}
+
+.StateProject div {
+    margin-top: 8px;
+    display: inline-block;
+    padding: 6px;
+    border-radius: 10px;
+    background: #f9efff;
+    border: 1px dashed #ffa0a5;
+    color: #dc150c;
+}
+
+.StateProject .ResultField {
+    font-weight: bold;
+}
+
+.Budget {
+    display: inline-block;
+    width: 48%;
+    color: #5e8ff5;
+    margin-right: 5px;
+    text-align: right;
+}
+
+.SplitPriceNumber {
+    font-weight: 600;
+    direction: ltr;
+}
+
+.UnitPrice {
+    font-size: 85%;
+    font-weight: bold;
+}
+
+.DeadLine {
+    display: inline-block;
+    margin: 10px 0;
+    width: 48%;
+    text-align: left;
+    font-size: 70%;
+    vertical-align: top;
+}
+
+.DeadLine div {
+    padding: 6px;
+    background: #effffd;
+    border: 1px solid #c5fff3;
+    color: #32aba5;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.Technologies {
+    text-align: right;
+    margin: 5px;
+}
+
+.Description {
+    text-align: right;
+    margin: 5px;
+}
+
+.Description .Label {
+    display: block;
+}
+
+.ContainerBuyProject {
+    margin: 10px 10px;
+    text-align: left;
+}
+
+.Information {
+    margin: 30px 0;
+}
+
+.ContainerButtonFormInfo {
+    text-align: left;
+    margin: 15px 0;
+    width: 90%;
+}
+
+.IconHamburgerMenu {
+    display: none;
+    margin: 0 50px;
+    margin-right: 5px;
+}
+
+
+.ContainerTitleAndSignOutMenu {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 8px;
+    background: #a588ff;
+    box-shadow: 0 5px 12px rgba(165, 136, 255, 0.5);
+    font-size: 95%;
+    margin-bottom: 5px;
+}
+
+.ContainerTitleAndSignOutMenu i {
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 105%;
+    margin: 0 3px;
+    vertical-align: middle;
+}
+
+.ContainerTitleAndSignOutMenu i:hover {
+    color: #000000;
+}
+
+.ContainerMainMenu {
+    margin-top: 25px;
+    margin-bottom: auto;
+}
+
+.ContainerFooterMenu {
+    flex-grow: 1;
+}
+
+.ItemBtnMenu {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 7px;
+    cursor: pointer;
+}
+
+.ItemBtnMenu p {
+    font-size: 87%;
+    display: inline-block;
+    margin: 0;
+}
+
+.ItemBtnMenu i {
+    color: #5a5a5a;
+}
+
+.ItemBtnMenu:hover {
+    background: #e8e8e8;
+}
+
+.ItemBtnMenu:hover i {
+    color: #277de8;
+}
+
+.ContainerFooterMenu {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+
+.ContainerContactUs {
+    text-align: center;
+}
+
+.ContainerContactUs i {
+    margin: 3px;
+    font-size: 130%;
+    background: #ededed;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 1px 2px 2px #cccccc;
+    cursor: pointer;
+    transition: all .1s;
+}
+
+.ContainerContactUs i:hover {
+    box-shadow: none;
+}
+
+.ContainerContactUs i:active {
+    box-shadow: inset 1px 1px 2px #cccccc;
+}
+
+.ContainerContactUs i[Phone] {
+    color: #2c2c2c;
+}
+
+.ContainerContactUs i[Telegram] {
+    color: #214fd4;
+}
+
+.ContainerContactUs i[Instagram] {
+    color: #d44c54;
+}
+
+.ContainerContactUs i[Email] {
+    color: #ee3136;
+}
+
+.ContainerNotFoundContent {
+    width: 60%;
+}
+
+
+@media screen and (max-width: 1100px) {
+    .ContainerDesignSubmitProject {
+        display: block;
+        width: 100%;
+        transform: translateY(-20px);
+    }
+
+    .ContainerDesignSubmitProject img {
+        width: 100%;
+    }
+
+    .ContainerDesignSubmitProject h2 {
+        margin-right: 10px;
+    }
+
+    .ContainerDesignSubmitProject p {
+        margin-right: 25px;
+    }
+
+    .ContainerSubmitProject {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .IconHamburgerMenu {
+        display: block;
+    }
+
+    .ItemAsideProjectCompleted { /* Btn Project Completing */
+        display: none;
+    }
+
+    .ItemAsideProjectCompleting { /* Btn Project Completed */
+        display: none;
+    }
+
+    .ItemAsideProjectChecking {
+        display: none;
+    }
+
+    .ItemAsideSignOut { /* Sign Out */
+        display: none;
+    }
+
+    .ItemAsideHome { /* Btn Home */
+        display: none;
+    }
+
+    .ItemAsideInfo { /* Btn Info */
+        display: none;
+    }
+
+    .ContainerAside {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .ItemSubmitProject {
+        margin: 0;
+        margin-left: 10px;
+        padding: 8px 10px;
+        border-radius: 10px;
+        background: rgb(35, 151, 204);
+        box-shadow: 0 5px 8px rgba(35, 151, 204, 0.3);
+        color: white !important;
+    }
+
+    .ContainerNotFoundContent {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+    .Project {
+        width: 98%;
+        font-size: 95%;
+    }
+}

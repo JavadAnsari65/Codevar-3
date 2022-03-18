@@ -1,0 +1,121 @@
+.ShowProject {
+    width: 99%!important;
+    box-shadow: none!important;
+    border: none!important;
+}
+
+.ShowProject:hover{
+    transform: none!important;
+}
+
+.ProjectContainer{
+    background: rgba(250, 250, 250, 0.8);
+    border-radius: 7px;
+    padding: 5px;
+    margin: 15px 0!important;
+}
+
+
+.ShowProject .TitleProject {
+    font-size: 105%;
+}
+
+.ShowProject .StateProject{
+    padding: 5px;
+    font-size: 85%;
+}
+
+.DeadLineByUser {
+    text-align: right !important;
+    width: 35% !important;
+}
+
+.DeadLineAdmin {
+    font-weight: bold;
+    font-size: 100% !important;
+    width: 61% !important;
+}
+
+.ShowProject .Budget {
+    display: block;
+    width: 100% !important;
+    margin: 10px 0;
+}
+
+.BudgetAdmin {
+    font-weight: bold;
+    font-size: 130%;
+}
+
+.ShowProject .Technologies {
+    font-size: 100%;
+    margin-top: 15px;
+}
+
+.Description p:not(.Label) {
+    padding: 5px;
+    padding-right: 10px;
+    display: block;
+}
+
+
+.DescriptionUser p:not(.Label) {
+    color: #999999;
+}
+
+.DescriptionAdmin {
+    border-radius: 4px;
+    font-size: 100%;
+    background: #f4f4f4;
+}
+
+.DescriptionAdmin p:last-child{
+    line-height: 34px;
+}
+
+.ContainerContactUs{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.ContainerContactUs .Label{
+    text-align: right;
+    display: block;
+}
+.ContainerContactUs i{
+    margin: 3px;
+    font-size: 140%;
+    background: #ededed;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 1px 2px 2px #cccccc;
+    cursor: pointer;
+    transition: all .1s;
+}
+
+.ContainerContactUs i:hover {
+    box-shadow: none;
+}
+
+.ContainerContactUs i:active{
+    box-shadow: inset 1px 1px 2px #cccccc;
+}
+
+.ContainerContactUs i[Phone]{
+    color: #2c2c2c;
+}
+.ContainerContactUs i[Telegram]{
+    color: #214fd4;
+}
+.ContainerContactUs i[Instagram]{
+    color: #d44c54;
+}
+.ContainerContactUs i[Email] {
+    color: #ee3136;
+}
+
+@media screen and (max-width: 450px) {
+    .ShowProject{
+        font-size: 92%;
+    }
+}
+

@@ -1,0 +1,73 @@
+{% extends 'Base/BaseTemplate.html' %}
+{% load FilterTags %}
+{% block Title %}
+    اعضای گروه
+{% endblock %}
+
+{% block Css %}
+    <link rel="stylesheet" href="/Static/Css/Members/index.css">
+{% endblock %}
+{% block Content %}
+    {% include 'Base/Header/Header.html' with Items='BtnSubmitProject,BtnJoinToTeam,Home,WorkSamples,Account,Logo' Place='Other' Style='Type1' User=User_Member %}
+    <div class="ContainerMembers">
+        <div class="ContainerTitle">
+            <p>اعضا</p>
+            <i class="far fa-users"></i>
+        </div>
+        <div class="Members">
+            {% for Member in Members %}
+                <div class="Member {% if forloop.last %}Element20Rotated{% endif %}"
+                     {% if forloop.last %}AnimationScroll="AnimationRotate0"{% endif %}>
+                    <div class="ContentMember">
+                        {% if Member.Image != '' %}
+                            <img src="{{ Member.Image.url }}" alt="{{ Member.GetNameAndFamily }}"
+                                 class="ImageMember">
+                        {% else %}
+                            <img src="/Static/Img/Img-Default/ImageDefaultMember.jpg"
+                                 alt="{{ Member.GetNameAndFamily }}" class="ImageMember">
+                        {% endif %}
+                        {% if OnlyUserIsLogin %}
+                            <div class="LikeMember"
+                                 Liked="{{ Member.GetListIDUsersLiked|ValInList:User.id }}">
+                                <i class="{% if Member.GetListIDUsersLiked|ValInList:User.id == 'true' %}fa{% else %}far{% endif %} fa-heart BtnLikeMember"
+                                   {% if UserIsLogin %}BtnLikeMember{% endif %}
+                                   IDMember="{{ Member.id }}" BtnLikeMember></i>
+                                <p class="SplitNumber NumberLikeMember"
+                                   Number="{{ Member.GetLenLikeMember }}"
+                                   NumberLikeMember>{{ Member.GetLenLikeMember }}</p>
+                            </div>
+                        {% else %}
+                            <div class="LikeMember"
+                                 Liked="false">
+                                <i class="far fa-heart BtnLikeMember CursorDefault"
+                                   IDMember="{{ Member.id }}"></i>
+                                <p class="SplitNumber NumberLikeMember"
+                                   Number="{{ Member.GetLenLikeMember }}"
+                                   NumberLikeMember>{{ Member.GetLenLikeMember }}</p>
+                            </div>
+                        {% endif %}
+
+                        <div class="NameAndTitleJobMember">
+                            <p class="NameMember">
+                                {{ Member.GetNameAndFamily|truncatechars:20 }}
+                            </p>
+                            <p class="TitleJobMember">
+                                {{ Member.TitleJob|NoneVal:''|truncatechars:20 }}
+                            </p>
+                        </div>
+                        <div class="ShowProfileMember">
+                            <button class="BtnStyle_8" ClickFunc="GoToUrl(/M/{{ Member.id }})/Profile">
+                                مشاهده پروفایل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% include 'Base/Footer/index.html' %}
+{% endblock %}
+
+{% block Js %}
+    <script src="/Static/Js/Members/index.js"></script>
+{% endblock %}

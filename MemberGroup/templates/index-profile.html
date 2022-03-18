@@ -1,0 +1,38 @@
+{% extends 'Base/BaseTemplate.html' %}
+
+{% block Title %}
+    {{ User.GetNameAndFamily }}
+    {% if User.GetNameAndFamily == None %}
+        پروفایل
+    {% endif %}
+{% endblock %}
+{% block Css %}
+    <link rel="stylesheet" href="/Static/Css/Member/Profile-Ws/index.css">
+    <link rel="stylesheet" href="/Static/Css/Member/Components/Profile/index.css">
+{% endblock %}
+{% block Content %}
+    {% include 'Base/Header/Header.html' with Items='BtnSubmitProject,Home,WorkSamples,GroupMembers,Logo,Account' Place='Other' Style='Type1' User=User_Member %}
+    {% include 'Components/Profile/Profile.html' with ViewBy='User' MemberProfile=MemberProfile TypeInclude='Member' %}
+{% endblock %}
+{% block Js %}
+    <script src="/Static/Js/Member/Profile-Ws/index.js"></script>
+    <script src="/Static/Js/Member/Index-profile/index.js"></script>
+    <script>
+        //  Chart Skills Profile
+        anychart.onDocumentReady(function () {
+            let Container = document.getElementById('ContainerChartSkillsProfile')
+            let DataChartSkillsProfile = []
+            {% for Skill in MemberProfile.GetSkills %}
+                DataChartSkillsProfile.push(
+                    {x: "{{ Skill.Title }}", value: "{{ Skill.ValueSkill }}"}
+                )
+            {% endfor %}
+            let Chart = anychart.pie();
+            Chart.data(DataChartSkillsProfile);
+            Chart.container(Container);
+            Chart.draw();
+            Chart.legend().position("left");
+            Chart.legend().itemsLayout("vertical");
+        });
+    </script>
+{% endblock %}

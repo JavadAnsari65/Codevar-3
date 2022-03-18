@@ -1,0 +1,322 @@
+{% extends 'Base/BaseTemplate.html' %}
+{% load FilterTags %}
+{% load static %}
+{% block Title %}
+    گروه برنامه نویسی کدوار  -  codevar
+{% endblock %}
+
+{% block Css %}
+    <link rel="stylesheet" href="{% static 'Css/Member/Profile-Ws/index.css' %}">
+    <link rel="stylesheet" href="/Static/Css/Home/index.css">
+{% endblock %}
+
+{% block Content %}
+    {% include 'Base/Header/Header.html' with Style='Type1' Items='Logo,WorkSamples,Account,GroupMembers,ContactUs,BtnSubmitProject,BtnJoinToTeam' User=User_Member  %}
+    <main>
+        <div class="ContentMain">
+            <div class="SectionMain SectionHeader">
+                <img src="/Static/Img/Img-Design/Img-Background/BackgroundHome9.jpg" alt="Background Header"
+                     class="BackgroundHeader">
+                <div class="ContentAboutUs">
+                    <h2 class="TitleGroup" AnimationScroll="AnimationRightToLeft">
+                        گروه برنامه نویسی کُدوار
+                        <span class="AnimationBottomToTop d-none">
+                            <
+                            <p>/</p>
+                            >
+                        </span>
+                    </h2>
+                    <br>
+                    <br>
+                    <p class="TextAboutUs" AnimationScroll="AnimationTopToBottom">
+                        آیا از این که مدام دنبال فرد مناسبی هستی که پروژه هاتو بهش بسپاری و بتونی بهش اعتماد کنی خسته شدی ؟
+                        <br>
+                        نگران نباش تیم برنامه نویسی ما اینجاست تا خستگیتو از بین ببره
+                    </p>
+                </div>
+            </div>
+            <div class="SectionMain" SectionMainSubmitProject dir="ltr">
+                <img src="/Static/Img/Img-Design/Img-Background/BackgroundHome4.jpg"
+                     alt="Image Cooperation" AnimationScroll="AnimationRotate-10">
+                <div class="ContentSection">
+                    <h2 AnimationScroll="AnimationOpacity">همکاری با <b>ما</b></h2>
+                    <p>
+                        تیم برنامه نویسی ما از افراد جوان و پرانگیزه و البته کاربلد تشکیل شده است ، و همین امر باعث میشود که ما بتوانیم پروژه های شمارا با بهترین کیفیت و به بهترین نحو طراحی و اجرا کنیم .
+                        <br>
+                     
+                        با سپردن پروژه های خود به ما در وقت و انرژی خود صرفه جویی کنید .
+                    </p>
+                    <button class="BtnStyle_7" AnimationScroll="AnimationBottomToTop" onclick="GoToUrl('/U/Profile')">ثبت سفارش</button>
+                </div>
+            </div>
+            <div class="SectionMain ItemsService">
+                <div class="ItemService">
+                    <img src="/Static/Img/Img-Design/Img-Blobs/Blob_2.jpg" alt="Blob">
+                    <div>
+                        <i class="fal fa-badge-dollar"></i>
+                        <p AnimationScroll="AnimationOpacity">
+                            بهترین قیمت
+                        </p>
+                    </div>
+                </div>
+                <div class="ItemService">
+                    <img src="/Static/Img/Img-Design/Img-Blobs/Blob_2.jpg" alt="Blob">
+                    <div>
+                        <i class="fal fa-clock"></i>
+                        <p AnimationScroll="AnimationOpacity">
+                            کمترین زمان
+                        </p>
+                    </div>
+                </div>
+                <div class="ItemService">
+                    <img src="/Static/Img/Img-Design/Img-Blobs/Blob_2.jpg" alt="Blob">
+                    <div>
+                        <i class="fal fa-file-certificate"></i>
+                        <p AnimationScroll="AnimationOpacity">
+                            بهترین کیفیت
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="SectionMain ItemsService">
+                <div class="ItemService">
+                    <img src="/Static/Img/Img-Design/Img-Blobs/Blob_2.jpg" alt="Blob">
+                    <div>
+                        <i class="fal fa-users-crown"></i>
+                        <p AnimationScroll="AnimationOpacity">
+                            بهترین تیم
+                        </p>
+                    </div>
+                </div>
+                <div class="ItemService">
+                    <img src="/Static/Img/Img-Design/Img-Blobs/Blob_2.jpg" alt="Blob">
+                    <div>
+                        <i class="fal fa-signature"></i>
+                        <p AnimationScroll="AnimationOpacity">
+                            متعهد
+                        </p>
+                    </div>
+                </div>
+                <div class="ItemService">
+                    <img src="/Static/Img/Img-Design/Img-Blobs/Blob_2.jpg" alt="Blob">
+                    <div>
+                        <i class="fal fa-headphones-alt"></i>
+                        <p AnimationScroll="AnimationOpacity">
+                            پشتیبانی کامل
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ContainerTitle">
+                <div>
+                    <p>جدید ترین پروژه ها</p>
+                </div>
+            </div>
+            <div class="SectionMain ContainerWorkSamples" dir="rtl" AnimationScroll="AnimationContainerMain">
+                <img src="/Static/Img/Img-Design/Img-Background/BackgroundHome5.jpg" alt="Background Last Projects"
+                     class="ImageBackgroundLastProjects">
+                <div class="Sliders" id="SliderWorkSamples" Timer="10000">
+                    {% for WorkSample in WorkSamples %}
+                        <div class="Slider {% if forloop.first %}SliderActive{% endif %}">
+                            <div class="WorkSample ">
+                                <div class="ContentWorkSample">
+                                    <div class="HeaderWokSample">
+                                        <h5 class="TitleWorkSample"
+                                            AnimationScroll="AnimationOpacity"
+                                            dir="rtl">{{ WorkSample.Title|truncatechars:30 }}
+                                        </h5>
+                                        <img src="{{ WorkSample.Image.url }}" loading="lazy"
+                                             alt="{{ WorkSample.Title }}">
+                                        <div class="ItemLikeTimeWorkSample">
+                                            <div class="TimePastWorkSample">
+                                                <i class="far fa-clock"></i>
+                                                <p>{{ WorkSample.GetTimePastCreate }}</p>
+                                            </div>
+                                            <div class="LikeWorkSample" title="پسندیدن">
+                                                {% if User is not None %}
+                                                    <i class="{% if WorkSample.ListIDUserLiked|ValInList:User.id == 'true' %}fa{% else %}far{% endif %} fa-heart BtnLikeWorkSample"
+                                                       onclick="LikeDisLikeWorkSample(this,'{{ WorkSample.id }}')"
+                                                       Liked="{{ WorkSample.ListIDUserLiked|ValInList:User.id }}"></i>
+                                                {% else %}
+                                                    <i class="far fa-heart CursorDefault BtnLikeWorkSample"></i>
+                                                {% endif %}
+
+                                                <p class="SplitNumber" NumberLike
+                                                   Number="{{ WorkSample.GetLenLikes }}"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="MainWorkSample">
+                                        <div class="ItemFieldWorkSample">
+                                            <p class="TitleField">آدرس</p>
+                                            <p class="ResultField" dir="ltr" Link
+                                               onclick="GoToUrl('{{ WorkSample.Address }}','Blank')">{{ WorkSample.Address|truncatechars:40 }}</p>
+                                        </div>
+                                        <div class="ItemFieldWorkSample">
+                                            <p class="TitleField">برنامه نویس</p>
+                                            <p class="ResultField" Link
+                                               onclick="GoToUrl('/M/{{ WorkSample.Owner.id }}/Profile')"
+                                               dir="ltr">{{ WorkSample.Owner|truncatechars:20 }}</p>
+                                        </div>
+                                        <div class="ItemFieldWorkSample">
+                                            <p class="TitleField">تکنولوژی</p>
+                                            <p class="ResultField">{{ WorkSample.Technologies|truncatechars:50 }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="ShowWorkSample" ID_Sample="{{ WorkSample.id }}">
+                                        <button class="BtnStyle_1" onclick="GetWorkSample(this.parentNode)">مشاهده
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <button class="BtnNextSlider" State="Disabled"
+                            onclick="ChangeSlider(this.parentNode,'Next',this.getAttribute('State'))">
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                    <button class="BtnPrevSlider" State="Active"
+                            onclick="ChangeSlider(this.parentNode,'Prev',this.getAttribute('State'))">
+                        <i class="fa fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="ContainerTitle">
+                <div>
+                    <p>
+                        برخی از اعضا
+                    </p>
+                </div>
+            </div>
+            <div class="SectionMain ContainerMembers" AnimationScroll="AnimationContainerMain">
+                <div class="ContainerDesignElement"></div>
+                <div class="Members">
+                    <img src="/Static/Img/Img-Design/Img-Background/BackgroundHome6.jpg"
+                         alt="Background Design Members" class="ImageDesignMembers">
+                    <div class="ContentMembers" AnimationScroll="AnimationLeftToRight">
+                        {% for Member in Members %}
+                            <div class="Member {% if forloop.last %}Element20Rotated{% endif %}"
+                                 {% if forloop.last %}AnimationScroll="AnimationRotate0"{% endif %}>
+                                <div class="ContentMember">
+                                    {% if Member.Image != '' %}
+                                        <img src="{{ Member.Image.url }}" alt="{{ Member.GetNameAndFamily }}"
+                                             class="ImageMember">
+                                    {% else %}
+                                        <img src="/Static/Img/Img-Default/ImageDefaultMember.jpg"
+                                             alt="{{ Member.GetNameAndFamily }}" class="ImageMember">
+                                    {% endif %}
+                                    {% if OnlyUserIsLogin %}
+                                        <div class="LikeMember"
+                                             Liked="{{ Member.GetListIDUsersLiked|ValInList:User.id }}">
+                                            <i class="{% if Member.GetListIDUsersLiked|ValInList:User.id == 'true' %}fa{% else %}far{% endif %} fa-heart BtnLikeMember"
+                                               {% if UserIsLogin %}BtnLikeMember{% endif %}
+                                               IDMember="{{ Member.id }}" BtnLikeMember></i>
+                                            <p class="SplitNumber NumberLikeMember"
+                                               Number="{{ Member.GetLenLikeMember }}"
+                                               NumberLikeMember>{{ Member.GetLenLikeMember }}</p>
+                                        </div>
+                                    {% else %}
+                                        <div class="LikeMember"
+                                             Liked="false">
+                                            <i class="far fa-heart BtnLikeMember CursorDefault"
+                                               IDMember="{{ Member.id }}"></i>
+                                            <p class="SplitNumber NumberLikeMember"
+                                               Number="{{ Member.GetLenLikeMember }}"
+                                               NumberLikeMember>{{ Member.GetLenLikeMember }}</p>
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="NameAndTitleJobMember">
+                                        <p class="NameMember">
+                                            {{ Member.GetNameAndFamily|truncatechars:20 }}
+                                        </p>
+                                        <p class="TitleJobMember">
+                                            {{ Member.TitleJob|NoneVal:''|truncatechars:20 }}
+                                        </p>
+                                    </div>
+                                    <div class="ShowProfileMember">
+                                        <button class="BtnStyle_8" ClickFunc="GoToUrl(/M/{{ Member.id }})/Profile">
+                                            مشاهده پروفایل
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="ContainerInvitation" AnimationScroll="AnimationRightToLeft">
+                <p>
+                    وقتشه که پروژه هاتو به ما بسپاری تا با بهترین کیفیت اونهارو تحویل بگیری
+                </p>
+                <button class="BtnStyle_9" ClickFunc="GoToUrl(/U/Profile?ProjectSubmit)">
+                    <i class="fa fa-file-plus"></i>
+                    ثبت سفارش
+                </button>
+            </div>
+            <div class="ContainerTitle">
+                <div>
+                    <p>تیم ما</p>
+                </div>
+            </div>
+            <div class="ContainerInfoTeam SectionMain" AnimationScroll="AnimationContainerMain">
+                <img src="/Static/Img/Img-Design/Img-Background/BackgroundHome2.jpg" alt="Background Design Team">
+                <div class="ContentInfoTeam">
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
+                        مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه
+                        درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری
+                        را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این
+                        صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد
+                        وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی
+                        اساسا مورد استفاده قرار گیرد.
+                    </p>
+                    <br>
+                    <div class="text-left">
+                        <button class="BtnStyle_7" AnimationScroll="AnimationOpacity" onclick="GoToUrl('/M/Login-Create')">
+                            پیوستن به تیم
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="ContainerTitle">
+                <div>
+                    <p>تماس با ما</p>
+                </div>
+            </div>
+            <div class="ContainerContactUs SectionMain" AnimationScroll="AnimationContainerMain"
+                 id="ContainerContactUs">
+                <img src="/Static/Img/Img-Design/Img-Background/BackgroundContactUs.jpg" alt="Contact Us">
+                <div class="ContainerItemsContactUs">
+                    <p class="TextContactUs">
+                        متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان
+                        خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری
+                        موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای
+                        اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                    </p>
+                    <div class="ContainerItemsContact">
+                        <div class="ItemContact" Instagram AnimationScroll="AnimationBottomToTop" ClickFunc="GoToUrl(https://www.instagram.com/codevar.ir/)">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="ItemContact" Telegram AnimationScroll="AnimationTopToBottom" ClickFunc="GoToUrl(https://t.me/Codevar)">
+                            <i class="fab fa-telegram-plane"></i>
+                        </div>
+                        <div class="ItemContact" Email AnimationScroll="AnimationBottomToTop" ClickFunc="GoToUrl(mailto:codevar.ir@gmail.com)">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="ItemContact" Phone AnimationScroll="AnimationTopToBottom" ClickFunc="GoToUrl(tel:09399558747)">
+                            <i class="far fa-phone"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include 'Base/Footer/index.html' %}
+        </div>
+    </main>
+{% endblock %}
+
+{% block Js %}
+    <script src="{% static 'Js/Member/Profile-Ws/index.js' %}"></script>
+    <script src="/Static/Js/Home/index.js"></script>
+{% endblock %}

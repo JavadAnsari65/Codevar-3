@@ -1,0 +1,839 @@
+
+body {
+    text-align: right;
+    background: #efefef;
+}
+
+main {
+    width: 85%;
+    margin: 20px auto;
+    margin-left: 11%;
+}
+
+.AnimationTopToBottom {
+    animation: AnimationTopToBottom .4s forwards;
+}
+
+@keyframes AnimationTopToBottom {
+    0% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.ContainerAsideMenu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 4%;
+    min-width: 65px;
+    max-width: 120px;
+    height: 100%;
+    text-align: center;
+    background: #ffffff;
+    padding: 8px;
+    transition: all .3s ease-in-out;
+}
+
+.ContainerAsideMenu:hover {
+    width: 120px;
+    box-shadow: 10px 0 8px #e8e8e8;
+}
+
+.ItemAsideMenu {
+    position: relative;
+    overflow: hidden;
+    padding: 5px;
+    color: #8a8a8a;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+
+
+.ItemAsideMenu:hover {
+    color: black;
+}
+
+.ItemAsideMenu:hover p {
+    right: 0;
+    margin-right: 5px;
+}
+
+.ItemAsideMenu:hover i {
+    padding-right: 55px;
+}
+
+.ItemAsideMenu p {
+    display: inline-block;
+    font-size: 80%;
+    position: absolute;
+    right: -150%;
+    top: 22%;
+    transition: all .2s ease-in-out;
+}
+
+.ItemAsideMenu i {
+    font-size: 150%;
+    transition: all .3s ease-in-out;
+}
+
+.ItemAsideMenuActive {
+    color: #17c3b2 !important;
+}
+
+.ItemSignOutAccount {
+    position: absolute;
+    bottom: 0;
+    left: 18%;
+    width: 50%;
+}
+
+.ItemSignOutAccount:hover {
+    width: 100%;
+    left: 0;
+}
+
+.ItemSignOutAccount:hover p {
+    margin-right: 30px;
+}
+
+.ItemHome {
+    position: absolute;
+    bottom: 45px;
+    left: 18%;
+    width: 50%;
+}
+
+.ItemHome:hover {
+    width: 100%;
+    left: 0;
+}
+
+.ItemHome:hover p {
+    margin-right: 30px;
+}
+
+.ContainerItemAsideMenu {
+    display: none;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 10px 10px 15px #d5d5d5, -13px -13px 15px #f0f0f0;
+    background: #fbfbfb;
+    border-radius: 6px;
+}
+
+.ContainerItemMenuIsActive {
+    display: block;
+}
+
+.ContainerTitle {
+    text-align: right;
+    padding: 5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.ContainerTitle p {
+    font-weight: bold;
+    font-family: 'Yekan';
+    margin: 0;
+    font-size: 130%;
+    display: inline-block;
+    vertical-align: middle;
+    color: #333333;
+}
+
+.ContainerTitle i {
+    margin: 7px;
+    color: #555555;
+    vertical-align: middle;
+}
+
+.ColorBlue {
+    color: #3976db !important;
+}
+
+.ColorGreen {
+    color: #5ad8ff !important;
+}
+
+.ColorPaper {
+    color: #d473db !important;
+}
+
+.ColorRed {
+    color: #f45260 !important;
+}
+
+#ContainerFormInfo {
+    padding: 20px 10px;
+}
+
+.ContainerRightFormInfo {
+    width: 60%;
+    display: inline-block;
+}
+
+.ContainerLeftFormInfo {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 35%;
+}
+
+.ContainerItemForm {
+    display: inline-block;
+    margin: 7px;
+    text-align: right;
+}
+
+.ContainerItemForm {
+    width: 60%;
+}
+
+.ContainerItemForm .ContainerInputIcon input {
+    width: 100%;
+}
+
+.ContainerItemForm .ContainerInputIcon textarea {
+    width: 100%;
+}
+
+
+.ContainerItemFormImage {
+    margin: auto;
+}
+
+.ContainerItemFormImage a {
+    font-size: 70%;
+}
+
+
+.ContainerInputIcon input, textarea {
+    outline: none;
+    border: 1px solid #cccccc;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: #f7f7f7;
+    transition: all .15s;
+    width: 300px;
+    vertical-align: middle;
+}
+
+.ContainerInputIcon textarea {
+    width: auto;
+    resize: none;
+}
+
+
+.LabelInput {
+    margin: 4px;
+    font-size: 92%;
+    color: var(--ColorTitle);
+}
+
+.ContainerInputIcon input:focus {
+    background: #ffffff;
+}
+
+input[valid='false'] {
+    border: 1px solid #ff5e52;
+}
+
+textarea[valid='false'] {
+    border: 1px solid #ff5e52;
+}
+
+input::placeholder {
+    font-size: 90%;
+    color: #a5a5a5;
+}
+
+img[src=""] {
+    display: none;
+}
+
+#ImageFormInfo {
+    margin-top: 40px;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.ContainerButtonSubmitFormInfo {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.ContainerButtonSubmitFormInfo button {
+    border: none;
+    outline: none;
+    padding: 7px 35px;
+    border-radius: 5px;
+    color: white;
+    transition: all .2s;
+    background: #bdbdbd;
+}
+
+.ButtonSubmitActive:hover {
+    box-shadow: 0 5px 5px #ababab;
+    padding: 7px 36px;
+}
+
+.ButtonSubmitActive:active {
+    transform: scale(.96);
+}
+
+.ButtonSubmitActive {
+    box-shadow: 0 5px 5px #bbbbbb !important;
+    background: rgb(20, 194, 128) !important;
+}
+
+
+.ContainerSkills {
+    margin: 10px;
+    margin-top: 20px;
+}
+
+#ButtonAddSkill {
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background: #418db7;
+    color: white;
+    padding: 8px 18px;
+    transition: background-color .1s;
+}
+
+#ButtonAddSkill i {
+    vertical-align: middle;
+    transition: transform .1s;
+}
+
+#ButtonAddSkill:hover {
+    background: #3b769f;
+}
+
+#ButtonAddSkill:active i {
+    transform: rotate(90deg);
+}
+
+.ProgressSkill {
+    border-radius: 7px;
+    width: 70%;
+    height: 28px;
+    margin-top: 10px;
+}
+
+.ProgressSkill::-webkit-progress-bar {
+    background: #eeeeee;
+    border-radius: 7px;
+    border: 1px solid #c3c3c3;
+}
+
+.ProgressSkill::-webkit-progress-value {
+    border-radius: 7px;
+    background: #cccccc;
+}
+
+.ProgressSkillGood::-webkit-progress-value {
+    background: #1cad69;
+}
+
+.ProgressSkillAverage::-webkit-progress-value {
+    background: #7ed8c1;
+}
+
+.ProgressSkillLow::-webkit-progress-value {
+    background: #fd9a9a;
+}
+
+.ProgressSkillVeryLow::-webkit-progress-value {
+    background: #fd4744;
+}
+
+
+.Skills {
+    margin-top: 70px;
+}
+
+.Skill {
+    border-radius: 5px;
+    margin: 20px 10px;
+    padding: 7px;
+    background: #f4f4f4;
+    text-align: center;
+    /*   box-shadow: 0 3px 2px #e5e5e5;*/
+    box-shadow: -5px -5px 12px #fbfbfb, 5px 5px 10px #c8c8c8;
+}
+
+.ContainerEditDeleteSkill {
+    float: left;
+}
+
+.ContainerEditDeleteSkill .fa-trash {
+    color: #f49890;
+    cursor: pointer;
+}
+
+.ContainerEditDeleteSkill .fa-trash:hover {
+    color: #f44437;
+}
+
+.TitleSkill {
+    margin-top: -5px;
+    text-align: right;
+    font-size: 130%;
+}
+
+.TitleSkill p {
+    margin: 0;
+    border-bottom: 1px solid #17c3b2;
+    display: inline-block;
+}
+
+.ContainerAddSkillBlur {
+    width: 40%;
+    right: 30%;
+}
+
+.ContainerDescriptionSkill {
+    text-align: right;
+    width: 100%;
+    margin-top: 4px;
+    padding: 3px;
+}
+
+.ContainerDescriptionSkill p {
+    font-size: 95%;
+    margin: 0;
+    color: #656565;
+}
+
+.ContainerFormSkill .LabelInput {
+    text-align: right;
+}
+
+.ContainerFormSkill .ContainerItemForm {
+    display: block;
+    text-align: center;
+    width: 97.5%;
+}
+
+
+.ContainerFormSkill [InputRangeSkill] {
+    width: 88%;
+}
+
+.ContainerFormSkill input {
+    width: 90%;
+}
+
+.ContainerFormSkill textarea {
+    width: 90%;
+}
+
+.ContainerButtonAddSkill {
+    text-align: left;
+    margin-top: 40px;
+}
+
+.ValueRangeSkill {
+    direction: rtl;
+    display: inline-block;
+    margin: 0;
+    background: #444444;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+    vertical-align: top;
+    margin-right: 3px;
+    margin-top: 7px;
+}
+
+.ContainerButtonAddSkill [BtnCancelSkill] {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 7px 10px;
+    margin: 3px;
+    margin-left: 10px;
+}
+
+.ContainerButtonAddSkill [BtnAddSkill] {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 7px 25px;
+    background: #c3c3c3;
+    margin: 3px;
+    border-radius: 10px;
+}
+
+.ContainerButtonAddSkill .BtnAddSkillActive {
+    background: #2e9c8a;
+    color: white;
+}
+
+.ContainerButtonAddSkill .BtnAddSkillActive:hover {
+    background: #298371;
+}
+
+.BtnStyleActive1 {
+    background: #2e9c8a !important;
+    color: white !important;
+    transition: all .1s;
+}
+
+.BtnStyleActive1:hover {
+    background: #298371 !important;
+}
+
+.ContainerAddWorkSampleBlur {
+    width: 40%;
+    right: 30%;
+}
+
+.ContainerEditWorkSampleBlur {
+    width: 40%;
+    right: 30%;
+}
+
+#ContainerFormWorkSample {
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
+
+#ContainerFormWorkSample .ContainerItemForm {
+    width: 100%;
+    overflow: hidden;
+}
+
+#ContainerFormWorkSample [LinkUrlImageFormEditWorkSample] {
+    font-size: 75%;
+}
+
+#ContainerFormWorkSample .ContainerInputIcon input {
+    padding: 9px;
+}
+
+#ContainerFormWorkSample .ContainerItemForm {
+    display: block;
+    width: 97.5%;
+}
+
+#ContainerFormWorkSample input {
+    width: 100%;
+}
+
+#ContainerFormWorkSample textarea {
+    width: 100%;
+}
+
+.ContainerButtonAddWorkSample {
+    text-align: left;
+    margin-top: 40px;
+}
+
+.ContainerButtonAddWorkSample [BtnAddWorkSample] {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 7px 25px;
+    background: #c3c3c3;
+    color: #5a5a5a;
+    margin: 3px;
+    border-radius: 10px;
+}
+
+.ContainerButtonAddWorkSample [BtnEditWorkSample] {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 7px 25px;
+    background: #c3c3c3;
+    color: #5a5a5a;
+    margin: 3px;
+    border-radius: 10px;
+}
+
+.ContainerButtonAddWorkSample [BtnCancelWorkSample] {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 7px 10px;
+    margin: 3px;
+    margin-left: 10px;
+}
+
+.TitleContainer {
+    border-bottom: 1px solid rgba(23, 195, 178, 0.3);
+    text-align: center;
+    font-size: 120%;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.TitleContainer p {
+    margin: 0;
+}
+
+.ItemsHeader {
+    text-align: left;
+}
+
+.ItemsHeader i {
+    background: #f5f5f5;
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .15s;
+    font-size: 105%;
+}
+
+.ItemsHeader i:hover {
+    background: #eaeaea;
+}
+
+
+.ButtonIconDelete {
+    background: #ffe4e3;
+    border: 1px solid rgba(255, 172, 169, 0.5);
+    padding: 1px 4px;
+    border-radius: 150px;
+    display: inline-block;
+    font-size: 80%;
+    cursor: pointer;
+    margin: 5px;
+    color: #ea4c4a;
+}
+
+.fa-times {
+    font-size: 130%;
+    color: #fa4b5a;
+    cursor: pointer;
+}
+
+[Liked='true'] {
+    color: #fa4b5a;
+}
+
+@media screen and (max-width: 1200px) {
+
+
+    #ContainerMain {
+        margin-left: 12%;
+    }
+
+    .ContainerAsideMenu {
+        font-size: 90%;
+        padding: 0;
+        max-width: 100px;
+    }
+
+    .ContainerAsideMenu:hover {
+        width: 100px;
+    }
+
+    .ContainerAddSkillBlur {
+        width: 50%;
+        right: 25%;
+    }
+
+    .ContainerAddWorkSampleBlur {
+        width: 50%;
+        right: 25%;
+    }
+
+    .ContainerEditWorkSampleBlur {
+        width: 50%;
+        right: 25%;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    #ContainerMain {
+        width: 82%;
+        margin-left: 15%;
+    }
+
+    .ContainerAsideMenu {
+        font-size: 88%;
+        padding: 0;
+        max-width: 95px;
+    }
+
+    .ContainerAsideMenu:hover {
+        width: 95px;
+    }
+
+
+    .ContainerAddSkillBlur {
+        width: 55%;
+        right: 22.5%;
+    }
+
+    .ContainerAddSkillBlur [inputrangeskill] {
+        width: 80%;
+    }
+
+    .ContainerAddWorkSampleBlur {
+        width: 60%;
+        right: 20%;
+    }
+
+    .ContainerEditWorkSampleBlur {
+        width: 70%;
+        right: 15%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #ContainerMain {
+        width: 97%;
+        margin: auto;
+        margin-top: 80px;
+        overflow: hidden;
+    }
+
+    .ContainerAsideMenu {
+        top: 0;
+        width: 100%;
+        height: auto;
+        max-width: none;
+        min-width: auto;
+        direction: ltr;
+        text-align: right;
+        z-index: 1;
+        box-shadow: 0 10px 10px #e5e5e5;
+    }
+
+    .ContainerAsideMenu:hover {
+        width: 100%;
+    }
+
+    .ItemAsideMenu {
+        display: inline-block;
+        position: static;
+        width: auto;
+        margin: 2px;
+        margin-top: 7px;
+    }
+
+    .ItemAsideMenu:hover {
+        width: auto;
+    }
+
+    .ItemAsideMenu:hover p {
+        margin-right: 5px;
+    }
+
+    .ItemAsideMenu:hover i {
+        padding: 0;
+    }
+
+    .ItemAsideMenu p {
+        position: static;
+        margin: 0;
+        font-size: 75%;
+    }
+
+    .ItemAsideMenu p:hover {
+        width: auto;
+    }
+
+
+    .ContainerRightFormInfo {
+        display: block;
+        width: 100%;
+    }
+
+    .ContainerItemForm {
+        width: 95%;
+    }
+
+    .ContainerLeftFormInfo {
+        display: block;
+        width: 100%;
+    }
+
+    .ContainerLeftFormInfo .LabelInput {
+        text-align: right;
+    }
+
+    .ContainerProgress .ProgressSkill {
+        width: 100%;
+        height: 20px;
+    }
+
+    .ContainerDescriptionSkill {
+        font-size: 95%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .ContainerAddSkillBlur {
+        width: 70%;
+        right: 15%;
+    }
+
+    .ContainerAddWorkSampleBlur {
+        width: 70%;
+        right: 15%;
+    }
+
+    .ContainerEditWorkSampleBlur {
+        width: 75%;
+        right: 12.5%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .ItemAsideMenu {
+        font-size: 85%;
+        margin: 5px 1px;
+        padding: 2px;
+    }
+
+    .ItemAsideMenu p {
+        margin: 0;
+    }
+
+    .ContainerAddSkillBlur {
+        width: 85%;
+        right: 7.5%;
+    }
+
+    .ContainerAddWorkSampleBlur {
+        width: 85%;
+        right: 7.5%;
+    }
+
+    .ContainerEditWorkSampleBlur {
+        width: 90%;
+        right: 5%;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .ItemAsideMenu {
+        font-size: 82%;
+        margin: 3px 1px;
+        padding: 1px;
+    }
+
+    .ItemAsideMenu p {
+        margin: 0;
+    }
+
+    .ContainerProgress progress {
+        height: 18px !important;
+    }
+}
+
+
