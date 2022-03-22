@@ -1,7 +1,7 @@
 .Header {
     width: 100%;
     position: absolute;
-    top: 2px;
+    top: 0;
     background: white !important;
     z-index: 10;
     padding-bottom: 35px;
@@ -11,11 +11,10 @@
     position: relative;
     top: 0;
     border-radius: 0;
-    box-shadow: 0 9px 10px #eeeeee !important;
+    box-shadow: 0 3px 30px #ebebeb !important;
     height: 66px;
     margin-bottom: 40px;
 }
-
 
 .ContainerBtnsHeaderLvl2 {
     display: inline-block;
@@ -35,7 +34,7 @@
 
 .ItemHeaderAniIcon {
     transition: all .2s, color 0s;
-    margin: 0 2px;
+    margin: 0 5px;
 }
 
 .ItemHeaderAniIcon:hover {
@@ -60,7 +59,7 @@
 
 .ItemHeaderAniIcon p {
     display: inline-block;
-    color: #222222;
+    color: #656565;
     margin: 0;
     padding: 5px;
 }
@@ -74,10 +73,10 @@
 
 .ItemAccount {
     float: left;
-    margin-top: -3px;
+    margin-top: 3px;
     margin-left: 10px;
-    padding-left: 10px;
-    border-left: 1px solid rgba(170, 170, 170, 0.5);
+    padding-left: 15px;
+    border-left: 1px solid rgba(47, 170, 126, 0.2);
 }
 
 .ItemAccount p {
@@ -92,18 +91,41 @@
 }
 
 .ItemAccount i {
-    background: #f5f5f5;
-    padding: 8px 10px;
+    background: #ffffff;
+    padding: 9px 11px;
     border-radius: 50%;
     font-size: 120%;
     transition: all .15s;
-    box-shadow: -1px -1px 5px #dddddd;
-    color: #299cb3;
+    box-shadow: 0 0 8px rgba(195,247,255,0.2);
+    color: #666666;
 }
 
 .ItemAccount:hover i {
-    background: #f0f0f0;
     font-weight: bold;
+}
+
+.ItemLoginAccount span{
+    width: 0;
+    margin-top: -5px;
+    margin-left: -5px;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    transition: all .15s;
+    text-align: center;
+    padding: 7px 0;
+    border-radius: 0 12px 12px 0;
+    background: #ffffff;
+    color: #666666;
+}
+
+.ItemLoginAccount:hover span{
+    width: 40px;
+}
+
+.ItemLoginAccount:hover i{
+    border-radius: 12px 0 0 12px;
+    box-shadow: none;
 }
 
 .ItemLogoHeader {
@@ -217,13 +239,13 @@
     position: fixed;
     right: 0;
     height: 100%;
-    width: 220px;
+    width: 260px;
     top: 0;
     z-index: 1000;
-    overflow: hidden;
+    overflow-x: hidden;
     text-align: center;
     border-radius: 10px 0 0 10px;
-    background: #F8F5F1;
+    background: #fbfbfb;
 }
 
 .IconHamburgerMenu {
@@ -259,16 +281,13 @@
 /*  New  */
 
 .ContainerHeaderMenu {
-    padding-bottom: 20px;
-    background: #45526C;
-    box-shadow: 0 5px 10px rgba(69, 82, 108, 0.3);
-    border-radius: 0 0 30px 30px;
-    color: #f0f0f0;
+    padding-bottom: 15px;
+    background: #dffffc;
+    color: #555555;
 }
 
 .MustSignInAccountHeaderMenu {
-    padding: 5px;
-    border-radius: 0 0 10px 10px;
+    padding: 8px 5px;
     cursor: pointer;
     margin-bottom: -10px;
 }
@@ -284,7 +303,8 @@
 .ContainerNameAndLogOutHeaderMenu {
     display: flex;
     justify-content: space-between;
-    padding: 4px;
+    padding: 8px;
+    padding-bottom: 0;
     font-size: 95%;
 }
 
@@ -308,8 +328,7 @@
 }
 
 .ContainerMainMenu {
-    margin-top: 20px;
-    box-shadow: 0 -2px 6px rgba(248, 164, 136, 0.2);
+    margin-top: 50px;
 }
 
 
@@ -386,16 +405,18 @@
 }
 
 .ItemHeaderMenu {
-    padding: 8px 5px;
-    font-size: 105%;
-    border-bottom: 1px solid rgba(248, 215, 199, 0.4);
+    padding: 10px 10px;
+    font-size: 115%!important;
+    color: #656565!important;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 7px;
+    display: block;
+    border: 1px solid transparent!important;
 }
 
 .ItemHeaderMenu:hover {
-    background: #f0f0f0;
-    border: none;
+    background: #ffffff!important;
+    box-shadow: 0 0 10px rgba(206, 243, 255, 0.2);
 }
 
 .ItemHeaderMenu:hover * {
@@ -429,6 +450,7 @@
     font-weight: bold;
     color: #3172ff;
 }
+
 
 .ContainerItemsForMobile {
     display: inline-block;

@@ -1032,17 +1032,16 @@ let AllElementsWithAnimation_2 = document.querySelectorAll('[AnimationScroll_2]'
 let ScrollOnElementVar = (entries, Observer) => {
     entries.forEach(Entry => {
         let ClassAnimation = Entry.target.getAttribute('AnimationScroll')
-        let ClassAnimation_2 = Entry.target.getAttribute('AnimationScroll_2')
+        let ClassAnimation_2 = Entry.target.getAttribute('AnimationScroll_2') || ''
         if (Entry.isIntersecting) {
             Entry.target.classList.add(ClassAnimation)
-            if (ClassAnimation_2 != null) {
+            try {
                 Entry.target.classList.add(ClassAnimation_2)
-            }
+            } catch (e) {}
         } else {
-            Entry.target.classList.remove(ClassAnimation)
-            if (ClassAnimation_2 != null) {
-                Entry.target.classList.remove(ClassAnimation_2)
-            }
+            // Loop
+            // Entry.target.classList.remove(ClassAnimation)
+            // Entry.target.classList.remove(ClassAnimation_2)
         }
     })
 }

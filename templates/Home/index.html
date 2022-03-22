@@ -2,7 +2,7 @@
 {% load FilterTags %}
 {% load static %}
 {% block Title %}
-    گروه برنامه نویسی کدوار  -  codevar
+    گروه برنامه نویسی کدوار
 {% endblock %}
 
 {% block Css %}
@@ -11,25 +11,21 @@
 {% endblock %}
 
 {% block Content %}
-    {% include 'Base/Header/Header.html' with Style='Type1' Items='Logo,WorkSamples,Account,GroupMembers,ContactUs,BtnSubmitProject,BtnJoinToTeam' User=User_Member  %}
+    {% include 'Base/Header/Header.html' with Style='Type1' Items='Logo,WorkSamples,Account,GroupMembers,ContactUs,BtnSubmitProject,BtnJoinToTeam' User=User_Member %}
     <main>
         <div class="ContentMain">
             <div class="SectionMain SectionHeader">
                 <img src="/Static/Img/Img-Design/Img-Background/BackgroundHome9.jpg" alt="Background Header"
                      class="BackgroundHeader">
                 <div class="ContentAboutUs">
-                    <h2 class="TitleGroup" AnimationScroll="AnimationRightToLeft">
+                    <h2 class="TitleGroup">
                         گروه برنامه نویسی کُدوار
-                        <span class="AnimationBottomToTop d-none">
-                            <
-                            <p>/</p>
-                            >
-                        </span>
                     </h2>
                     <br>
                     <br>
                     <p class="TextAboutUs" AnimationScroll="AnimationTopToBottom">
-                        آیا از این که مدام دنبال فرد مناسبی هستی که پروژه هاتو بهش بسپاری و بتونی بهش اعتماد کنی خسته شدی ؟
+                        آیا از این که مدام دنبال فرد مناسبی هستی که پروژه هاتو بهش بسپاری و بتونی بهش اعتماد کنی خسته
+                        شدی ؟
                         <br>
                         نگران نباش تیم برنامه نویسی ما اینجاست تا خستگیتو از بین ببره
                     </p>
@@ -39,17 +35,20 @@
                 <img src="/Static/Img/Img-Design/Img-Background/BackgroundHome4.jpg"
                      alt="Image Cooperation" AnimationScroll="AnimationRotate-10">
                 <div class="ContentSection">
-                    <h2 AnimationScroll="AnimationOpacity">همکاری با <b>ما</b></h2>
+                    <h2 AnimationScroll="AnimationOpacity">درباره ما</h2>
                     <p>
-                        تیم برنامه نویسی ما از افراد جوان و پرانگیزه و البته کاربلد تشکیل شده است ، و همین امر باعث میشود که ما بتوانیم پروژه های شمارا با بهترین کیفیت و به بهترین نحو طراحی و اجرا کنیم .
+                        تیم برنامه نویسی ما از افراد جوان و پرانگیزه و البته کاربلد تشکیل شده است ، و همین امر باعث
+                        میشود که ما بتوانیم پروژه های شمارا با بهترین کیفیت و به بهترین نحو طراحی و اجرا کنیم .
                         <br>
-                     
+
                         با سپردن پروژه های خود به ما در وقت و انرژی خود صرفه جویی کنید .
                     </p>
-                    <button class="BtnStyle_7" AnimationScroll="AnimationBottomToTop" onclick="GoToUrl('/U/Profile')">ثبت سفارش</button>
+                    <button class="BtnStyle_7 mt-4" AnimationScroll="AnimationBottomToTop"
+                            onclick="GoToUrl('/U/Profile')">ثبت سفارش
+                    </button>
                 </div>
             </div>
-            <div class="SectionMain ItemsService">
+            <div class="SectionMain ItemsService" ItemsService-1>
                 <div class="ItemService">
                     <img src="/Static/Img/Img-Design/Img-Blobs/Blob_2.jpg" alt="Blob">
                     <div>
@@ -78,7 +77,7 @@
                     </div>
                 </div>
             </div>
-            <div class="SectionMain ItemsService">
+            <div class="SectionMain ItemsService" ItemsService-2>
                 <div class="ItemService">
                     <img src="/Static/Img/Img-Design/Img-Blobs/Blob_2.jpg" alt="Blob">
                     <div>
@@ -111,75 +110,107 @@
                 <div>
                     <p>جدید ترین پروژه ها</p>
                 </div>
+                <img src="/Static/Img/Img-Design/Img-Shape/Arrow_03.png" alt="Arrow" class="Element40Rotated mt-4">
             </div>
             <div class="SectionMain ContainerWorkSamples" dir="rtl" AnimationScroll="AnimationContainerMain">
                 <img src="/Static/Img/Img-Design/Img-Background/BackgroundHome5.jpg" alt="Background Last Projects"
                      class="ImageBackgroundLastProjects">
-                <div class="Sliders" id="SliderWorkSamples" Timer="10000">
+                <div class="text-center mt-3 d-inline-block"
+                     style="background: url('/Static/Img/Img-Design/Img-Background/BackgroundDesign1.jpg')">
                     {% for WorkSample in WorkSamples %}
-                        <div class="Slider {% if forloop.first %}SliderActive{% endif %}">
-                            <div class="WorkSample ">
-                                <div class="ContentWorkSample">
-                                    <div class="HeaderWokSample">
-                                        <h5 class="TitleWorkSample"
-                                            AnimationScroll="AnimationOpacity"
-                                            dir="rtl">{{ WorkSample.Title|truncatechars:30 }}
-                                        </h5>
-                                        <img src="{{ WorkSample.Image.url }}" loading="lazy"
-                                             alt="{{ WorkSample.Title }}">
-                                        <div class="ItemLikeTimeWorkSample">
-                                            <div class="TimePastWorkSample">
-                                                <i class="far fa-clock"></i>
-                                                <p>{{ WorkSample.GetTimePastCreate }}</p>
-                                            </div>
-                                            <div class="LikeWorkSample" title="پسندیدن">
-                                                {% if User is not None %}
-                                                    <i class="{% if WorkSample.ListIDUserLiked|ValInList:User.id == 'true' %}fa{% else %}far{% endif %} fa-heart BtnLikeWorkSample"
-                                                       onclick="LikeDisLikeWorkSample(this,'{{ WorkSample.id }}')"
-                                                       Liked="{{ WorkSample.ListIDUserLiked|ValInList:User.id }}"></i>
-                                                {% else %}
-                                                    <i class="far fa-heart CursorDefault BtnLikeWorkSample"></i>
-                                                {% endif %}
-
-                                                <p class="SplitNumber" NumberLike
-                                                   Number="{{ WorkSample.GetLenLikes }}"></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="MainWorkSample">
-                                        <div class="ItemFieldWorkSample">
-                                            <p class="TitleField">آدرس</p>
-                                            <p class="ResultField" dir="ltr" Link
-                                               onclick="GoToUrl('{{ WorkSample.Address }}','Blank')">{{ WorkSample.Address|truncatechars:40 }}</p>
-                                        </div>
-                                        <div class="ItemFieldWorkSample">
-                                            <p class="TitleField">برنامه نویس</p>
-                                            <p class="ResultField" Link
-                                               onclick="GoToUrl('/M/{{ WorkSample.Owner.id }}/Profile')"
-                                               dir="ltr">{{ WorkSample.Owner|truncatechars:20 }}</p>
-                                        </div>
-                                        <div class="ItemFieldWorkSample">
-                                            <p class="TitleField">تکنولوژی</p>
-                                            <p class="ResultField">{{ WorkSample.Technologies|truncatechars:50 }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="ShowWorkSample" ID_Sample="{{ WorkSample.id }}">
-                                        <button class="BtnStyle_1" onclick="GetWorkSample(this.parentNode)">مشاهده
-                                        </button>
-                                    </div>
+                        <div class="WorkSample">
+                            <div class="ContentWorkSample">
+                                <div class="LikeWorkSample" title="پسندیدن">
+                                    {% if User is not None %}
+                                        <i class="{% if WorkSample.ListIDUserLiked|ValInList:User.id == 'true' %}fa{% else %}far{% endif %} fa-heart BtnLikeWorkSample"
+                                           onclick="LikeDisLikeWorkSample(this,'{{ WorkSample.id }}')"
+                                           Liked="{{ WorkSample.ListIDUserLiked|ValInList:User.id }}"></i>
+                                    {% else %}
+                                        <i class="far fa-heart CursorDefault BtnLikeWorkSample"></i>
+                                    {% endif %}
+                                    <p class="SplitNumber" NumberLike
+                                       Number="{{ WorkSample.GetLenLikes }}"></p>
+                                </div>
+                                <img src="{{ WorkSample.GetCoverImage }}" alt="{{ WorkSample.Title }}" loading="lazy">
+                                <p class="TitleWorkSample">{{ WorkSample.Title|truncatechars:30 }}</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center p-3">
+                                <div class="ShowWorkSample" ID_Sample="{{ WorkSample.id }}">
+                                    <button class="BtnStyle_1 w-auto" onclick="GetWorkSample(this.parentNode)">
+                                        مشاهده جزئیات
+                                    </button>
+                                </div>
+                                <div class="TimePastWorkSample">
+                                    <i class="far fa-clock"></i>
+                                    <p>{{ WorkSample.GetTimePastCreate }}</p>
                                 </div>
                             </div>
                         </div>
+
+
+
+
+
+
+
+
+                        {#                    <div class="WorkSample">#}
+                        {#                        <div class="ContentWorkSample">#}
+                        {#                            <div class="MainWorkSample">#}
+                        {#                                <div class="ItemFieldWorkSample">#}
+                        {#                                    <p class="TitleField">آدرس</p>#}
+                        {#                                    <p class="ResultField" dir="ltr" Link#}
+                        {#                                       onclick="GoToUrl('{{ WorkSample.Address }}','Blank')">{{ WorkSample.Address|truncatechars:40 }}</p>#}
+                        {#                                </div>#}
+                        {#                                <div class="ItemFieldWorkSample">#}
+                        {#                                    <p class="TitleField">برنامه نویس</p>#}
+                        {#                                    <p class="ResultField" Link#}
+                        {#                                       onclick="GoToUrl('/M/{{ WorkSample.Owner.id }}/Profile')"#}
+                        {#                                       dir="ltr">{{ WorkSample.Owner|truncatechars:20 }}</p>#}
+                        {#                                </div>#}
+                        {#                                <div class="ItemFieldWorkSample">#}
+                        {#                                    <p class="TitleField">تکنولوژی</p>#}
+                        {#                                    <p class="ResultField">{{ WorkSample.Technologies|truncatechars:50 }}</p>#}
+                        {#                                </div>#}
+                        {#                            </div>#}
+                        {#                                  <div class="HeaderWokSample">#}
+                        {#                                <h5 class="TitleWorkSample"#}
+                        {#                                    AnimationScroll="AnimationOpacity"#}
+                        {#                                    dir="rtl">{{ WorkSample.Title|truncatechars:30 }}#}
+                        {#                                </h5>#}
+                        {#                                <img src="{{ WorkSample.Image.url }}" loading="lazy"#}
+                        {#                                     alt="{{ WorkSample.Title }}">#}
+                        {#                                <div class="ItemLikeTimeWorkSample">#}
+                        {#                                    <div class="TimePastWorkSample">#}
+                        {#                                        <i class="far fa-clock"></i>#}
+                        {#                                        <p>{{ WorkSample.GetTimePastCreate }}</p>#}
+                        {#                                    </div>#}
+                        {#                                    <div class="LikeWorkSample" title="پسندیدن">#}
+                        {#                                        {% if User is not None %}#}
+                        {#                                            <i class="{% if WorkSample.ListIDUserLiked|ValInList:User.id == 'true' %}fa{% else %}far{% endif %} fa-heart BtnLikeWorkSample"#}
+                        {#                                               onclick="LikeDisLikeWorkSample(this,'{{ WorkSample.id }}')"#}
+                        {#                                               Liked="{{ WorkSample.ListIDUserLiked|ValInList:User.id }}"></i>#}
+                        {#                                        {% else %}#}
+                        {#                                            <i class="far fa-heart CursorDefault BtnLikeWorkSample"></i>#}
+                        {#                                        {% endif %}#}
+                        {##}
+                        {#                                        <p class="SplitNumber" NumberLike#}
+                        {#                                           Number="{{ WorkSample.GetLenLikes }}"></p>#}
+                        {#                                    </div>#}
+                        {#                                </div>#}
+                        {#                            </div>#}
+                        {#                            <div class="ShowWorkSample" ID_Sample="{{ WorkSample.id }}">#}
+                        {#                                <button class="BtnStyle_1" onclick="GetWorkSample(this.parentNode)">مشاهده#}
+                        {#                                </button>#}
+                        {#                            </div>#}
+                        {#                        </div>#}
+                        {#                    </div>#}
                     {% endfor %}
-                    <button class="BtnNextSlider" State="Disabled"
-                            onclick="ChangeSlider(this.parentNode,'Next',this.getAttribute('State'))">
-                        <i class="fa fa-arrow-right"></i>
-                    </button>
-                    <button class="BtnPrevSlider" State="Active"
-                            onclick="ChangeSlider(this.parentNode,'Prev',this.getAttribute('State'))">
-                        <i class="fa fa-arrow-left"></i>
-                    </button>
                 </div>
+            </div>
+            <div class="text-right w-75 mx-auto">
+                <img src="/Static/Img/Img-Design/Img-Shape/VectorArrowToDown.svg" alt="Arrow"
+                     class="Img-Shape-Design Element30Rotated">
             </div>
             <div class="ContainerTitle">
                 <div>
@@ -264,17 +295,22 @@
                 <div class="ContentInfoTeam">
                     <p>
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
+                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
+                        تکنولوژی
                         مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه
-                        درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری
-                        را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این
-                        صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد
+                        درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت
+                        بیشتری
+                        را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در
+                        این
+                        صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان
+                        رسد
                         وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی
                         اساسا مورد استفاده قرار گیرد.
                     </p>
                     <br>
                     <div class="text-left">
-                        <button class="BtnStyle_7" AnimationScroll="AnimationOpacity" onclick="GoToUrl('/M/Login-Create')">
+                        <button class="BtnStyle_7" AnimationScroll="AnimationOpacity"
+                                onclick="GoToUrl('/M/Login-Create')">
                             پیوستن به تیم
                         </button>
                     </div>
@@ -292,20 +328,25 @@
                     <p class="TextContactUs">
                         متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان
                         خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری
-                        موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای
+                        موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی
+                        دستاوردهای
                         اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                     </p>
                     <div class="ContainerItemsContact">
-                        <div class="ItemContact" Instagram AnimationScroll="AnimationBottomToTop" ClickFunc="GoToUrl(https://www.instagram.com/codevar.ir/)">
+                        <div class="ItemContact" Instagram AnimationScroll="AnimationBottomToTop"
+                             ClickFunc="GoToUrl(https://www.instagram.com/codevar.ir/)">
                             <i class="fab fa-instagram"></i>
                         </div>
-                        <div class="ItemContact" Telegram AnimationScroll="AnimationTopToBottom" ClickFunc="GoToUrl(https://t.me/Codevar)">
+                        <div class="ItemContact" Telegram AnimationScroll="AnimationTopToBottom"
+                             ClickFunc="GoToUrl(https://t.me/Codevar)">
                             <i class="fab fa-telegram-plane"></i>
                         </div>
-                        <div class="ItemContact" Email AnimationScroll="AnimationBottomToTop" ClickFunc="GoToUrl(mailto:codevar.ir@gmail.com)">
+                        <div class="ItemContact" Email AnimationScroll="AnimationBottomToTop"
+                             ClickFunc="GoToUrl(mailto:codevar.ir@gmail.com)">
                             <i class="far fa-envelope"></i>
                         </div>
-                        <div class="ItemContact" Phone AnimationScroll="AnimationTopToBottom" ClickFunc="GoToUrl(tel:09399558747)">
+                        <div class="ItemContact" Phone AnimationScroll="AnimationTopToBottom"
+                             ClickFunc="GoToUrl(tel:09399558747)">
                             <i class="far fa-phone"></i>
                         </div>
                     </div>

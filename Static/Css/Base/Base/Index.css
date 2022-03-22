@@ -1,5 +1,6 @@
 
 :root {
+    --ColorBase: #00eeb6;
     --ColorValItem: #777777;
     --ColorTitle: #606060;
     --ColorText: #393939;
@@ -12,6 +13,12 @@
 
 .anychart-credits-logo {
     display: none;
+}
+
+
+.Codevar{
+    color: var(--ColorBase);
+    font-family: 'KalameBlack';
 }
 
 img {
@@ -124,7 +131,7 @@ table {
 }
 
 body {
-    background: #e7e7e7;
+    background: #f8f8f8;
     direction: rtl;
     text-align: right;
 }
@@ -177,7 +184,7 @@ html, body {
 }
 
 
-.ContainerTitle p{
+.ContainerTitle p {
     font-family: 'KalameBlack';
 }
 
@@ -293,16 +300,23 @@ input[type=number] {
     width: 30%;
 }
 
+.BtnStyle_0{
+    outline: none;
+    border: none;
+    background: none;
+    padding: 5px;
+}
+
 
 .BtnStyle_1 {
     padding: 6px;
     width: 85px;
     border-radius: 4px;
-    background: #fafafa;
-    color: #1db388;
+    background: #fff;
+    color: var(--ColorBase);
     transition: box-shadow .1s, background-color .15s;
     margin: 5px;
-    border: 1px solid #1db388;
+    border: 1px solid var(--ColorBase);
 }
 
 .BtnStyle_1:focus {
@@ -315,7 +329,7 @@ input[type=number] {
 }
 
 .BtnStyle_1:hover {
-    background: #1db388;
+    background: var(--ColorBase);
     color: white;
 }
 
@@ -409,39 +423,51 @@ input[type=number] {
     background: #ccffd5;
 }
 
-
 .BtnStyle_10 {
-    background: #3ea7f0;
-    padding: 3px 30px !important;
+    background: linear-gradient(140deg, #44d4a1, #00ffc6);
+    padding: 4px 30px !important;
     border-radius: 100px;
     border: none !important;
-    box-shadow: 0 5px 5px rgba(62, 167, 240, 0.3);
+    box-shadow: 0 2px 2px rgba(62, 167, 240, 0.15);
+    transition: all .2s;
+    position: relative;
 }
 
 .BtnStyle_10 p {
-    color: white !important;
+    color: #ffffff !important;
 }
 
-.BtnStyle_10:hover p {
-    color: white;
+.BtnStyle_10:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    left: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: -1;
+    transition: all .2s;
 }
 
-.BtnStyle_10:hover {
-    background: #3b9de3;
+.BtnStyle_10:hover:after {
+    width: 100%;
 }
 
 .BtnStyle_10_OutLine {
     padding: 2px 10px !important;
     border-radius: 100px;
-    border: 1px solid #3ea7f0;
+    border: none;
+    background: none;
+    outline: none;
 }
 
 .BtnStyle_10_OutLine p {
-    color: #3ea7f0 !important;
+    color: #777777 !important;
 }
 
 .BtnStyle_10_OutLine:hover {
-    background: #3ea7f0;
+    background: var(--ColorBase);
 }
 
 .BtnStyle_10_OutLine:hover p {
@@ -916,8 +942,8 @@ button:focus {
     border-radius: 5px;
     transition: margin .2s;
     background: none;
-    font-size: 150%;
-    color: rgba(81,81,81,0.70);
+    font-size: 180%;
+    color: rgba(81, 81, 81, 0.70);
 }
 
 .Sliders .BtnNextSlider {
@@ -927,9 +953,11 @@ button:focus {
     border-radius: 5px;
     transition: margin .2s;
     background: none;
-    font-size: 150%;
-    color: rgba(81,81,81,0.70);
+    font-size: 180%;
+
+    color: rgba(81, 81, 81, 0.70);
 }
+
 .Sliders button:focus {
     outline: none;
 }
@@ -940,12 +968,12 @@ button:focus {
 
 .BtnPrevSlider:hover {
     margin-left: 4px;
-    color: rgba(81,81,81,1);
+    color: rgba(81, 81, 81, 1);
 }
 
 .BtnNextSlider:hover {
     margin-right: 4px;
-    color: rgba(81,81,81,1);
+    color: rgba(81, 81, 81, 1);
 }
 
 .SliderActive {
@@ -1568,6 +1596,16 @@ button:focus {
 
 .Element20Rotated {
     transform: rotate(20deg);
+}
+
+
+.Element30Rotated {
+    transform: rotate(30deg);
+}
+
+
+.Element40Rotated {
+    transform: rotate(40deg);
 }
 
 

@@ -31,8 +31,9 @@
                                     <i class="far fa-sign-out-alt" onclick="SignOutAccountMenu()"></i>
                                 </div>
                             </div>
-                            <img src="/Static/Img/Img-Logo/IconLogo.jpg" alt="{{ User.GetNameAndFamily }}"
-                                 class="ImageUserHeaderMenu" ClickFunc="GoToUrl({{ User.GerSrcPanel }})">
+                            <h1 class="Codevar">کدوار</h1>
+{#                            <img src="/Static/Img/Img-Logo/IconLogo.jpg" alt="{{ User.GetNameAndFamily }}"#}
+{#                                 class="ImageUserHeaderMenu" ClickFunc="GoToUrl({{ User.GerSrcPanel }})">#}
                         </div>
                     {% endif %}
                 {% else %}
@@ -50,28 +51,28 @@
             {% endif %}
             <div class="ContainerBtnsHeaderLvl2Menu ContainerMainMenu">
                 {% if ListItems|SearchInList:'BtnSubmitProject' %}
-                    <div class="ItemHeaderMenu ItemHeaderAniIcon" onclick="GoToUrl('/U/Profile?ProjectSubmit')">
+                    <a class="ItemHeaderMenu ItemHeaderAniIcon" href="/U/Profile?ProjectSubmit">
                         <p>ثبت پروژه</p>
                         <i class="far fa-file-plus"></i>
-                    </div>
+                    </a>
                 {% endif %}
                 {% if ListItems|SearchInList:'BtnJoinToTeam' %}
-                    <div class="ItemHeaderMenu ItemHeaderAniIcon" onclick="GoToUrl('/M/Login-Create')">
+                    <a class="ItemHeaderMenu ItemHeaderAniIcon" href="/M/Login-Create">
                         <p>ورود به تیم</p>
                         <i class="far fa-users-crown"></i>
-                    </div>
+                    </a>
                 {% endif %}
                 {% if ListItems|SearchInList:'WorkSamples' %}
-                    <div class="ItemHeaderMenu ItemHeaderAniIcon" onclick="GoToUrl('/Ws')">
+                    <a class="ItemHeaderMenu ItemHeaderAniIcon" href="/Ws">
                         <p>نمونه کار ها</p>
                         <i class="far fa-file-alt"></i>
-                    </div>
+                    </a>
                 {% endif %}
                 {% if ListItems|SearchInList:'GroupMembers' %}
-                    <div class="ItemHeaderMenu ItemHeaderAniIcon" onclick="GoToUrl('/Gm')">
+                    <a class="ItemHeaderMenu ItemHeaderAniIcon" href="/Gm">
                         <p>اعضای گروه</p>
                         <i class="far fa-users"></i>
-                    </div>
+                    </a>
                 {% endif %}
                 {% if ListItems|SearchInList:'ContactUs' %}
                     <div class="ItemHeaderMenu ItemHeaderAniIcon" ClickFunc="ShowContactUsHome()">
@@ -80,10 +81,10 @@
                     </div>
                 {% endif %}
                 {% if ListItems|SearchInList:'Home' %}
-                    <div class="ItemHeaderMenu ItemHeaderAniIcon" onclick="GoToUrl('/')">
+                    <a class="ItemHeaderMenu ItemHeaderAniIcon" href="/">
                         <p>خانه</p>
                         <i class="far fa-home"></i>
-                    </div>
+                    </a>
                 {% endif %}
             </div>
             {#            <div class="ContainerFooterMenu">#}
@@ -104,42 +105,38 @@
                  class="ImageDesignIconHamburgerMenu">
             <i class="far fa-bars IconHamburgerMenu" id="IconHamburgerMenu"
                ClickFunc="OpenMenuHamburgerID(ContainerMenuHamburger)"></i>
-            {#            <div class="TitleGroupHeader TitleGroup">#}
-            {#                گروه برنامه نویسی سمیکالن#}
-            {#                <p>;</p>#}
-            {#            </div>#}
         </div>
         {% with Items|ConvertStringToList_Str as ListItems %}
             {% if ListItems|SearchInList:'BtnSubmitProject' %}
-                <div class="ItemHeader ItemHeaderAniIcon BtnStyle_10" AnimationScroll="AnimationBottomToTop"
-                     ClickFunc="GoToUrl(/U/Profile?ProjectSubmit)">
+                <button class="ItemHeader ItemHeaderAniIcon BtnStyle_10" AnimationScroll="AnimationBottomToTop"
+                        ClickFunc="GoToUrl(/U/Profile?ProjectSubmit)">
                     <p>ثبت پروژه</p>
-                </div>
+                </button>
             {% endif %}
             {% if ListItems|SearchInList:'BtnJoinToTeam' %}
-                <div class="ItemHeader ItemHeaderAniIcon BtnStyle_10_OutLine" AnimationScroll="AnimationTopToBottom"
-                     ClickFunc="GoToUrl(/M/Login-Create)">
+                <button class="ItemHeader ItemHeaderAniIcon BtnStyle_10_OutLine" AnimationScroll="AnimationTopToBottom"
+                        ClickFunc="GoToUrl(/M/Login-Create)">
                     <p>ورود به تیم</p>
-                </div>
+                </button>
             {% endif %}
             <div class="ContainerBtnsHeaderLvl2">
                 {% if ListItems|SearchInList:'Home' %}
-                    <div class="ItemHeader ItemHeaderAniIcon" onclick="GoToUrl('/')">
+                    <a class="ItemHeader ItemHeaderAniIcon" href="/">
                         <p>خانه</p>
                         <i class="far fa-home"></i>
-                    </div>
+                    </a>
                 {% endif %}
                 {% if ListItems|SearchInList:'WorkSamples' %}
-                    <div class="ItemHeader ItemHeaderAniIcon" onclick="GoToUrl('/Ws')">
+                    <a class="ItemHeader ItemHeaderAniIcon" href="/Ws">
                         <p>نمونه کار ها</p>
                         <i class="far fa-file-alt"></i>
-                    </div>
+                    </a>
                 {% endif %}
                 {% if ListItems|SearchInList:'GroupMembers' %}
-                    <div class="ItemHeader ItemHeaderAniIcon" onclick="GoToUrl('/Gm')">
+                    <a class="ItemHeader ItemHeaderAniIcon" href="/Gm">
                         <p>اعضای گروه</p>
                         <i class="far fa-users"></i>
-                    </div>
+                    </a>
                 {% endif %}
                 {% if ListItems|SearchInList:'AboutUs' %}
                     <div class="ItemHeader ItemHeaderAniIcon">
@@ -161,20 +158,21 @@
             {% endif %}
             {% if ListItems|SearchInList:'Account' %}
                 {% if User != None %}
-                    <div class="ItemHeader ItemAccount" ClickFunc="GoToUrl({{ User.GerSrcPanel }})">
+                    <a class="ItemHeader ItemAccount" href="{{ User.GerSrcPanel }}">
                         <p>{{ User.GetNameAndFamily }}</p>
                         <i class="far fa-user"></i>
-                    </div>
+                    </a>
                 {% else %}
                     {% if Member != None %}
-                        <div class="ItemHeader ItemAccount" ClickFunc="GoToUrl({{ Member.GerSrcPanel }})">
+                        <a class="ItemHeader ItemAccount" href="{{ Member.GerSrcPanel }}">
                             <p>{{ Member.GetNameAndFamily }}</p>
                             <i class="far fa-user"></i>
-                        </div>
+                        </a>
                     {% else %}
-                        <div class="ItemHeader ItemAccount">
-                            <i class="far fa-sign-in-alt" ClickFunc="GoToUrl(/U/Login-Create)"></i>
-                        </div>
+                        <a class="ItemHeader ItemAccount ItemLoginAccount" href="/U/Login-Create">
+                            <span>ورود</span>
+                            <i class="far fa-sign-in-alt"></i>
+                        </a>
                     {% endif %}
                 {% endif %}
             {% endif %}

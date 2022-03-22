@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-g0*9@dc92*a0t6%hekk=d5bzx=qlr7@6olfyyi(15e!c04h^)y
 DEBUG = True
 
 # ALLOWED_HOSTS = ['codevar.ir','www.codevar.ir']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 

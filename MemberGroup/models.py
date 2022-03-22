@@ -66,7 +66,10 @@ class WorkSample(models.Model):
         return LikeWorkSample.objects.filter(WorkSample_id=self.id)
 
     def GetLenLikes(self):
-        return len(LikeWorkSample.objects.filter(WorkSample_id=self.id))
+        return self.GetLikes().count()
+
+    def GetCoverImage(self):
+        return self.Image.url
 
     def ListIDUserLiked(self):
         return [ O.id for O in [I.Owner for I in LikeWorkSample.objects.filter(WorkSample_id=self.id)]]
