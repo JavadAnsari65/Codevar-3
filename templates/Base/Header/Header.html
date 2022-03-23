@@ -32,8 +32,8 @@
                                 </div>
                             </div>
                             <h1 class="Codevar">کدوار</h1>
-{#                            <img src="/Static/Img/Img-Logo/IconLogo.jpg" alt="{{ User.GetNameAndFamily }}"#}
-{#                                 class="ImageUserHeaderMenu" ClickFunc="GoToUrl({{ User.GerSrcPanel }})">#}
+                            {#                            <img src="/Static/Img/Img-Logo/IconLogo.jpg" alt="{{ User.GetNameAndFamily }}"#}
+                            {#                                 class="ImageUserHeaderMenu" ClickFunc="GoToUrl({{ User.GerSrcPanel }})">#}
                         </div>
                     {% endif %}
                 {% else %}
@@ -70,7 +70,7 @@
                 {% endif %}
                 {% if ListItems|SearchInList:'GroupMembers' %}
                     <a class="ItemHeaderMenu ItemHeaderAniIcon" href="/Gm">
-                        <p>اعضای گروه</p>
+                        <p>اعضای تیم</p>
                         <i class="far fa-users"></i>
                     </a>
                 {% endif %}
@@ -134,7 +134,7 @@
                 {% endif %}
                 {% if ListItems|SearchInList:'GroupMembers' %}
                     <a class="ItemHeader ItemHeaderAniIcon" href="/Gm">
-                        <p>اعضای گروه</p>
+                        <p>اعضای تیم</p>
                         <i class="far fa-users"></i>
                     </a>
                 {% endif %}
@@ -154,6 +154,9 @@
             {% if ListItems|SearchInList:'Logo' %}
                 <div class="ItemHeader ItemLogoHeader">
                     <img src="/Static/Img/Img-Logo/Logo.jpg" alt="Logo">
+                </div>
+                <div class="ItemHeader ItemLogoHeader">
+                    <h5 class="Codevar">کدوار</h5>
                 </div>
             {% endif %}
             {% if ListItems|SearchInList:'Account' %}

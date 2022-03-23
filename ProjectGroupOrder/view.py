@@ -11,8 +11,8 @@ def Home(request):
     Context['User'] = User
     Context['Member'] = Member
     Context['User_Member'] = User or Member
-    Context['WorkSamples'] = WorkSample.objects.all()[::-1][:4]
-    Context['Members'] = MemberGroup.objects.all()[::-1][:4]
+    Context['WorkSamples'] = WorkSample.objects.all()[::-1][:2]
+    Context['Members'] = MemberGroup.objects.all()[::-1][:3]
     return render(request, 'Home/index.html', Context)
 
 

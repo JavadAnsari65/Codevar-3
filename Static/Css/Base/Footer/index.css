@@ -1,21 +1,123 @@
 .ContainerFooter {
     position: relative;
+    margin-top: 130px;
+    padding: 30px;
+    padding-bottom: 10px;
+    border-top: 1px solid #e0e0e0;
+    z-index: 2;
+    text-align: center;
+}
+
+.BackgroundDesignFooter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    opacity: .1;
+    object-fit: cover !important;
+    z-index: -1;
 }
 
 .ContentFooter {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin: 15px auto;
+    padding: 10px;
+    margin-bottom: 30px;
 }
+
+.ContainerFooter ul {
+    text-align: right;
+}
+
+.ContentFooter ul h4 {
+    color: #444444;
+    font-family: 'MjCasablancaHeavy';
+}
+
+.ContainerFooter li {
+
+    padding: 5px;
+}
+
+.ContainerFooter li a {
+    color: #ff7488;
+}
+
 
 .TextCopyRight {
     font-size: 90%;
     color: #222222;
+    text-align: right;
 }
 
 .TextCopyRight span {
     font-weight: bold;
     color: black;
+}
+
+.LogoFooter {
+    width: 100px;
+    vertical-align: top;
+}
+
+.ContainerFooter .Codevar {
+    display: inline-block;
+    font-size: 360%;
+}
+
+
+ontainerItemsContact {
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.ItemContact {
+    display: inline-block;
+    margin: 3px;
+    background: none!important;
+    padding: 9px 15px;
+    font-size: 180%;
+    border-radius: 10px;
+    border: none!important;
+    cursor: pointer;
+}
+
+.ItemContact[Instagram] {
+    color: #ff4f48;
+}
+
+.ItemContact[Telegram] {
+    color: #104aff;
+}
+
+.ItemContact[Email] {
+    color: #ff1015;
+}
+
+.ItemContact[Phone] {
+    color: #3c3c3c;
+}
+
+
+@media screen and (max-width: 950px) {
+    .ContentFooter {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .ContentFooter {
+        display: block;
+    }
+
+    .ContentFooter ul {
+        width: 200px !important;
+        margin: 30px 0;
+    }
+
 }

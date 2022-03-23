@@ -16,7 +16,7 @@
 }
 
 
-.Codevar{
+.Codevar {
     color: var(--ColorBase);
     font-family: 'KalameBlack';
 }
@@ -300,21 +300,19 @@ input[type=number] {
     width: 30%;
 }
 
-.BtnStyle_0{
+.BtnStyle_0 {
     outline: none;
     border: none;
     background: none;
     padding: 5px;
 }
 
-
 .BtnStyle_1 {
-    padding: 6px;
-    width: 85px;
-    border-radius: 4px;
-    background: #fff;
-    color: var(--ColorBase);
-    transition: box-shadow .1s, background-color .15s;
+    padding: 7px 9px;
+    border-radius: 5px;
+    background: var(--ColorBase)!important;
+    color: #fff!important;
+    transition: box-shadow .15s, background-color .15s;
     margin: 5px;
     border: 1px solid var(--ColorBase);
 }
@@ -329,6 +327,29 @@ input[type=number] {
 }
 
 .BtnStyle_1:hover {
+   box-shadow: 0 3px 15px rgba(110, 255, 155, 0.5);
+}
+
+.BtnStyle_1_OutLine {
+    padding: 6px;
+    border-radius: 5px;
+    background: #fff;
+    color: var(--ColorBase);
+    transition: box-shadow .1s, background-color .15s;
+    margin: 5px;
+    border: 1px solid var(--ColorBase);
+}
+
+.BtnStyle_1_OutLine:focus {
+    outline: none;
+}
+
+.BtnStyle_1_OutLine:active {
+    box-shadow: none;
+    transform: scale(.95);
+}
+
+.BtnStyle_1_OutLine:hover {
     background: var(--ColorBase);
     color: white;
 }
@@ -503,7 +524,6 @@ input[type=number] {
 }
 
 .BtnStyle_8:hover {
-    animation: AnimationToTop .3s forwards;
     box-shadow: 0 0 6px #688ff4;
 }
 
@@ -544,6 +564,22 @@ input[type=number] {
 
 .BtnStyle_9:active {
     transform: scale(.95);
+}
+
+
+.BtnStyle_11 {
+    background: #ff7c6e !important;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 6px;
+    font-size: 95%;
+    box-shadow: 0 1px 3px rgba(221, 221, 221, 0.9);
+    transition: all .15s;
+}
+
+.BtnStyle_11:hover {
+    background: #f9786a !important;
+    color: #ffffff;
 }
 
 
@@ -1608,6 +1644,13 @@ button:focus {
     transform: rotate(40deg);
 }
 
+.Element100Rotated {
+    transform: rotate(100deg);
+}
+
+.RevertTransformY{
+    transform: rotateY(180deg);
+}
 
 .AnimationRotateY25 {
     animation: AnimationRotateY25 1.5s forwards;

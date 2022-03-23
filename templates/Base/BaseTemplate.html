@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no">
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff"/>
     <link rel="icon" href="/Static/Img/Img-Logo/IconLogo.jpg">
     <link rel="stylesheet" href="{% static 'BootStrap/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'BootStrap/css/bootstrap.min.css' %}">
@@ -40,6 +40,24 @@
     if (ContainerMenuHamburger != null) {
         SetTouchPadOnElement(ContainerMenuHamburger, 'Width', {'Direction': 'Ltr', 'Min': '0', 'Max': '260px'})
     }
+
+    // Header Fixed
+    let HeaderElement = document.getElementsByClassName('ItemsHeader')[0]
+    window.addEventListener("scroll", (event) => {
+        let Scroll = this.scrollY;
+        SetHeaderFix(Scroll)
+    });
+
+    SetHeaderFix(window.scrollY)
+
+    function SetHeaderFix(Scroll) {
+        if (Scroll < 10) {
+            HeaderElement.classList.remove('HeaderFixed')
+        } else {
+            HeaderElement.classList.add('HeaderFixed')
+        }
+    }
+
 </script>
 </body>
 </html>

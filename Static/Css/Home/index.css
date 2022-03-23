@@ -197,6 +197,7 @@
     font-size: 260% !important;
     font-family: "KalameBlack";
     color: #555555;
+    border-bottom: 4px solid var(--ColorBase);
 }
 
 .ContainerTitle i {
@@ -322,7 +323,7 @@
     vertical-align: middle;
 }
 
-.ContentWorkSample{
+.ContentWorkSample {
     margin-bottom: -5px;
 }
 
@@ -430,8 +431,8 @@
 
 
 .ContainerMembers {
-    background: #43b7ef;
-    box-shadow: 0 10px 10px #cccccc;
+    width: 100%;
+    background: none;
     margin: 0 auto;
 }
 
@@ -450,12 +451,10 @@
 .ContentMembers {
     display: inline-block;
     /* background: linear-gradient(to right, rgb(145, 61, 183), #b551a0, #f755a3, #ff96c7);*/
-    width: 40%;
+    width: 60%;
     margin: 25px;
-    margin-right: 20%;
     padding: 5px;
     text-align: left;
-    border-radius: 20% 100% 20% 20%;
 }
 
 .Member {
@@ -463,23 +462,22 @@
     display: inline-block;
     background: #f4f4f4;
     width: 300px;
-    height: 310px;
+    height: 315px;
     border-radius: 15px;
-    border: 1px solid #aaaaaa;
-    box-shadow: 0 8px 10px rgba(30, 30, 30, .2);
+    border: 1px solid #d5d5d5;
     position: relative;
     overflow: hidden;
     transition: all .2s;
 }
 
 .Member:hover {
-    box-shadow: 0 8px 15px rgba(30, 30, 30, .4);
+    border: 1px solid #bfbfbf;
 }
 
 
 .ContentMember {
     text-align: right;
-    background: #d4edf0;
+    background: #e9fff4;
     border-radius: inherit;
     height: 100%;
 }
@@ -521,32 +519,32 @@
 
 .NameMember {
     margin: 0;
-    background: #545454;
-    color: white;
+    color: #666666;
+    background: #ffffff;
+    border: 1px solid rgba(200, 200, 200, 0.8);
     padding: 1px 4px;
-    border-radius: 10px;
-    font-weight: bold;
+    border-radius: 5px;
+    /*font-weight: bold;*/
 }
 
 .TitleJobMember {
     margin: 0;
     margin-top: 1px;
-    font-size: 65%;
-    color: #444444;
+    margin-right: 7px;
+    font-size: 80%;
+    color: #656565;
     font-family: Terafik;
 }
 
 .ShowProfileMember {
     position: absolute;
-    bottom: 10px;
+    bottom: 14px;
     left: 10px;
 }
 
 
 .ContainerInfoTeam {
-    background: linear-gradient(50deg, #5ad6ae, #2eeea0, #50d48d);
     padding: 10px;
-    box-shadow: 0 20px 10px #dddddd;
     margin-bottom: 50px;
 }
 
@@ -560,7 +558,7 @@
     display: inline-block;
     background: white;
     border-radius: 7px;
-    box-shadow: 0 0 25px #bbbbbb;
+    box-shadow: 0 0 35px rgb(157 255 191 / 16%);
     padding: 20px;
     margin-top: 70px;
     width: 45%;
@@ -569,69 +567,74 @@
 .ContentInfoTeam p {
     margin: 0;
     font-size: 105%;
+    line-height: 35px;
     text-align: right;
+    color: #666666;
 }
 
 
 .ContainerInvitation {
-    margin: 50px auto;
-    margin-bottom: -80px;
+    margin: 30px auto;
     text-align: right;
-    width: 95%;
-    padding: 20px;
+    width: 60%;
+    padding: 25px;
     border-radius: 10px;
     direction: rtl;
-    /* background: linear-gradient(120deg, #ffb385, #ffc576, #ffb447);*/
-    border: 1px solid #dddddd;
-    background: #eaeaea;
-    color: black;
-    box-shadow: 0 0 15px #eeeeee;
+    background: #ffffff;
+    box-shadow: 0 0 30px rgba(157, 255, 191, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
+
 
 .ContainerInvitation p {
     display: inline-block;
     margin: 0;
     font-size: 115%;
-    border-right: 3px solid #21d69f;
+    border-right: 4px solid var(--ColorBase);
     padding-right: 10px;
-    color: #444444;
-}
-
-.ContainerInvitation button {
-    margin-top: -9px;
-    float: left;
+    color: #666666;
 }
 
 
 .ContainerContactUs {
-    background: #f0f0f0;
+    width: 70%;
+    background: #ffffff;
     padding: 10px;
     margin: 10px auto;
+    margin-top: 30px;
     text-align: right;
     perspective: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 35px rgb(157 255 191 / 13%)
 }
 
 .ContainerContactUs img {
     margin: 40px;
-    width: 280px;
-    height: 280px;
+    width: 300px;
+    height: 300px;
     border-radius: 10%;
-    float: left;
-    transform: rotateY(12deg);
-    box-shadow: -13px 0 13px #dddddd;
 }
 
 
 .ContainerItemsContactUs {
     width: 75%;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 
 .TextContactUs {
     padding: 5px;
-    margin-bottom: 100px;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 30px;
     text-align: justify;
     direction: rtl;
+    line-height: 35px;
+    color: #666666;
 }
 
 .ContainerItemsContact {
@@ -642,12 +645,12 @@
 
 .ItemContact {
     display: inline-block;
-    margin: 7px;
-    background: #f1f1f1;
+    margin: 3px;
+    background: #ffffff;
     padding: 7px 15px;
     font-size: 180%;
     border-radius: 10px;
-    box-shadow: 5px 5px 8px #bbbbbb, -5px -5px 9px white;
+    border: 1px solid #eaeaea;
     cursor: pointer;
 }
 
@@ -693,6 +696,11 @@
 }
 
 @media screen and (max-width: 1360px) {
+
+    .ContainerWorkSamples {
+        display: block;
+    }
+
     .ImageBackgroundLastProjects {
         display: block !important;
         width: 50% !important;
@@ -704,9 +712,27 @@
         margin-top: -10px;
     }
 
-    .WorkSample {
-        margin: 0;
+    .ContainerInvitation {
+        width: 75%;
     }
+
+    .ContainerContactUs {
+        display: block;
+    }
+
+    .ContainerContactUs img {
+        width: 80%;
+        display: block;
+        transform: rotateY(12deg) rotateX(-8deg);
+        margin: initial;
+        float: left;
+    }
+
+    .TextContactUs {
+        width: 90%;
+    }
+
+
 }
 
 
@@ -814,13 +840,16 @@
         margin-top: -5px;
     }
 
+    .ContainerInvitation {
+        width: 88%;
+    }
+
     .ContainerInvitation p {
         font-size: 100%;
     }
 
     .ContainerInfoTeam {
         direction: rtl;
-        background: linear-gradient(50deg, #42d6ad, #2bce88, #35d383);
     }
 
     .ContainerInfoTeam img {
@@ -830,15 +859,13 @@
     .ContentInfoTeam {
         width: 90%;
         transform: translateY(-25px);
-        box-shadow: none;
-        background: none;
-        color: white;
     }
 
     .ContentInfoTeam p {
         text-align: justify;
         font-size: 105%;
     }
+
 }
 
 @media screen and (max-width: 740px) {
@@ -846,90 +873,25 @@
         width: 60% !important;
     }
 
-    .WorkSample {
-        width: 90%;
-        left: 5%;
-    }
-
-    .WorkSample {
-        height: 460px;
-    }
-
-    .HeaderWokSample {
-        margin: 0;
-    }
-
-    .TitleWorkSample {
-        display: block;
-        margin: 0;
-        font-size: 115%;
-    }
-
-    .ContentWorkSample img {
-        float: none;
-        margin: auto;
-        display: block;
-        margin-bottom: 5px;
-        margin-top: -30px;
-        width: 80%;
-        height: 250px;
-        box-shadow: 0 3px 6px #dddddd;
-
-    }
-
-    .ItemLikeTimeWorkSample {
-        float: none;
-        text-align: right;
-        direction: rtl;
-        font-size: 95%;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-
-    .TimePastWorkSample {
-        display: inline-block;
-        font-size: 60%;
-        height: 18px;
-    }
-
-    .LikeWorkSample {
-        display: inline-block;
-        text-align: center;
-    }
-
-    .LikeWorkSample p {
-        text-align: center;
-    }
-
-    .MainWorkSample {
-        display: none;
-    }
-
-    .ShowWorkSample {
-        position: static;
-        text-align: center;
-        margin: 10px;
-    }
-
-    .ShowWorkSample button {
-        width: 35%;
-        padding: 10px;
-        background: #1d83f5;
-        color: white;
-        border: none;
-        box-shadow: 0 7px 5px #cccccc;
-        transition: all .2s;
-    }
 
     .ContainerInvitation {
-        font-size: 85%;
+        width: 95%;
+        font-size: 95%;
+        display: block;
     }
 
-    .ContainerContactUs img {
-        width: 200px;
-        height: 200px;
+    .ContainerInvitation a {
+        display: block;
+        margin: auto;
+        margin-top: 30px;
+        text-align: center;
+        width: 80%;
     }
+
+    .ContainerContactUs {
+        width: 95%;
+    }
+
 
     .ContainerItemsContactUs {
         margin-top: 50px;
@@ -958,17 +920,10 @@
         width: 95% !important;
     }
 
-    .ContentWorkSample img {
-        width: 100%;
+    .WorkSample {
+        width: 95%;
     }
 
-    .TitleWorkSample {
-        font-size: 110%;
-    }
-
-    .ShowWorkSample button {
-        width: 50%;
-    }
 
     .ImageDesignMembers {
         width: 95% !important;
@@ -994,18 +949,11 @@
         width: 90%;
     }
 
+
     .ContainerContactUs {
-        background: white;
+        width: 100%;
     }
 
-    .ContainerContactUs img {
-        width: 100%;
-        display: block;
-        float: none;
-        transform: rotateY(12deg) rotateX(-8deg);
-        border-radius: 0;
-        box-shadow: none;
-    }
 
     .ContainerItemsContactUs {
         width: 100%;
@@ -1015,9 +963,6 @@
         font-size: 145%;
     }
 
-    .ContainerFooter svg {
-        display: none;
-    }
 
     .ContentFooter {
         margin-top: 40px;
