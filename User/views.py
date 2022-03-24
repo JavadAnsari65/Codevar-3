@@ -11,7 +11,7 @@ from ProjectGroupOrder.Tools import Set_Cookie, Set_Cookie_Functionality
 from .models import *
 from MemberGroup.models import MemberGroup
 
-
+ 
 def Panel(request):
     Context = {}
     User = GetUser_ByMODEL(request,'User')

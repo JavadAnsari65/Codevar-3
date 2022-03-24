@@ -411,9 +411,6 @@
     color: #ee3136;
 }
 
-.ContainerNotFoundContent {
-    width: 60%;
-}
 
 
 @media screen and (max-width: 1100px) {
@@ -486,9 +483,6 @@
         color: white !important;
     }
 
-    .ContainerNotFoundContent {
-        width: 100%;
-    }
 
 }
 

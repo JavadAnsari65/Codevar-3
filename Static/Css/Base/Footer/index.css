@@ -76,30 +76,30 @@ ontainerItemsContact {
     width: 100%;
 }
 
-.ItemContact {
+.ContainerFooter .ItemContact {
     display: inline-block;
     margin: 3px;
     background: none!important;
     padding: 9px 15px;
-    font-size: 180%;
+    font-size: 150%;
     border-radius: 10px;
     border: none!important;
     cursor: pointer;
 }
 
-.ItemContact[Instagram] {
+.ContainerFooter .ItemContact[Instagram] {
     color: #ff4f48;
 }
 
-.ItemContact[Telegram] {
+.ContainerFooter .ItemContact[Telegram] {
     color: #104aff;
 }
 
-.ItemContact[Email] {
+.ContainerFooter .ItemContact[Email] {
     color: #ff1015;
 }
 
-.ItemContact[Phone] {
+.ContainerFooter .ItemContact[Phone] {
     color: #3c3c3c;
 }
 

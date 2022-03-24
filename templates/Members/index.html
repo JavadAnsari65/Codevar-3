@@ -9,6 +9,13 @@
 {% endblock %}
 {% block Content %}
     {% include 'Base/Header/Header.html' with Items='BtnSubmitProject,BtnJoinToTeam,Home,WorkSamples,Account,Logo' Place='Other' Style='Type1' User=User_Member %}
+    <div class="Breadcrumb">
+        <ul>
+            <li><a href="/">خانه</a></li>
+            <i class="fa fa-angle-left"></i>
+            <li>اعضا</li>
+        </ul>
+    </div>
     <div class="ContainerMembers">
         <div class="ContainerTitle">
             <p>اعضا</p>
@@ -56,9 +63,9 @@
                             </p>
                         </div>
                         <div class="ShowProfileMember">
-                            <button class="BtnStyle_8" ClickFunc="GoToUrl(/M/{{ Member.id }})/Profile">
+                            <a class="BtnStyle_11" href="/M/{{ Member.id }}/Profile">
                                 مشاهده پروفایل
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

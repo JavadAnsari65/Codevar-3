@@ -354,7 +354,6 @@
     padding: 2px 6px;
     border-radius: 15px;
     color: #888888;
-
 }
 
 .TimePastWorkSample p {
@@ -477,7 +476,7 @@
 
 .ContentMember {
     text-align: right;
-    background: #e9fff4;
+    background: #effaf4;
     border-radius: inherit;
     height: 100%;
 }

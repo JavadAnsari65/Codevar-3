@@ -142,7 +142,7 @@ html, body {
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 9px;
     height: 7px;
 }
 
@@ -152,8 +152,8 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #626669;
-    border-radius: 20px;
+    background: var(--ColorBase);
+    border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -290,14 +290,11 @@ input[type=number] {
 .ContainerNotFoundContent div {
     margin: 0;
     margin-top: 10px;
-    font-size: 105%;
+    font-size: 110%;
     display: inline-block;
-    border: 2px solid rgba(255, 70, 69, 0.1);
-    background: rgba(255, 70, 69, 0.1);
     color: rgba(255, 70, 69, 1);
     padding: 6px 20px;
     border-radius: 4px;
-    width: 30%;
 }
 
 .BtnStyle_0 {
@@ -310,8 +307,8 @@ input[type=number] {
 .BtnStyle_1 {
     padding: 7px 9px;
     border-radius: 5px;
-    background: var(--ColorBase)!important;
-    color: #fff!important;
+    background: var(--ColorBase) !important;
+    color: #fff !important;
     transition: box-shadow .15s, background-color .15s;
     margin: 5px;
     border: 1px solid var(--ColorBase);
@@ -327,7 +324,7 @@ input[type=number] {
 }
 
 .BtnStyle_1:hover {
-   box-shadow: 0 3px 15px rgba(110, 255, 155, 0.5);
+    box-shadow: 0 3px 15px rgba(110, 255, 155, 0.5);
 }
 
 .BtnStyle_1_OutLine {
@@ -574,6 +571,7 @@ input[type=number] {
     border-radius: 6px;
     font-size: 95%;
     box-shadow: 0 1px 3px rgba(221, 221, 221, 0.9);
+    border: none;
     transition: all .15s;
 }
 
@@ -805,8 +803,8 @@ button:focus {
     font-weight: bold;
     background: rgba(255, 102, 108, 0.55);
     position: absolute;
-    right: 1%;
-    bottom: 2%;
+    right: 2%;
+    bottom: 3%;
     color: #464646;
 }
 
@@ -818,18 +816,20 @@ button:focus {
     font-weight: bold;
     background: rgba(83, 255, 121, 0.55);
     position: absolute;
-    left: 1%;
-    bottom: 2%;
+    left: 2%;
+    bottom: 3%;
     color: #464646;
 }
 
 .BtnOk_Alert:hover {
-    background: rgba(83, 255, 121, 0.85) !important;
+    background: rgba(83, 255, 121, 1) !important;
 }
 
 .ContainerMessage_Alert button {
     border: none;
-    padding: 7px;
+    padding: 8px;
+    width: 90px;
+    border-radius: 5px;
 }
 
 .ContainerMessage_Alert button:focus {
@@ -1051,145 +1051,6 @@ button:focus {
     visibility: visible;
 }
 
-
-.NotificationMessage {
-    padding: 4px;
-    width: 300px;
-    box-shadow: 0 1px 3px #dddddd;
-    direction: rtl;
-    text-align: center;
-    border-radius: 4px;
-    position: fixed;
-    top: 2%;
-    right: 2%;
-    z-index: 1000;
-    background: #ffffff;
-    transition: all 1s;
-    animation: ShowNotification_Animation_1 .25s;
-}
-
-@keyframes ShowNotification_Animation_1 {
-    0% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateX(0) translateY(0);
-    }
-}
-
-.LevelOfNecessity_1 {
-    width: 250px;
-}
-
-.LevelOfNecessity_1 p {
-    font-size: 90%;
-}
-
-.LevelOfNecessity_2 {
-    width: 280px;
-}
-
-.LevelOfNecessity_2 p {
-    font-size: 95%;
-}
-
-.LevelOfNecessity_3 {
-    width: 330px;
-}
-
-.LevelOfNecessity_3 p {
-    font-size: 100%;
-}
-
-.LevelOfNecessity_4 {
-    width: 350px;
-}
-
-.LevelOfNecessity_4 p {
-    font-size: 110%;
-}
-
-.LevelOfNecessity_5 {
-    width: 400px;
-}
-
-.LevelOfNecessity_5 p {
-    font-size: 120%;
-}
-
-
-.NotificationMessage p {
-    margin: 0;
-    margin-top: 2px;
-    padding-bottom: 20px;
-}
-
-.BtnCloseNotification {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: none;
-    text-align: right;
-    display: block !important;
-    font-size: 110%;
-    cursor: pointer;
-    transform: rotate(0) !important;
-    color: #ff7e79;
-}
-
-.BtnCloseNotification:hover {
-    color: #ff0c00;
-}
-
-.NotificationSuccess {
-    border: 1px solid #17c3b2;
-}
-
-.NotificationSuccess p {
-    color: #17c3b2;
-}
-
-.NotificationError {
-    border: 1px solid #ff4558;
-}
-
-.NotificationError p {
-    color: #ff4558;
-}
-
-.NotificationWarning {
-    border: 1px solid #ffd133;
-}
-
-.NotificationWarning p {
-    color: #ffaf07;
-}
-
-.Success {
-    box-shadow: 0 0 3px #17c3b2;
-    color: #17c3b2;
-}
-
-.Success p {
-    color: #17c3b2;
-}
-
-.Alert {
-    box-shadow: 0 0 3px #ff4558;
-    color: #ff4558;
-}
-
-.Alert p {
-    color: #ff4558;
-}
-
-.Warning {
-    box-shadow: 0 0 3px #ffd070;
-}
-
-.Warning p {
-    color: #e0bc5e;
-}
 
 .AnimationOpacity {
     animation: AnimationOpacity .15s forwards;
@@ -1476,6 +1337,401 @@ button:focus {
     color: rgba(152, 61, 66, 1);
 }
 
+.Breadcrumb {
+    background: #f3f3f3;
+    padding: 0 20px;
+}
+
+.Breadcrumb li {
+    display: inline-block;
+    padding: 15px;
+    font-size: 105%;
+}
+
+.Breadcrumb i {
+    color: #777777;
+}
+
+.Breadcrumb li a {
+    color: #777777;
+}
+
+
+.ContainerMessage_Alert {
+    display: inline-block;
+    box-shadow: 0 0 0 100000px rgba(0, 0, 0, .5);
+    background: #ffffff;
+    position: fixed !important;
+    top: 20%;
+    z-index: 12;
+    text-align: center;
+    padding: 90px;
+    padding-bottom: 110px;
+    border-radius: 5px;
+    animation: AnimationShowMessageAlert .5s;
+}
+
+@keyframes AnimationShowMessageAlert {
+    0% {
+        transform: translateY(-120px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.TextMessage_Alert {
+    font-size: 90%;
+    border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 15px;
+}
+
+.TextMessage_Alert p {
+    text-align: center;
+    width: 100%;
+    color: #ffb44e !important;
+    margin-top: 5px;
+    word-break: break-word;
+    font-size: 90%;
+}
+
+.BtnClose1_Alert {
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    color: #ff4c51;
+    font-size: 110%;
+    cursor: pointer;
+}
+
+.BtnClose1_Alert:hover {
+    color: #ff282c;
+}
+
+.BtnClose_Alert {
+    font-weight: bold;
+    background: rgba(255, 102, 108, 0.7);
+    position: absolute;
+    right: 1%;
+    bottom: 2%;
+    color: #464646;
+}
+
+.BtnClose_Alert:hover {
+    background: rgba(255, 102, 108, 0.85) !important;
+}
+
+.BtnClose_Alert:focus {
+    background: rgba(255, 102, 108, 0.9) !important;
+    color: #ffffff;
+}
+
+.BtnOk_Alert {
+    font-weight: bold;
+    background: rgb(81, 255, 163);
+    position: absolute;
+    left: 1%;
+    bottom: 2%;
+    color: #464646;
+}
+
+.BtnOk_Alert:hover {
+    background: rgb(25, 232, 145) !important;
+    color: #ffffff;
+}
+
+.BtnOk_Alert:focus {
+    background: rgb(12, 232, 146) !important;
+    color: #ffffff;
+}
+
+.ContainerMessage_Alert button {
+    border: none;
+    padding: 7px;
+}
+
+.ContainerMessage_Alert button:focus {
+    outline: none;
+}
+
+
+#ContainerNotificationsMessage {
+    position: fixed;
+    top: 1%;
+    right: 1%;
+    z-index: 9999999;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.NotificationMessage {
+    position: relative;
+    padding: 7px;
+    margin: 15px 10px;
+    width: 300px;
+    box-shadow: 0 5px 8px rgba(148, 148, 148, 0.1);
+    direction: rtl;
+    text-align: center;
+    border-radius: 4px;
+    transition: all 1s;
+    background: #ffffff;
+    animation: ShowNotification_Animation_1 .3s;
+}
+
+.Notification_Removed {
+    animation: Animation_Notification_Removed .25s forwards;
+}
+
+@keyframes Animation_Notification_Removed {
+    100% {
+        transform: translateX(-300px);
+        opacity: 0;
+    }
+}
+
+@keyframes ShowNotification_Animation_1 {
+    0% {
+        transform: translateX(100px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+.LevelOfNecessity_1 {
+    width: 250px;
+}
+
+.LevelOfNecessity_1 p {
+    font-size: 90%;
+}
+
+.LevelOfNecessity_2 {
+    width: 280px;
+}
+
+.LevelOfNecessity_2 p {
+    font-size: 95%;
+}
+
+.LevelOfNecessity_3 {
+    width: 330px;
+}
+
+.LevelOfNecessity_3 p {
+    font-size: 100%;
+}
+
+.LevelOfNecessity_4 {
+    width: 350px;
+}
+
+.LevelOfNecessity_4 p {
+    font-size: 110%;
+}
+
+.LevelOfNecessity_5 {
+    width: 400px;
+}
+
+.LevelOfNecessity_5 p {
+    font-size: 120%;
+}
+
+
+.NotificationMessage p {
+    margin: 0;
+    margin-top: 2px;
+    padding-bottom: 20px;
+}
+
+.IconNotification {
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    font-size: 110%;
+}
+
+.IconNotification_Success {
+    color: #1af196;
+}
+
+.IconNotification_Error {
+    color: #f15368;
+}
+
+.IconNotification_Warning {
+    color: #ffaf07;
+}
+
+.BtnCloseNotification {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    text-align: right;
+    display: block !important;
+    font-size: 95%;
+    cursor: pointer;
+    transform: rotate(0) !important;
+    color: #ff7e79;
+}
+
+.BtnCloseNotification:hover {
+    color: #ff0c00;
+}
+
+.NotificationSuccess {
+    box-shadow: 0 3px 1px #1af196;
+}
+
+.NotificationSuccess p {
+    color: #17c3b2;
+}
+
+.NotificationError {
+    box-shadow: 0 3px 1px #f15368;
+}
+
+.NotificationError p {
+    color: #ff4558;
+}
+
+.NotificationWarning {
+    border: 1px solid rgba(255, 209, 51, 0.35);
+    box-shadow: 0 3px 1px #ffaf07;
+}
+
+.NotificationWarning p {
+    color: #ffaf07;
+}
+
+.Success {
+    box-shadow: 0 0 3px #17c3b2;
+    color: #17c3b2;
+}
+
+.Success p {
+    color: #17c3b2;
+}
+
+.Alert {
+    box-shadow: 0 0 3px #ff4558;
+    color: #ff4558;
+}
+
+.Alert p {
+    color: #ff4558;
+}
+
+.Warning {
+    box-shadow: 0 0 3px #ffd070;
+}
+
+.Warning p {
+    color: #e0bc5e;
+}
+
+
+.ContainerLoadingAJAX {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background: rgba(145, 145, 145, 0.2);
+    backdrop-filter: blur(3px);
+    z-index: 99999999;
+}
+
+
+.LoadingCircle {
+    display: block;
+    height: 80px;
+    width: 80px;
+    animation: Animation_LoadingCircle-1 3s linear infinite;
+}
+
+@keyframes Animation_LoadingCircle-1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.LoadingCircle span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    height: inherit;
+    width: inherit;
+    clip: rect(40px, 80px, 80px, 0);
+    animation: Animation_LoadingCircle-2 1.5s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+}
+
+
+@keyframes Animation_LoadingCircle-2 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.LoadingCircle span::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    height: inherit;
+    width: inherit;
+    border: 3px solid transparent;
+    border-top: 6px solid rgb(35, 227, 159);
+    border-radius: 50%;
+    animation: Animation_LoadingCircle-3 1.5s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+}
+
+
+@keyframes Animation_LoadingCircle-3 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.LoadingCircle span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    height: inherit;
+    width: inherit;
+    border: 6px solid rgb(39, 245, 171);
+    border-radius: 50%;
+}
+
 
 @keyframes AnimationOpacity {
     0% {
@@ -1529,6 +1785,11 @@ button:focus {
         font-size: 100%;
     }
 
+    .ContainerBlur[Size='Medium'] {
+        width: 70%;
+        right: 15%;
+    }
+
     .ContainerBlur {
         width: 70%;
         right: 15%;
@@ -1536,6 +1797,15 @@ button:focus {
 }
 
 @media screen and (max-width: 1200px) {
+    .ContainerMessage_Alert {
+        width: 45%;
+        left: 27.5%;
+    }
+
+    .TextMessage_Alert {
+        font-size: 95%;
+    }
+
     .ContainerMessage_Alert {
         width: 45%;
         left: 27.5%;
@@ -1557,6 +1827,10 @@ button:focus {
         font-size: 90%;
     }
 
+    .ContainerBlur[Size='Small'] {
+        width: 70%;
+        right: 15%;
+    }
 
 }
 
@@ -1564,10 +1838,15 @@ button:focus {
     .ContainerMessage_Alert {
         width: 60%;
         left: 20%;
+        padding: 80px 30px;
     }
 
     .TextMessage_Alert {
         font-size: 85%;
+    }
+
+    .TextMessage_Alert {
+        width: 100%;
     }
 
     .ContainerBlur {
@@ -1581,21 +1860,31 @@ button:focus {
         vertical-align: middle;
         font-size: 120%;
     }
+
+    .ContainerBlur[Size='Small'] {
+        width: 75%;
+        right: 12.5%;
+    }
 }
 
 @media screen and (max-width: 550px) {
     .ContainerMessage_Alert {
-        width: 70%;
-        left: 15%;
+        width: 80%;
+        left: 10%;
     }
 
     .TextMessage_Alert {
-        font-size: 80%;
+        font-size: 90%;
     }
 
-    .ContainerBlur {
+    .ContainerBlur[Size='Medium'] {
         width: 85%;
         right: 7.5%;
+    }
+
+    .ContainerBlur[Size='Small'] {
+        width: 88%;
+        right: 6%;
     }
 }
 
@@ -1614,17 +1903,36 @@ button:focus {
         right: 4%;
     }
 
+    .ContainerMessage_Alert {
+        width: 90%;
+        left: 5%;
+    }
+
+    .TextMessage_Alert {
+        font-size: 95%;
+    }
+
+    .ContainerBlur[Size='Medium'] {
+        width: 98%;
+        right: 1%;
+    }
+
+    .ContainerBlur[Size='Small'] {
+        width: 98%;
+        right: 1%;
+    }
+
 }
 
 
 @media screen and (max-width: 350px) {
     .ContainerMessage_Alert {
-        width: 80%;
-        left: 10%;
+        width: 95%;
+        left: 2.5%;
     }
 
     .TextMessage_Alert {
-        font-size: 75%;
+        font-size: 88%;
     }
 
 }
@@ -1648,7 +1956,7 @@ button:focus {
     transform: rotate(100deg);
 }
 
-.RevertTransformY{
+.RevertTransformY {
     transform: rotateY(180deg);
 }
 

@@ -1,31 +1,55 @@
 .ContainerWorkSamples {
     margin: auto;
     margin-top: 50px;
-    min-height: 75vh;
+    min-height: 80vh;
     background: #fafafa;
-    width: 99%;
-    border-radius: 11px;
+    width: 100%;
     position: relative;
     overflow: hidden;
     z-index: 0;
 }
 
+.ContainerWorkSamples:after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    left: -125px;
+    top: 50px;
+    background: rgba(255, 191, 174, 0.5);
+    z-index: -1;
+}
+
+.ContainerWorkSamples:before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    right: -100px;
+    bottom: -50px;
+    background: rgba(172, 255, 220, 0.7);
+    z-index: -1;
+}
+
 .ContainerTitle {
     padding: 15px;
-    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
 }
 
 .ContainerTitle p {
     margin: 0;
-    font-size: 140%;
+    margin: 5px;
+    font-size: 290%;
     display: inline-block;
     color: #555555;
 }
 
 .ContainerTitle i {
-    float: left;
-    font-size: 150%;
     color: #ff812b;
+    font-size: 160%;
+    margin: 5px;
 }
 
 .ImgDesignBlobTop {
@@ -64,60 +88,58 @@
 }
 
 .WorkSamples {
+    width: 1200px;
     text-align: center;
-    margin: 40px 0;
+    margin: 40px auto;
 }
 
 .WorkSample {
-    display: inline-block;
-    width: 500px;
-    height: 380px;
-    background: #f8faff;
-    vertical-align: middle;
-    overflow: hidden;
-    position: relative;
-    margin: 10px;
-    border-radius: 15px;
-    z-index: 5;
-    transition: all .2s;
-    box-shadow: 0 4px 20px rgb(100,100,100, .3);
-    border: 1px solid #DDDDDD;
-}
-
-.WorkSample:hover {
-    box-shadow: 0 5px 23px rgb(100,100,100, .5);
-}
-
-.ContainerImageWorkSample {
-    display: block;
     text-align: left;
+    overflow: hidden;
+    display: inline-block;
+    width: 380px;
+    height: 350px;
+    margin: 10px;
+    perspective: 1000px;
+    direction: ltr;
+    border-radius: 20px;
+    position: relative;
+    /*border: 1px solid rgba(0, 255, 140, 0.05);*/
+    box-shadow: 0 0 25px rgba(74, 255, 163, 0.1);
+    background: #ffffff;
+}
+
+.WorkSample img {
+    width: 100%;
+    height: 240px;
+    border-radius: 20px 20px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ContentWorkSample {
+    margin-bottom: -5px;
 }
 
 
-.LinkAddressWorkSample {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 85%;
+.ContentWorkSample p {
+    margin: 0;
 }
 
-.ContainerImageWorkSample img {
-    width: 70%;
-    height: 280px;
-    border-right: 1px solid #e5e5e5;
-    border-bottom: 1px solid #e5e5e5;
-    background: #f8f7f6;
-    border-radius: 0 0 100px 0;
+
+.TitleWorkSample {
+    text-align: right;
+    direction: rtl;
+    font-size: 105%;
+    font-weight: bold;
+    color: #565656;
     padding: 5px;
 }
-
 
 .ItemLikeTimeWorkSample {
-    text-align: right;
-    font-size: 95%;
-    padding: 5px;
-    margin-top: -50px;
-    margin-right: 25px;
+    text-align: left;
+    float: left;
+    display: inline-block;
 }
 
 .TimePastWorkSample {
@@ -125,40 +147,45 @@
     background: white;
     padding: 2px 6px;
     border-radius: 15px;
-    color: #666666;
-    display: inline-block;
-    vertical-align: middle;
+    color: #888888;
 }
 
 .TimePastWorkSample p {
     direction: rtl;
     display: inline-block;
     margin: 0;
+    font-size: 85%;
 }
 
 .TimePastWorkSample i {
+    font-size: 110%;
     animation: AnimationRotateClock 9s infinite;
 }
 
+
 .LikeWorkSample {
-    margin-top: 2px;
-    text-align: left;
-    display: inline-block;
-    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 70px;
+    background: #ffffff;
+    border: 1px solid rgba(145, 145, 145, 0.25);
+    padding: 8px 4px;
+    border-radius: 18px 6px 6px 6px;
+    z-index: 1;
 }
 
 .LikeWorkSample p {
-    margin: -7px 0 0 0;
-    padding-left: 22px;
-    text-align: left;
-    font-size: 75%;
+    font-size: 80%;
+    padding-top: 5px;
     color: #888888;
+    display: inline-block;
 }
 
 .BtnLikeWorkSample {
-    margin: 4px;
-    font-size: 180%;
-    color: #ff7e88;
+    font-size: 160%;
+    color: #ff4e5e;
     cursor: pointer;
 }
 
@@ -183,19 +210,16 @@
     font-size: 85%;
 }
 
-.ShowWorkSample {
-    text-align: left;
-    position: absolute;
-    bottom: 5px;
-    left: 10px;
+
+@media screen and (max-width: 1200px) {
+    .WorkSamples {
+        width: 100%;
+    }
 }
 
+
 @media screen and (max-width: 550px) {
-    .WorkSample {
-        margin: 10px 0;
-        width: 400px;
-        height: 400px;
-    }
+
 
     .ItemLikeTimeWorkSample {
         font-size: 90%;
@@ -207,27 +231,10 @@
 }
 
 @media screen and (max-width: 410px) {
-    
-    .WorkSamples{
-        margin-bottom:100px;
-    }
-    
+
     .WorkSample {
-        margin: 10px auto;
-        width: 90%;
-        height: 400px;
-    }
-
-    .WorkSample img {
-        width: 70%;
-        height: 260px;
-    }
-
-    .LinkAddressWorkSample {
-        background: white;
-        padding: 2px;
-        border-radius: 4px;
-        right: 10px;
+        margin: 10px 0;
+        width: 95%;
     }
 
     .ItemLikeTimeWorkSample {
@@ -242,18 +249,6 @@
 }
 
 @media screen and (max-width: 350px) {
-    .WorkSample {
-        margin: 10px auto;
-        width: 90%;
-        height: 420px;
-    }
-
-    .LinkAddressWorkSample {
-        background: white;
-        padding: 2px;
-        border-radius: 4px;
-        right: 10px;
-    }
 
     .ItemLikeTimeWorkSample {
         font-size: 85%;

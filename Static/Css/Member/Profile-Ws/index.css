@@ -40,7 +40,7 @@
 .ContainerItemInfoSample[TitleSample] {
     margin: 35px 0;
     margin-top: 5px;
-    color: #17ca9e;
+    color: var(--ColorBase);
 }
 
 .ContainerItemInfoSample[TitleSample] p {
@@ -88,10 +88,11 @@
 
 
 .ContainerItemInfoSample[Description] {
-    padding: 10px;
+    padding: 15px;
     margin-top: 15px;
     background: #fafafa;
     border-radius: 8px;
+    box-shadow: 0 0 15px rgba(173, 255, 213, 0.3);
 }
 
 .TitleLabelSample {
@@ -111,9 +112,10 @@
 }
 
 .ContainerItemsInfoSample {
-    padding: 3px;
+    padding: 15px;
     background: #fafafa;
     border-radius: 8px;
+    box-shadow: 0 0 15px rgba(173, 255, 213, 0.3);
 }
 
 .ContainerItemsInfoSample .ContainerItemInfoSample {
@@ -132,7 +134,7 @@
 }
 
 .LabelTitle {
-    font-size: 70%!important;
+    font-size: 70% !important;
     margin: 0;
     margin-right: 2px;
     color: #aaaaaa;
@@ -173,7 +175,7 @@
 .Sample {
     width: 300px;
     height: 310px;
-    margin: 10px!important;
+    margin: 10px !important;
     overflow: hidden;
     position: relative;
     border-radius: 8px;
@@ -318,8 +320,8 @@
         font-size: 85%;
     }
 
-    .Samples{
-        text-align: center!important;
+    .Samples {
+        text-align: center !important;
     }
 
     .Sample {
@@ -331,7 +333,7 @@
 }
 
 @media screen and (max-width: 440px) {
-     .Samples {
+    .Samples {
         padding: 0;
     }
 

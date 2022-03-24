@@ -35,6 +35,9 @@
 {% block Js %}
 {% endblock %}
 <script>
+    window.CSRF_TOKEN = '{{ csrf_token }}'
+</script>
+<script>
     // Menu Hamburger
     let ContainerMenuHamburger = document.getElementById('ContainerMenuHamburger')
     if (ContainerMenuHamburger != null) {
@@ -51,11 +54,13 @@
     SetHeaderFix(window.scrollY)
 
     function SetHeaderFix(Scroll) {
-        if (Scroll < 10) {
+        try {
+            if (Scroll < 10) {
             HeaderElement.classList.remove('HeaderFixed')
         } else {
             HeaderElement.classList.add('HeaderFixed')
         }
+        }catch (e) {}
     }
 
 </script>

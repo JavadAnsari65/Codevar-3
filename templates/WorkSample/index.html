@@ -11,8 +11,15 @@
 
 {% block Content %}
     {% include 'Base/Header/Header.html' with Items='BtnSubmitProject,BtnJoinToTeam,Home,GroupMembers,Account,Logo' Place='Other' Style='Type1' User=User_Member %}
+    <div class="Breadcrumb">
+        <ul>
+            <li><a href="/">خانه</a></li>
+            <i class="fa fa-angle-left"></i>
+            <li>نمونه کارها</li>
+        </ul>
+    </div>
     <div class="ContainerWorkSamples">
-        <img src="/Static/Img/Img-Design/Img-Blobs/Blob_6.jpg" alt="Img Blob Design" class="ImgDesignBlobTop">
+        <img src="/Static/Img/Img-Design/Img-Blobs/Blob_6.jpg" alt="Img Blob Design" class="ImgDesignBlobTop d-none">
         <div class="ContainerTitle">
             <p>نمونه کار ها</p>
             <i class="far fa-file-certificate"></i>
@@ -20,20 +27,7 @@
         <div class="WorkSamples">
             {% for WorkSample in WorkSamples %}
                 <div class="WorkSample">
-                    <div Link class="LinkAddressWorkSample" onclick="GoToUrl('{{ WorkSample.Address }}','Blank')">آدرس
-                        نمونه کار
-                    </div>
-                    <div class="ContainerImageWorkSample">
-                        <img src="{{ WorkSample.Image.url }}" alt="{{ WorkSample.Title }}"
-                             title="{{ WorkSample.Title }}">
-                        <div class="DesignBoxElementWorkSample"></div>
-                        <div class="DesignBoxElementWorkSample"></div>
-                    </div>
-                    <div class="ItemLikeTimeWorkSample">
-                        <div class="TimePastWorkSample">
-                            <i class="far fa-clock"></i>
-                            <p>{{ WorkSample.GetTimePastCreate }}</p>
-                        </div>
+                    <div class="ContentWorkSample">
                         <div class="LikeWorkSample" title="پسندیدن">
                             {% if User is not None %}
                                 <i class="{% if WorkSample.ListIDUserLiked|ValInList:User.id == 'true' %}fa{% else %}far{% endif %} fa-heart BtnLikeWorkSample"
@@ -45,14 +39,19 @@
                             <p class="SplitNumber" NumberLike
                                Number="{{ WorkSample.GetLenLikes }}"></p>
                         </div>
+                        <img src="{{ WorkSample.GetCoverImage }}" alt="{{ WorkSample.Title }}" loading="lazy">
+                        <p class="TitleWorkSample">{{ WorkSample.Title|truncatechars:30 }}</p>
                     </div>
-                    <div class="ItemFieldWorkSample">
-                        <p class="TitleField">تکنولوژی</p>
-                        <p class="ResultField">{{ WorkSample.Technologies|truncatechars:50 }}</p>
-                    </div>
-                    <div class="ShowWorkSample" ID_Sample="{{ WorkSample.id }}">
-                        <button class="BtnStyle_1" onclick="GetWorkSample(this.parentNode)">مشاهده
-                        </button>
+                    <div class="d-flex justify-content-between align-items-center p-3">
+                        <div class="ShowWorkSample" ID_Sample="{{ WorkSample.id }}">
+                            <button class="BtnStyle_1_OutLine" onclick="GetWorkSample(this.parentNode)">
+                                مشاهده جزئیات
+                            </button>
+                        </div>
+                        <div class="TimePastWorkSample">
+                            <i class="far fa-clock"></i>
+                            <p>{{ WorkSample.GetTimePastCreate }}</p>
+                        </div>
                     </div>
                 </div>
             {% endfor %}
