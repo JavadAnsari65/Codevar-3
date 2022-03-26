@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/Static/Css/Member/Components/Profile/index.css">
 {% endblock %}
 {% block Content %}
+    {% include 'Base/Header/Header.html' with Style='Type1' Place='Other' Items='Logo,Account,WorkSamples,GroupMembers,ContactUs,BtnSubmitProject,BtnJoinToTeam' User=User %}
     <aside class="ContainerAsideMenu">
         <div class="ItemAsideMenu ItemAsideMenuActive" ItemMenu="Profile">
             <p>پروفایل</p>
@@ -37,15 +38,25 @@
         </div>
     </aside>
     <main id="ContainerMain">
-
+        <div class="Breadcrumb">
+            <ul>
+                <li>
+                    <a href="/">خانه</a>
+                </li>
+                <i class="fa fa-angle-left"></i>
+                <li>
+                    حساب کاربری {{ User|truncatechars:7 }}
+                </li>
+            </ul>
+        </div>
         {% include 'Components/Profile/Profile.html' with ViewBy="Member" MemberProfile=Member %} {#  Profile  #}
-
         <div class="ContainerItemAsideMenu" ContainerItemMenu="Info">
             <div class="ContainerTitle">
                 <p>مشخصات</p>
-                <i class="fa fa-info float-left ColorBlue"></i>
+                <i class="fa fa-info ColorBlue"></i>
             </div>
-            <form action="/M/Profile/Submit/Info" enctype="multipart/form-data" method="POST" id="ContainerFormInfo" accept-charset="utf-8" content="utf-8">
+            <form action="/M/Profile/Submit/Info" enctype="multipart/form-data" method="POST" id="ContainerFormInfo"
+                  accept-charset="utf-8" content="utf-8">
                 {% csrf_token %}
                 <div class="ContainerRightFormInfo">
                     <div class="ContainerItemForm">
@@ -167,7 +178,7 @@
         <div class="ContainerItemAsideMenu" ContainerItemMenu="Skills">
             <div class="ContainerTitle">
                 <p>مهارت ها</p>
-                <i class="fa fa-wreath float-left ColorPaper"></i>
+                <i class="fa fa-wreath ColorPaper"></i>
             </div>
             <div class="ContainerSkills">
                 <button id="ButtonAddSkill">
@@ -204,7 +215,7 @@
         <div class="ContainerItemAsideMenu" ContainerItemMenu="WorkSamples">
             <div class="ContainerTitle">
                 <p>نمونه کار</p>
-                <i class="fa fa-file-alt float-left ColorGreen "></i>
+                <i class="fa fa-file-alt ColorGreen "></i>
             </div>
             <div class="ContainerWorkSamples">
                 <button id="ButtonAddWorkSample">
@@ -236,8 +247,7 @@
             </div>
         </div>
     </main>
-
-
+    {% include 'Base/Footer/index.html' %}
 {% endblock %}
 {% block Js %}
     <script src="{% static 'Js/Member/Profile-Ws/index.js' %}"></script>

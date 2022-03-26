@@ -1,13 +1,32 @@
 
 body {
     text-align: right;
-    background: #efefef;
 }
 
 main {
     width: 85%;
     margin: 20px auto;
     margin-left: 11%;
+}
+
+.Header {
+    border: 1px solid #EEEEEE;
+}
+
+.Header .ItemsHeader {
+    text-align: right !important;
+}
+
+.HeaderFixed {
+    box-shadow: none !important;
+}
+
+.Breadcrumb{
+    margin-top: 10px;
+}
+
+.ItemAccount{
+    display: none!important;
 }
 
 .AnimationTopToBottom {
@@ -26,14 +45,15 @@ main {
 .ContainerAsideMenu {
     position: fixed;
     left: 0;
-    top: 0;
+    top: 60px;
     width: 4%;
     min-width: 65px;
     max-width: 120px;
-    height: 100%;
+    height: calc(100% - 60px);
     text-align: center;
     background: #ffffff;
     padding: 8px;
+    z-index: 10!important;
     transition: all .3s ease-in-out;
 }
 
@@ -129,7 +149,7 @@ main {
 }
 
 .ContainerTitle {
-    text-align: right;
+    text-align: center;
     padding: 5px;
     padding-bottom: 10px;
     border-bottom: 1px solid #dcdcdc;
@@ -148,7 +168,7 @@ main {
 .ContainerTitle i {
     margin: 7px;
     color: #555555;
-    vertical-align: middle;
+    vertical-align: top;
 }
 
 .ColorBlue {
@@ -702,26 +722,36 @@ img[src=""] {
     }
 
     .ContainerAsideMenu {
-        top: 0;
+        top: 65px;
         width: 100%;
         height: auto;
+        padding: 10px 10px;
         max-width: none;
         min-width: auto;
         direction: ltr;
-        text-align: right;
+        text-align: center;
+        overflow-x: scroll;
+        white-space: nowrap;
         z-index: 1;
-        box-shadow: 0 10px 10px #e5e5e5;
+        box-shadow: 0 5px 10px rgba(206, 252, 244, 0.2);
     }
 
     .ContainerAsideMenu:hover {
         width: 100%;
     }
 
+
+    .ContainerAsideMenu::-webkit-scrollbar {
+        height: 2px;
+    }
+
+
     .ItemAsideMenu {
         display: inline-block;
         position: static;
         width: auto;
-        margin: 2px;
+        padding: 7px;
+        margin: 2px 5px;
         margin-top: 7px;
     }
 
@@ -740,7 +770,6 @@ img[src=""] {
     .ItemAsideMenu p {
         position: static;
         margin: 0;
-        font-size: 75%;
     }
 
     .ItemAsideMenu p:hover {
@@ -794,11 +823,7 @@ img[src=""] {
 }
 
 @media screen and (max-width: 500px) {
-    .ItemAsideMenu {
-        font-size: 85%;
-        margin: 5px 1px;
-        padding: 2px;
-    }
+
 
     .ItemAsideMenu p {
         margin: 0;

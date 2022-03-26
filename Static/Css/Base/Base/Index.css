@@ -1346,14 +1346,15 @@ button:focus {
     display: inline-block;
     padding: 15px;
     font-size: 105%;
+    color: #555555;
 }
 
 .Breadcrumb i {
-    color: #777777;
+    color: #999999;
 }
 
 .Breadcrumb li a {
-    color: #777777;
+    color: #999999;
 }
 
 
@@ -1832,6 +1833,10 @@ button:focus {
         right: 15%;
     }
 
+    .Breadcrumb li {
+        font-size: 100%;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -1864,6 +1869,10 @@ button:focus {
     .ContainerBlur[Size='Small'] {
         width: 75%;
         right: 12.5%;
+    }
+
+    .Breadcrumb li {
+        font-size: 98%;
     }
 }
 
@@ -1920,6 +1929,10 @@ button:focus {
     .ContainerBlur[Size='Small'] {
         width: 98%;
         right: 1%;
+    }
+
+    .Breadcrumb li {
+        font-size: 90%;
     }
 
 }
