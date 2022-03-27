@@ -2,7 +2,7 @@
 {% load FilterTags %}
 {% load static %}
 {% block Title %}
-    پروفایل | {{ User }}
+    حساب کاربری | {{ User }}
 {% endblock %}
 {% block Css %}
     <link rel="stylesheet" href="{% static 'Css/Member/Profile-Ws/index.css' %}">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/Static/Css/Member/Components/Profile/index.css">
 {% endblock %}
 {% block Content %}
-    {% include 'Base/Header/Header.html' with Style='Type1' Place='Other' Items='Logo,Account,WorkSamples,GroupMembers,ContactUs,BtnSubmitProject,BtnJoinToTeam' User=User %}
+    {% include 'Base/Header/Header.html' with Style='Type1' Place='Other' Items='Logo,Account,WorkSamples,GroupMembers,ContactUs,BtnSubmitProject,BtnJoinToTeam,Home' User=User %}
     <aside class="ContainerAsideMenu">
         <div class="ItemAsideMenu ItemAsideMenuActive" ItemMenu="Profile">
             <p>پروفایل</p>
@@ -188,24 +188,29 @@
                 <div class="Skills" id="ContainerSkills">
                     {% for Skill in User.GetSkills %}
                         <div class="Skill" Skill>
-                            <div class="ContainerEditDeleteSkill">
-                                <i class="fa fa-trash"
-                                   onclick="RemoveSkill({{ Skill.id }},this.parentNode.parentNode)"></i>
-                            </div>
                             <div class="TitleSkill">
                                 <p TitleSkill>{{ Skill.Title }}</p>
                             </div>
-                            <div class="ContainerProgress ">
-                                {% with Skill.ValueSkill as V %}
-                                    <progress
-                                            class="ProgressSkill {% if V >= 75 %}ProgressSkillGood{% elif V <= 74 and V >= 55 %}ProgressSkillAverage{% elif V <= 54 and V >= 35 %}ProgressSkillLow{% else %}ProgressSkillVeryLow{% endif %}"
-                                            max="100"
-                                            value="{{ Skill.ValueSkill }}"></progress>
-                                    <p class="ValueRangeSkill">{{ Skill.ValueSkill }}%</p>
-                                {% endwith %}
+                            <div class="ContainerChartSkill">
+                                <canvas ChartSkill TitleSkill="{{ Skill.Title }}"
+                                        ValuePercent="{{ Skill.ValueSkill }}"></canvas>
+                                <p class="PercentageValueSkill">{{ Skill.ValueSkill }}%</p>
                             </div>
                             <div class="ContainerDescriptionSkill">
                                 <p>{{ Skill.Description|NoneVal:'توضیحی وجود ندارد' }}</p>
+                            </div>
+                            <div class="ContainerEditDeleteSkill">
+                                <button class="BtnRemoveSkill"
+                                        onclick="RemoveSkill({{ Skill.id }},this.parentNode.parentNode)">
+                                    <p>حذف</p>
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="ContainerNotFoundContent">
+                            <div>
+                                مهارتی یافت نشد
                             </div>
                         </div>
                     {% endfor %}
@@ -235,11 +240,24 @@
                             </div>
                             <div class="ContentSample">
                                 <img src="{{ Sample.Image.url }}" alt="{{ Sample.Title }}" title="{{ Sample.Title }}">
-                                <p class="LabelTitle">موضوع</p>
+                                {#                                <p class="LabelTitle">موضوع</p>#}
                                 <p class="TitleSample">{{ Sample.Title|truncatechars:25 }}</p>
                             </div>
-                            <div class="ShowSample" onclick="GetWorkSample(this.parentNode)">
-                                مشاهده
+                            <div class="d-flex justify-content-between align-items-center px-2">
+                                <button class="BtnStyle_1_OutLine"
+                                        onclick="GetWorkSample(this.parentNode.parentNode)">
+                                    مشاهده جزئیات
+                                </button>
+                                <div class="LikeWorkSample">
+                                    <i class="fa fa-heart BtnLikeWorkSample CursorDefault"></i>
+                                    <p class="SplitNumber" NumberLike Number="{{ Sample.GetLenLikes }}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="ContainerNotFoundContent">
+                            <div>
+                                نمونه کاری یافت نشد
                             </div>
                         </div>
                     {% endfor %}
@@ -250,6 +268,10 @@
     {% include 'Base/Footer/index.html' %}
 {% endblock %}
 {% block Js %}
+    <script src="/Static/Js/Chart/anychart-core.min.js"></script>
+    <script src="/Static/Js/Chart/Chart.js"></script>
+    <script src="/Static/Js/Chart/anychart-pie.min.js"></script>
+    <script src="/Static/Js/Chart/plugin-chart.js"></script>
     <script src="{% static 'Js/Member/Profile-Ws/index.js' %}"></script>
     <script src="/Static/Js/Member/Panel/index.js"></script>
     <script>
@@ -269,5 +291,67 @@
             Chart.legend().position("left");
             Chart.legend().itemsLayout("vertical");
         });
+
+
+        let AllChartSkills = document.querySelectorAll('[ChartSkill]')
+        for (let Skill of AllChartSkills) {
+            ChartSkills(Skill)
+        }
+
+        function ChartSkills(Canvas) {
+            if (Canvas) {
+                let Label = Canvas.getAttribute('TitleSkill') || 'Unknown'
+                let ValuePercent = parseInt(Canvas.getAttribute('ValuePercent'))
+                let backgroundColor = '#00eeb6'
+                if (ValuePercent < 71 && ValuePercent > 50) {
+                    backgroundColor = '#92e6ee'
+                } else if (ValuePercent < 51 && ValuePercent > 30) {
+                    backgroundColor = '#ffea57'
+                } else if (ValuePercent < 31 && ValuePercent > 15) {
+                    backgroundColor = '#ffa646'
+                } else if (ValuePercent < 16) {
+                    backgroundColor = '#ff5b5f'
+                }
+                let ChartCircle = new Chart(Canvas, {
+                    type: 'doughnut',
+                    data: {
+                        labels: [Label, ''],
+                        datasets: [{
+                            label: "%",
+                            backgroundColor: [backgroundColor],
+                            data: [ValuePercent, 100 - ValuePercent]
+                        }]
+                    },
+                    plugins: [{
+                        /*beforeDraw: function (chart) {
+                            var width = chart.chart.width,
+                                height = chart.chart.height,
+                                ctx = chart.chart.ctx;
+
+                            ctx.restore();
+                            var fontSize = (height / 150).toFixed(2);
+                            ctx.font = fontSize + "em sans-serif";
+                            ctx.fillStyle = "#9b9b9b";
+                            ctx.textBaseline = "middle";
+                            var text = "",
+                                textX = Math.round((width - ctx.measureText(text).width) / 2),
+                                textY = height / 2;
+
+                            ctx.fillText(text, textX, textY);
+                            ctx.save();
+                        }*/
+                    }],
+                    options: {
+                        legend: {
+                            display: false,
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutoutPercentage: 60
+                    }
+                });
+            }
+        }
+
     </script>
 {% endblock %}

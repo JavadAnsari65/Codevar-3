@@ -187,8 +187,8 @@ function RemoveSample(Element) {
             if (Status == '200') {
                 Element.remove()
                 ShowNotificationMessage('نمونه کار شما با موفقیت حذف شد', 'Success')
-            } else if (Status == '409') {
-                ShowNotificationMessage(`مشکلی در حذف کردن نمونه کار وجود دارد`, 'Error')
+            } else{
+                ShowNotificationMessage(response.Status_Text, 'Error')
             }
         })
     })
@@ -215,8 +215,10 @@ function CreateSkill() {
                                                 <p class="LabelInput">
                                                     مقدار مهارت شما
                                                 </p>
-                                                <input type="range" max="100" value="50" InputRangeSkill oninput="ChangeValueInputRangeSkill(this)">
-                                                <p class="ValueRangeSkill" ValueOfSkill>50%</p>
+                                                <div ValueSkillInput>
+                                                    <input type="range" max="100" value="50" InputRangeSkill oninput="ChangeValueInputRangeSkill(this)">
+                                                    <p class="ValueRangeSkill" ValueOfSkill>50%</p>
+                                                </div>
                                             </div>
                         </div>
                         <div class="ContainerLeftFormSkill">
@@ -265,7 +267,8 @@ function AddSkill() {
     }
     SendAjax('Profile/Skill/Add', Data, 'POST', function (response) {
         if (response.Status == '200') {
-            AddSkillToContainerSkills(response.IDSkill, InputTitleSkill.value, InputRangeSkill.value, InputDescriptionSkill.value)
+            location.href = '/M/Profile?Skills'
+            //AddSkillToContainerSkills(response.IDSkill, InputTitleSkill.value, InputRangeSkill.value, InputDescriptionSkill.value)
         } else {
             ShowNotificationMessage(`شما دسترسی ندارید`, 'Error')
         }
@@ -307,9 +310,21 @@ function AddSkillToContainerSkills(ID, Title, Value, Description) {
 
 
 function ChangeValueInputRangeSkill(Input) {
+    let ElementValueOfSkill = document.querySelector('[ValueOfSkill]')
     let Value = Input.value
-    document.querySelector('[ValueOfSkill]').innerHTML = Value + '%'
-
+    ElementValueOfSkill.innerHTML = Value + '%'
+    ElementValueOfSkill.setAttribute('Color', 'Yellow')
+    if (Value > 70) {
+        ElementValueOfSkill.setAttribute('Color', 'Green')
+    } else if (Value < 71 && Value > 50) {
+        ElementValueOfSkill.setAttribute('Color', 'Blue')
+    } else if (Value < 51 && Value > 30) {
+        ElementValueOfSkill.setAttribute('Color', 'Yellow')
+    } else if (Value < 31 && Value > 15) {
+        ElementValueOfSkill.setAttribute('Color', 'Orange')
+    } else if (Value < 16) {
+        ElementValueOfSkill.setAttribute('Color', 'Red')
+    }
 }
 
 function RemoveSkill(ID, Element) {
@@ -319,10 +334,8 @@ function RemoveSkill(ID, Element) {
             if (Status == '200') {
                 Element.remove()
                 ShowNotificationMessage(`مهارت مورد نظر با موفقیت حذف شد`, 'Success')
-            } else if (Status == '403') {
-                ShowNotificationMessage(`شما دسترسی ندارید`, 'Error')
-            } else if (Status == '404') {
-                ShowNotificationMessage(`مهارت مورد نظر یافت نشد`, 'Error')
+            } else{
+                ShowNotificationMessage(response.Status_Text,'Error')
             }
         })
     })

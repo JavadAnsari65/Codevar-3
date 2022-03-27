@@ -129,6 +129,7 @@
     cursor: pointer;
 }
 
+
 [Liked='true'] {
     color: #fa4b5a;
 }
@@ -142,15 +143,17 @@
 
 
 .ContainerWorkSamples {
+    margin: 10px;
     margin-top: 20px;
 }
 
 #ButtonAddWorkSample {
     border: none;
     outline: none;
-    border-radius: 50px;
-    background: #51b2ad;
-    color: white;
+    border-radius: 8px;
+    background: none;
+    border: 1px solid #3ed7c0;
+    color: #3ed7c0;
     padding: 8px 18px;
     transition: background-color .1s;
 }
@@ -161,7 +164,8 @@
 }
 
 #ButtonAddWorkSample:hover {
-    background: #4a9590;
+    background: #3ed7c0;
+    color: #fff;
 }
 
 #ButtonAddWorkSample:active i {
@@ -169,41 +173,75 @@
 }
 
 .Samples {
+    padding: 25px 0;
     text-align: right !important;
 }
 
 .Sample {
-    width: 300px;
-    height: 310px;
-    margin: 10px !important;
+    text-align: left;
     overflow: hidden;
-    position: relative;
-    border-radius: 8px;
-    background: #ebf0f5;
-    box-shadow: 1px 6px 12px rgb(137 137 137 / 50%), -5px -5px 11px #f0f0f0;
     display: inline-block;
-    /*text-align: right;*/
+    width: 380px;
+    height: 350px;
+    margin: 10px;
+    perspective: 1000px;
+    direction: ltr;
+    border-radius: 20px;
+    position: relative;
+    border: 1px solid #d0d0d0;
+    /*box-shadow: 0 0 25px rgb(74 255 163 / 10%);*/
+    background: #ffffff;
+}
+
+.BtnLikeWorkSample {
+    font-size: 160%;
+    color: #ff4e5e;
+    cursor: pointer;
+}
+
+.LikeWorkSample p {
+    font-size: 80%;
+    padding-top: 5px;
+    color: #888888;
+    display: inline-block;
 }
 
 .Sample .ItemsHeader {
     position: absolute;
-    left: 6px;
-    top: 6px;
-    background: rgb(234, 129, 145);
+    left: 10px;
+    top: 10px;
+    background: #fff;
+    border: 1px solid #dddddd;
     padding: 3px 10px;
-    border-radius: 10px;
-    box-shadow: 0 3px 5px #e2e2e2;
+    border-radius: 8px;
+}
+
+.Sample .ItemsHeader i {
+    padding: 8px;
+    font-size: 115%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.Sample .ItemsHeader i:hover {
+    font-weight: bold;
+}
+
+.ItemsHeader .fa-trash {
+    color: #ff626f;
+    border-right: 1px solid #e2e2e2;
 }
 
 .TimePastSimple {
     position: absolute;
-    right: 4px;
-    top: 4px;
+    right: 10px;
+    top: 10px;
     font-size: 65%;
     color: rgb(122, 122, 122);
     background: white;
     padding: 3px 7px;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 1px solid #eeeeee;
 }
 
@@ -214,7 +252,7 @@
 .ContentSample img {
     width: 100%;
     height: 220px;
-    border-radius: 8px 8px 0 0;
+    border-radius: 20px 20px 0 0;
 }
 
 .LabelTitle {
@@ -226,30 +264,16 @@
 
 
 .ContentSample .TitleSample {
-    padding: 5px;
-    padding-top: 1px;
+    text-align: right;
+    direction: rtl;
     font-size: 105%;
-    width: 100%;
-    overflow: hidden;
-    margin: 0;
-    margin-right: 8px;
+    min-height: 57px;
+    overflow: auto;
+    font-weight: bold;
+    color: #565656;
+    padding: 5px;
 }
 
-.ShowSample {
-    position: absolute;
-    padding: 5px 13px;
-    border-radius: 10px;
-    background: #2a79ff;
-    color: white;
-    left: 10px;
-    bottom: 10px;
-    cursor: pointer;
-    box-shadow: 0 3px 4px #aaaaaa;
-}
-
-.ShowSample:hover {
-    background: #1f5cff;
-}
 
 @media screen and (max-width: 1500px) {
     .ContainerImageSample {
@@ -324,11 +348,10 @@
         text-align: center !important;
     }
 
-    .Sample {
-        width: 280px;
-        height: 320px;
-        text-align: right;
+    .Sample{
+        margin: 15px auto;
     }
+
 
 }
 
@@ -338,8 +361,6 @@
     }
 
     .Sample {
-        width: 90%;
-        height: 320px;
-        border: 1px solid #e8e8e8;
+        width: 95%;
     }
 }

@@ -5,6 +5,7 @@
     background: white !important;
     z-index: 10;
     padding-bottom: 35px;
+    z-index: 12;
 }
 
 .Header[Other] {
@@ -241,7 +242,7 @@
     height: 100%;
     width: 260px;
     top: 0;
-    z-index: 1000;
+    z-index: 1000000!important;
     overflow-x: hidden;
     text-align: center;
     border-radius: 10px 0 0 10px;

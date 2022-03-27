@@ -76,16 +76,24 @@
                     </a>
                 {% endif %}
                 {% if ListItems|SearchInList:'ContactUs' %}
-                    <div class="ItemHeaderMenu ItemHeaderAniIcon" ClickFunc="ShowContactUsHome()">
+                    <a class="ItemHeaderMenu ItemHeaderAniIcon" href="/#ContainerContactUs">
                         <p>تماس با ما</p>
                         <i class="far fa-phone IconPhoneCall"></i>
-                    </div>
+                    </a>
                 {% endif %}
                 {% if ListItems|SearchInList:'Home' %}
                     <a class="ItemHeaderMenu ItemHeaderAniIcon" href="/">
                         <p>خانه</p>
                         <i class="far fa-home"></i>
                     </a>
+                {% endif %}
+                {% if ListItems|SearchInList:'Account' %}
+                    {% if User %}
+                        <a class="ItemHeaderMenu ItemHeaderAniIcon" onclick="SignOutAccountMenu()">
+                            <p>خروج</p>
+                            <i class="far fa-sign-out-alt"></i>
+                        </a>
+                    {% endif %}
                 {% endif %}
             </div>
             {#            <div class="ContainerFooterMenu">#}
@@ -146,10 +154,10 @@
                     </div>
                 {% endif %}
                 {% if ListItems|SearchInList:'ContactUs' %}
-                    <div class="ItemHeader ItemHeaderAniIcon" ClickFunc="ScrollOnElement(ContainerContactUs)">
+                    <a class="ItemHeader ItemHeaderAniIcon" href="/#ContainerContactUs">
                         <p>تماس با ما</p>
                         <i class="far fa-phone IconPhoneCall"></i>
-                    </div>
+                    </a>
                 {% endif %}
             </div>
             {% if ListItems|SearchInList:'Logo' %}

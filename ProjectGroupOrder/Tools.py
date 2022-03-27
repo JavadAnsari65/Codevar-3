@@ -87,6 +87,25 @@ def GetDifferenceDate(Time):
     return Str
 
 
+def GetDifferenceTimeObj(Time):
+    TimeIranZone = pytz.timezone('Asia/Tehran')
+    TimeIranObject = datetime.datetime.now(TimeIranZone)
+    TimeIran = TimeIranObject.now()
+    DifferenceTime = datetime.datetime(TimeIran.year, TimeIran.month, TimeIran.day, TimeIran.hour,
+                                       TimeIran.minute) - datetime.datetime(Time.year, Time.month, Time.day, Time.hour,
+                                                                            Time.minute)
+    DifferenceTimeSecond = DifferenceTime.seconds
+    Second = DifferenceTimeSecond % 60
+    Minute = DifferenceTimeSecond // 60 % 60
+    Hour = DifferenceTimeSecond // 3600
+    Day = DifferenceTime.days
+    return {
+        'Second':Second,
+        'Minute':Minute,
+        'Hour':Hour,
+        'Day':Day
+    }
+
 
 def ValidationText(Text,Bigger=None,Less=None,NoSpace=False,En=False):
     State = False

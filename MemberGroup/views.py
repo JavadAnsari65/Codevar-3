@@ -154,8 +154,10 @@ def RemoveSkill(request):
             Context['Status'] = '200'
         else:
             Context['Status'] = '404'
+            Context['Status_Text'] = 'مهارت یافت نشد'
     else:
         Context['Status'] = '403'
+        Context['Status_Text'] = 'شما دسترسی ندارید'
     return JsonResponse(Context)
 
 
@@ -234,12 +236,19 @@ def RemoveWorkSample(request):
         Data = json.loads(request.body)
         ID = Data.get('ID') or None
         if ID is not None and ID is not '':
-            WorkSample.objects.filter(id=ID).first().Remove()
-            Context['Status'] = '200'
+            Ws = WorkSample.objects.filter(id=ID).first()
+            if Ws != None:
+                Ws.Remove()
+                Context['Status'] = '200'
+            else:
+                Context['Status'] = '404'
+                Context['Status_Text'] = 'نمونه کار پیدا نشد'
         else:
             Context['Status'] = '409'
+            Context['Status_Text'] = 'نمونه کار پیدا نشد'
     else:
         Context['Status'] = '403'
+        Context['Status_Text'] = 'شما دسترسی ندارید'
     return JsonResponse(Context)
 
 

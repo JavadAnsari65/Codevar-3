@@ -1234,8 +1234,8 @@ function CreateMessage_Alert(Text, FuncWhenOK, ValueFunc = null, FuncWhenCancel 
         BtnClose1.className = 'fa fa-times BtnClose1_Alert'
 
         TextMessage.innerHTML = Text
-        BtnClose.innerText = 'Cancel'
-        BtnOk.innerText = 'Yes'
+        BtnClose.innerText = 'بازگشت'
+        BtnOk.innerText = 'بله'
 
         BtnClose.onclick = function () {
             if (FuncWhenCancel != null) {

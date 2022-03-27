@@ -1,5 +1,5 @@
 from django.db import models
-from ProjectGroupOrder.Tools import GetDifferenceTime
+from ProjectGroupOrder.Tools import GetDifferenceTime, GetDifferenceTimeObj
 import random, string
 
 def RandomString(Len):
@@ -20,14 +20,14 @@ class LikeWorkSample(models.Model):
     WorkSample = models.ForeignKey('MemberGroup.WorkSample',on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.Owner.UserNameFamily
+        return self.Owner.UserNameFamily or 'Unknwon'
 
 class LikeMember(models.Model):
     Owner = models.ForeignKey('User.User',on_delete=models.CASCADE)
     Member = models.ForeignKey('MemberGroup.MemberGroup',on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.Member.GetNameAndFamily()
+        return self.Member.GetNameAndFamily() or 'Unknwon'
 
 
 
@@ -156,12 +156,13 @@ class MemberGroup(models.Model):
 
     def GetLevelStatus(self):
         LenWorkSamples = self.GetLenWorkSamples()
+        DaysJoined = int(GetDifferenceTimeObj(self.DateTimeJoin).get('Day'))
         Text = 'تازه وارد'
-        if LenWorkSamples > 2:
+        if LenWorkSamples > 2 and DaysJoined > 20:
             Text = 'نیمه وارد'
-        if LenWorkSamples > 4:
+        if LenWorkSamples > 4 and DaysJoined > 35:
             Text = 'وارد'
-        if LenWorkSamples > 7:
+        if LenWorkSamples > 7 and DaysJoined > 50:
             Text = 'کهنه کار'
 
         return Text
