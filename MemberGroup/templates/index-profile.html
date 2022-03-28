@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="/Static/Css/Member/Components/Profile/index.css">
 {% endblock %}
 {% block Content %}
-    {% include 'Base/Header/Header.html' with Items='BtnSubmitProject,Home,WorkSamples,GroupMembers,Logo,Account' Place='Other' Style='Type1' User=User_Member %}
+    {% include 'Base/Header/Header.html' with Items='BtnSubmitProject,BtnJoinToTeam,Home,WorkSamples,GroupMembers,Logo,Account' Place='Other' Style='Type1' User=User_Member %}
     {% include 'Components/Profile/Profile.html' with ViewBy='User' MemberProfile=MemberProfile TypeInclude='Member' %}
+    <h1>Fazel</h1>
 {% endblock %}
 {% block Js %}
     <script src="/Static/Js/Member/Profile-Ws/index.js"></script>

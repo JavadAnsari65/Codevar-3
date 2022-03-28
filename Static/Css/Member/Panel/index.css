@@ -616,6 +616,16 @@ img[src=""] {
     background: #298371 !important;
 }
 
+.Sample{
+    box-shadow: none;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+}
+
+.Sample img{
+    border-radius: 10px 10px 0 0;
+}
+
 .ContainerAddWorkSampleBlur {
     width: 40%;
     right: 30%;

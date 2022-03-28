@@ -18,7 +18,7 @@ function ShowWorkSample(Object) {
                 <i class="${Object.Liked == 'true' ? 'fa BtnLikeWorkSample ' : 'far'} fa-heart" onclick=LikeDisLikeWorkSample(this,'${Object.ID}') Liked="${Object.Liked}"></i>
             `
     let NodeIconNoWithLike = `
-                <i class="${Object.Liked == 'true' ? 'fa BtnLikeWorkSample ' : 'far'} fa-heart" Liked="${Object.Liked}"></i>
+                <i class="${Object.Liked == 'true' ? 'fa BtnLikeWorkSample ' : 'far'} fa-heart CursorDefault" Liked="${Object.Liked}"></i>
             `
     let Node = `
                 <i class="fa fa-times" onclick="document.body.click()"></i>

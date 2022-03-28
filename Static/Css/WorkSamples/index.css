@@ -133,6 +133,7 @@
     font-size: 105%;
     font-weight: bold;
     color: #565656;
+    height: 37px;
     padding: 5px;
 }
 
@@ -169,6 +170,7 @@
     left: 10px;
     top: 10px;
     width: 70px;
+    height: 46px;
     background: #ffffff;
     border: 1px solid rgba(145, 145, 145, 0.25);
     padding: 8px 4px;

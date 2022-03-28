@@ -34,7 +34,9 @@
                                    onclick="LikeDisLikeWorkSample(this,'{{ WorkSample.id }}')"
                                    Liked="{{ WorkSample.ListIDUserLiked|ValInList:User.id }}"></i>
                             {% else %}
-                                <i class="far fa-heart CursorDefault BtnLikeWorkSample"></i>
+                                <a href="/U/Login-Create" class="CursorDefault">
+                                    <i class="far fa-heart BtnLikeWorkSample"></i>
+                                </a>
                             {% endif %}
                             <p class="SplitNumber" NumberLike
                                Number="{{ WorkSample.GetLenLikes }}"></p>

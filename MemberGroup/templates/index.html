@@ -1,4 +1,5 @@
 {% extends 'Base/BaseTemplate.html' %}
+
 {% load FilterTags %}
 {% load static %}
 {% block Title %}
@@ -10,262 +11,283 @@
     <link rel="stylesheet" href="/Static/Css/Member/Components/Profile/index.css">
 {% endblock %}
 {% block Content %}
-    {% include 'Base/Header/Header.html' with Style='Type1' Place='Other' Items='Logo,Account,WorkSamples,GroupMembers,ContactUs,BtnSubmitProject,BtnJoinToTeam,Home' User=User %}
-    <aside class="ContainerAsideMenu">
-        <div class="ItemAsideMenu ItemAsideMenuActive" ItemMenu="Profile">
-            <p>پروفایل</p>
-            <i class="fa fa-user"></i>
-        </div>
-        <div class="ItemAsideMenu" ItemMenu="Skills">
-            <p>مهارت ها</p>
-            <i class="fal fa-wreath"></i>
-        </div>
-        <div class="ItemAsideMenu" ItemMenu="WorkSamples">
-            <p>نمونه کارها</p>
-            <i class="fal fa-file-alt"></i>
-        </div>
-        <div class="ItemAsideMenu" ItemMenu="Info">
-            <p>مشخصات</p>
-            <i class="fal fa-info"></i>
-        </div>
-        <div class="ItemAsideMenu ItemHome" ClickFunc="GoToUrl(/)">
-            <p>خانه</p>
-            <i class="fal fa-home-alt"></i>
-        </div>
-        <div class="ItemAsideMenu ItemSignOutAccount" ClickFunc="SignOutAccount()">
-            <p>خروج</p>
-            <i class="fal fa-sign-out-alt"></i>
-        </div>
-    </aside>
-    <main id="ContainerMain">
-        <div class="Breadcrumb">
-            <ul>
-                <li>
-                    <a href="/">خانه</a>
-                </li>
-                <i class="fa fa-angle-left"></i>
-                <li>
-                    حساب کاربری {{ User|truncatechars:7 }}
-                </li>
-            </ul>
-        </div>
-        {% include 'Components/Profile/Profile.html' with ViewBy="Member" MemberProfile=Member %} {#  Profile  #}
-        <div class="ContainerItemAsideMenu" ContainerItemMenu="Info">
-            <div class="ContainerTitle">
-                <p>مشخصات</p>
-                <i class="fa fa-info ColorBlue"></i>
+    {% if User.Is_Active == True %}
+        {% include 'Base/Header/Header.html' with Style='Type1' Place='Other' Items='Logo,Account,WorkSamples,GroupMembers,ContactUs,BtnSubmitProject,BtnJoinToTeam,Home' User=User %}
+        <aside class="ContainerAsideMenu">
+            <div class="ItemAsideMenu ItemAsideMenuActive" ItemMenu="Profile">
+                <p>پروفایل</p>
+                <i class="fa fa-user"></i>
             </div>
-            <form action="/M/Profile/Submit/Info" enctype="multipart/form-data" method="POST" id="ContainerFormInfo"
-                  accept-charset="utf-8" content="utf-8">
-                {% csrf_token %}
-                <div class="ContainerRightFormInfo">
-                    <div class="ContainerItemForm">
-                        <p class="LabelInput">نام و نام خانوادگی</p>
-                        <div class="ContainerInputIcon">
-                            <input type="text" value="{{ User.UserNameFamily|NoneNull }}" name="UserNameFamily"
-                                   minlength="5" maxlength="150"
-                                   oninput="CheckInputValidations(this,'5','150','Input','Text');SetStateButtonSubmitFormInfo()"
-                                   Bigger="5" Less="150"
-                                   TypeVal="Text"
-                                   CheckInputVal InputFormInformation>
+            <div class="ItemAsideMenu" ItemMenu="Skills">
+                <p>مهارت ها</p>
+                <i class="fal fa-wreath"></i>
+            </div>
+            <div class="ItemAsideMenu" ItemMenu="WorkSamples">
+                <p>نمونه کارها</p>
+                <i class="fal fa-file-alt"></i>
+            </div>
+            <div class="ItemAsideMenu" ItemMenu="Info">
+                <p>مشخصات</p>
+                <i class="fal fa-info"></i>
+            </div>
+            <div class="ItemAsideMenu ItemHome" ClickFunc="GoToUrl(/)">
+                <p>خانه</p>
+                <i class="fal fa-home-alt"></i>
+            </div>
+            <div class="ItemAsideMenu ItemSignOutAccount" ClickFunc="SignOutAccount()">
+                <p>خروج</p>
+                <i class="fal fa-sign-out-alt"></i>
+            </div>
+        </aside>
+        <main id="ContainerMain">
+            <div class="Breadcrumb">
+                <ul>
+                    <li>
+                        <a href="/">خانه</a>
+                    </li>
+                    <i class="fa fa-angle-left"></i>
+                    <li>
+                        حساب کاربری {{ User|truncatechars:7 }}
+                    </li>
+                </ul>
+            </div>
+            {% include 'Components/Profile/Profile.html' with ViewBy="Member" MemberProfile=Member %} {#  Profile  #}
+            <div class="ContainerItemAsideMenu" ContainerItemMenu="Info">
+                <div class="ContainerTitle">
+                    <p>مشخصات</p>
+                    <i class="fa fa-info ColorBlue"></i>
+                </div>
+                <form action="/M/Profile/Submit/Info" enctype="multipart/form-data" method="POST" id="ContainerFormInfo"
+                      accept-charset="utf-8" content="utf-8">
+                    {% csrf_token %}
+                    <div class="ContainerRightFormInfo">
+                        <div class="ContainerItemForm">
+                            <p class="LabelInput">نام و نام خانوادگی</p>
+                            <div class="ContainerInputIcon">
+                                <input type="text" value="{{ User.UserNameFamily|NoneNull }}" name="UserNameFamily"
+                                       minlength="5" maxlength="150"
+                                       oninput="CheckInputValidations(this,'5','150','Input','Text');SetStateButtonSubmitFormInfo()"
+                                       Bigger="5" Less="150"
+                                       TypeVal="Text"
+                                       CheckInputVal InputFormInformation>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="ContainerItemForm">
-                        <p class="LabelInput">شماره همراه</p>
-                        <div class="ContainerInputIcon">
-                            <input type="text" value="{{ User.PhoneNumber|NoneNull }}" name="PhoneNumber" maxlength="15"
-                                   oninput="CheckInputValidations(this,'10','12','Input','Number');SetStateButtonSubmitFormInfo()"
-                                   Bigger="10" Less="12" TypeVal="Number" CheckInputVal InputFormInformation>
+                        <br>
+                        <div class="ContainerItemForm">
+                            <p class="LabelInput">شماره همراه</p>
+                            <div class="ContainerInputIcon">
+                                <input type="text" value="{{ User.PhoneNumber|NoneNull }}" name="PhoneNumber"
+                                       maxlength="15"
+                                       oninput="CheckInputValidations(this,'10','12','Input','Number');SetStateButtonSubmitFormInfo()"
+                                       Bigger="10" Less="12" TypeVal="Number" CheckInputVal InputFormInformation>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="ContainerItemForm">
-                        <p class="LabelInput">تلفن ثابت</p>
-                        <div class="ContainerInputIcon">
-                            <input type="text" name="Phone" maxlength="15" value="{{ User.Phone|NoneNull }}"
-                                   oninput="CheckInputValidations(this,'7','15','Input','Number');SetStateButtonSubmitFormInfo()"
-                                   Bigger="7"
-                                   Less="15" TypeVal="Number" CheckInputVal InputFormInformation>
+                        <br>
+                        <div class="ContainerItemForm">
+                            <p class="LabelInput">تلفن ثابت</p>
+                            <div class="ContainerInputIcon">
+                                <input type="text" name="Phone" maxlength="15" value="{{ User.Phone|NoneNull }}"
+                                       oninput="CheckInputValidations(this,'7','15','Input','Number');SetStateButtonSubmitFormInfo()"
+                                       Bigger="7"
+                                       Less="15" TypeVal="Number" CheckInputVal InputFormInformation>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="ContainerItemForm">
-                        <p class="LabelInput">ایمیل</p>
-                        <div class="ContainerInputIcon">
-                            <input type="text" name="Email" maxlength="100" value="{{ User.Email|NoneNull }}"
-                                   oninput="CheckInputValidations(this,'0','100','Input','Email');SetStateButtonSubmitFormInfo()"
-                                   Bigger="0" Less="100" TypeVal="Email" CheckInputVal InputFormInformation>
+                        <br>
+                        <div class="ContainerItemForm">
+                            <p class="LabelInput">ایمیل</p>
+                            <div class="ContainerInputIcon">
+                                <input type="text" name="Email" maxlength="100" value="{{ User.Email|NoneNull }}"
+                                       oninput="CheckInputValidations(this,'0','100','Input','Email');SetStateButtonSubmitFormInfo()"
+                                       Bigger="0" Less="100" TypeVal="Email" CheckInputVal InputFormInformation>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="ContainerItemForm">
-                        <p class="LabelInput">کد ملی</p>
-                        <div class="ContainerInputIcon">
-                            <input type="text" name="NationalCode" maxlength="10"
-                                   value="{{ User.NationalCode|NoneNull }}"
-                                   oninput="CheckInputValidations(this,'9','11','Input','Text');SetStateButtonSubmitFormInfo()"
-                                   Bigger="9" Less="11" TypeVal="Number" CheckInputVal InputFormInformation>
+                        <br>
+                        <div class="ContainerItemForm">
+                            <p class="LabelInput">کد ملی</p>
+                            <div class="ContainerInputIcon">
+                                <input type="text" name="NationalCode" maxlength="10"
+                                       value="{{ User.NationalCode|NoneNull }}"
+                                       oninput="CheckInputValidations(this,'9','11','Input','Text');SetStateButtonSubmitFormInfo()"
+                                       Bigger="9" Less="11" TypeVal="Number" CheckInputVal InputFormInformation>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="ContainerItemForm">
-                        <p class="LabelInput">عنوان شغلی</p>
-                        <div class="ContainerInputIcon">
-                            <input type="text" name="TitleJob" maxlength="300" value="{{ User.TitleJob|NoneNull }}"
-                                   oninput="CheckInputValidations(this,'1','300','Input','Text');SetStateButtonSubmitFormInfo()"
-                                   Bigger="1" Less="300" TypeVal="Text" CheckInputVal InputFormInformation
-                                   placeholder="به عنوان مثال :  Backend Developer ">
+                        <br>
+                        <div class="ContainerItemForm">
+                            <p class="LabelInput">عنوان شغلی</p>
+                            <div class="ContainerInputIcon">
+                                <input type="text" name="TitleJob" maxlength="300" value="{{ User.TitleJob|NoneNull }}"
+                                       oninput="CheckInputValidations(this,'1','300','Input','Text');SetStateButtonSubmitFormInfo()"
+                                       Bigger="1" Less="300" TypeVal="Text" CheckInputVal InputFormInformation
+                                       placeholder="به عنوان مثال :  Backend Developer ">
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="ContainerItemForm">
-                        <p class="LabelInput">آدرس</p>
-                        <div class="ContainerInputIcon">
+                        <div class="ContainerItemForm">
+                            <p class="LabelInput">ادرس گیت هاب <span class="Optional">(اختیاری)</span></p>
+                            <div class="ContainerInputIcon">
+                                <input type="text" value="{{ User.Github|NoneNull }}" name="Github"
+                                       minlength="-1" maxlength="250"
+                                       oninput="CheckInputValidations(this,'-1','250','Input','Text');SetStateButtonSubmitFormInfo()"
+                                       Bigger="-1" Less="250"
+                                       TypeVal="Text"
+                                       CheckInputVal InputFormInformation>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="ContainerItemForm">
+                            <p class="LabelInput">آدرس</p>
+                            <div class="ContainerInputIcon">
                         <textarea type="text" name="Address" rows="5" maxlength="1000"
                                   oninput="CheckInputValidations(this,'5','1000','Input','Text');SetStateButtonSubmitFormInfo()"
                                   Bigger="5" Less="1000"
                                   TypeVal="Text" CheckInputVal
                                   InputFormInformation>{{ User.Address|NoneNull }}</textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div class="ContainerItemForm">
-                        <p class="LabelInput">درباره خود</p>
-                        <div class="ContainerInputIcon">
+                        <div class="ContainerItemForm">
+                            <p class="LabelInput">درباره خود</p>
+                            <div class="ContainerInputIcon">
                         <textarea type="text" name="AboutMe" rows="5" maxlength="1000"
                                   oninput="CheckInputValidations(this,'5','1000','Input','Text');SetStateButtonSubmitFormInfo()"
                                   Bigger="5" Less="1000"
                                   TypeVal="Text" CheckInputVal
                                   InputFormInformation>{{ User.AboutMe|NoneNull }}</textarea>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="ContainerLeftFormInfo">
-                    {% if User.Image|TrueOrFalse == 'true' %}
-                        <div class="ContainerItemForm ContainerItemFormImage text-center">
-                            <p class="LabelInput">عکس</p>
-                            <div class="ContainerInputIcon">
-                                <input type="file" name="Image" State="PastImage"
-                                       oninput="ValidationFile(this);SetStateButtonSubmitFormInfo();SetStateInputFile(this)"
-                                       TypeVal="File" CheckInputVal InputFormInformation id="InputImageFormInfo">
-                                <a href="/Media/{{ User.Image }}">{{ User.Image|truncatechars:35 }}</a>
-                            </div>
-                        </div>
-                        <div class="ContainerImageFormInfo">
-                            <img src="{{ User.Image.url }}" alt="Image User" id="ImageFormInfo">
-                        </div>
-                        <input type="hidden" name="ImageState" value="PastImage" id="ImageStateFormInfo">
-                    {% else %}
-                        <div class="ContainerItemForm ContainerItemFormImage">
-                            <p class="LabelInput">عکس</p>
-                            <div class="ContainerInputIcon text-center">
-                                <input type="file" name="Image" State="MostGet"
-                                       oninput="ValidationFile(this);SetStateButtonSubmitFormInfo();SetStateInputFile(this)"
-                                       TypeVal="File" CheckInputVal InputFormInformation id="InputImageFormInfo">
-                            </div>
-                        </div>
-                        <div class="ContainerImageFormInfo">
-                            <img src="" alt="Image User" id="ImageFormInfo">
-                        </div>
-                        <input type="hidden" name="ImageState" value="MostGet" id="ImageStateFormInfo">
-                    {% endif %}
-                </div>
-                <div class="ContainerButtonSubmitFormInfo">
-                    <button type="button" id="ButtonSubmitFormInfo">ثبت</button>
-                </div>
-            </form>
-        </div>
-        <div class="ContainerItemAsideMenu" ContainerItemMenu="Skills">
-            <div class="ContainerTitle">
-                <p>مهارت ها</p>
-                <i class="fa fa-wreath ColorPaper"></i>
-            </div>
-            <div class="ContainerSkills">
-                <button id="ButtonAddSkill">
-                    افزودن مهارت
-                    <i class="fa fa-plus"></i>
-                </button>
-                <div class="Skills" id="ContainerSkills">
-                    {% for Skill in User.GetSkills %}
-                        <div class="Skill" Skill>
-                            <div class="TitleSkill">
-                                <p TitleSkill>{{ Skill.Title }}</p>
-                            </div>
-                            <div class="ContainerChartSkill">
-                                <canvas ChartSkill TitleSkill="{{ Skill.Title }}"
-                                        ValuePercent="{{ Skill.ValueSkill }}"></canvas>
-                                <p class="PercentageValueSkill">{{ Skill.ValueSkill }}%</p>
-                            </div>
-                            <div class="ContainerDescriptionSkill">
-                                <p>{{ Skill.Description|NoneVal:'توضیحی وجود ندارد' }}</p>
-                            </div>
-                            <div class="ContainerEditDeleteSkill">
-                                <button class="BtnRemoveSkill"
-                                        onclick="RemoveSkill({{ Skill.id }},this.parentNode.parentNode)">
-                                    <p>حذف</p>
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                    {% empty %}
-                        <div class="ContainerNotFoundContent">
-                            <div>
-                                مهارتی یافت نشد
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        <div class="ContainerItemAsideMenu" ContainerItemMenu="WorkSamples">
-            <div class="ContainerTitle">
-                <p>نمونه کار</p>
-                <i class="fa fa-file-alt ColorGreen "></i>
-            </div>
-            <div class="ContainerWorkSamples">
-                <button id="ButtonAddWorkSample">
-                    افزودن نمونه کار
-                    <i class="fa fa-plus"></i>
-                </button>
-                <div class="Samples">
-                    {% for Sample in User.GetWorkSamples %}
-                        <div class="Sample" ID_Sample="{{ Sample.id }}">
-                            <div class="ItemsHeader">
-                                <i class="far fa-trash" onclick="RemoveSample(this.parentNode.parentNode)"></i>
-                                <i class="far fa-pen" onclick="EditSample(this.parentNode.parentNode)"></i>
-                            </div>
-                            <div class="TimePastSimple">
-                                <i class="far fa-clock"></i>
-                                <p class="m-0 d-inline-block">{{ Sample.GetTimePastCreate }}</p>
-                            </div>
-                            <div class="ContentSample">
-                                <img src="{{ Sample.Image.url }}" alt="{{ Sample.Title }}" title="{{ Sample.Title }}">
-                                {#                                <p class="LabelTitle">موضوع</p>#}
-                                <p class="TitleSample">{{ Sample.Title|truncatechars:25 }}</p>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center px-2">
-                                <button class="BtnStyle_1_OutLine"
-                                        onclick="GetWorkSample(this.parentNode.parentNode)">
-                                    مشاهده جزئیات
-                                </button>
-                                <div class="LikeWorkSample">
-                                    <i class="fa fa-heart BtnLikeWorkSample CursorDefault"></i>
-                                    <p class="SplitNumber" NumberLike Number="{{ Sample.GetLenLikes }}"></p>
+                    <div class="ContainerLeftFormInfo">
+                        {% if User.Image|TrueOrFalse == 'true' %}
+                            <div class="ContainerItemForm ContainerItemFormImage text-center">
+                                <p class="LabelInput">عکس</p>
+                                <div class="ContainerInputIcon">
+                                    <input type="file" name="Image" State="PastImage"
+                                           oninput="ValidationFile(this);SetStateButtonSubmitFormInfo();SetStateInputFile(this)"
+                                           TypeVal="File" CheckInputVal InputFormInformation id="InputImageFormInfo">
+                                    <a href="/Media/{{ User.Image }}">{{ User.Image|truncatechars:35 }}</a>
                                 </div>
                             </div>
-                        </div>
-                    {% empty %}
-                        <div class="ContainerNotFoundContent">
-                            <div>
-                                نمونه کاری یافت نشد
+                            <div class="ContainerImageFormInfo">
+                                <img src="{{ User.Image.url }}" alt="Image User" id="ImageFormInfo">
                             </div>
-                        </div>
-                    {% endfor %}
+                            <input type="hidden" name="ImageState" value="PastImage" id="ImageStateFormInfo">
+                        {% else %}
+                            <div class="ContainerItemForm ContainerItemFormImage">
+                                <p class="LabelInput">عکس</p>
+                                <div class="ContainerInputIcon text-center">
+                                    <input type="file" name="Image" State="MostGet"
+                                           oninput="ValidationFile(this);SetStateButtonSubmitFormInfo();SetStateInputFile(this)"
+                                           TypeVal="File" CheckInputVal InputFormInformation id="InputImageFormInfo">
+                                </div>
+                            </div>
+                            <div class="ContainerImageFormInfo">
+                                <img src="" alt="Image User" id="ImageFormInfo">
+                            </div>
+                            <input type="hidden" name="ImageState" value="MostGet" id="ImageStateFormInfo">
+                        {% endif %}
+                    </div>
+                    <div class="ContainerButtonSubmitFormInfo">
+                        <button type="button" id="ButtonSubmitFormInfo">ثبت</button>
+                    </div>
+                </form>
+            </div>
+            <div class="ContainerItemAsideMenu" ContainerItemMenu="Skills">
+                <div class="ContainerTitle">
+                    <p>مهارت ها</p>
+                    <i class="fa fa-wreath ColorPaper"></i>
+                </div>
+                <div class="ContainerSkills">
+                    <button id="ButtonAddSkill">
+                        افزودن مهارت
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <div class="Skills" id="ContainerSkills">
+                        {% for Skill in User.GetSkills %}
+                            <div class="Skill" Skill>
+                                <div class="TitleSkill">
+                                    <p TitleSkill>{{ Skill.Title }}</p>
+                                </div>
+                                <div class="ContainerChartSkill">
+                                    <canvas ChartSkill TitleSkill="{{ Skill.Title }}"
+                                            ValuePercent="{{ Skill.ValueSkill }}"></canvas>
+                                    <p class="PercentageValueSkill">{{ Skill.ValueSkill }}%</p>
+                                </div>
+                                <div class="ContainerDescriptionSkill">
+                                    <p>{{ Skill.Description|NoneVal:'توضیحی وجود ندارد' }}</p>
+                                </div>
+                                <div class="ContainerEditDeleteSkill">
+                                    <button class="BtnRemoveSkill"
+                                            onclick="RemoveSkill({{ Skill.id }},this.parentNode.parentNode)">
+                                        <p>حذف</p>
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <div class="ContainerNotFoundContent">
+                                <div>
+                                    مهارتی یافت نشد
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
-    {% include 'Base/Footer/index.html' %}
+            <div class="ContainerItemAsideMenu" ContainerItemMenu="WorkSamples">
+                <div class="ContainerTitle">
+                    <p>نمونه کار</p>
+                    <i class="fa fa-file-alt ColorGreen "></i>
+                </div>
+                <div class="ContainerWorkSamples">
+                    <button id="ButtonAddWorkSample">
+                        افزودن نمونه کار
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <div class="Samples">
+                        {% for Sample in User.GetWorkSamples %}
+                            <div class="Sample" ID_Sample="{{ Sample.id }}">
+                                <div class="LikeWorkSample">
+                                    <i class="far fa-heart BtnLikeWorkSample CursorDefault"></i>
+                                    <p class="SplitNumber" NumberLike
+                                       Number="{{ Sample.GetLenLikes }}"></p>
+                                </div>
+
+                                <div class="ItemsHeader">
+                                    <i class="far fa-trash" onclick="RemoveSample(this.parentNode.parentNode)"></i>
+                                    <i class="far fa-pen" onclick="EditSample(this.parentNode.parentNode)"></i>
+                                </div>
+                                <div class="ContentSample">
+                                    <img src="{{ Sample.Image.url }}" alt="{{ Sample.Title }}"
+                                         title="{{ Sample.Title }}">
+                                    {#                                <p class="LabelTitle">موضوع</p>#}
+                                    <p class="TitleSample">{{ Sample.Title|truncatechars:25 }}</p>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center px-2">
+                                    <button class="BtnStyle_1_OutLine"
+                                            onclick="GetWorkSample(this.parentNode.parentNode)">
+                                        مشاهده جزئیات
+                                    </button>
+                                    <div class="TimePastSample">
+                                        <i class="far fa-clock"></i>
+                                        <p class="m-0 d-inline-block">{{ Sample.GetTimePastCreate }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <div class="ContainerNotFoundContent">
+                                <div>
+                                    نمونه کاری یافت نشد
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% include 'Base/Footer/index.html' %}
+    {% else %}
+        <script>
+            alert('حساب شما فعال نیست')
+        </script>
+    {% endif %}
 {% endblock %}
 {% block Js %}
     <script src="/Static/Js/Chart/anychart-core.min.js"></script>
@@ -355,3 +377,4 @@
 
     </script>
 {% endblock %}
+

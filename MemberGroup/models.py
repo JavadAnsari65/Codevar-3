@@ -2,49 +2,53 @@ from django.db import models
 from ProjectGroupOrder.Tools import GetDifferenceTime, GetDifferenceTimeObj
 import random, string
 
+
 def RandomString(Len):
-   Letters = string.ascii_lowercase
-   return ''.join(random.choice(Letters) for i in range(Len))
+    Letters = string.ascii_lowercase
+    return ''.join(random.choice(Letters) for i in range(Len))
 
-def UploadSrcImageInfo(instance,path):
+
+def UploadSrcImageInfo(instance, path):
     Format = str(path).split('.')[1]
-    return f'Images/Members/{instance.id}/Profile/{RandomString(random.randint(4,15))}.{Format}'
+    return f'Images/Members/{instance.id}/Profile/{RandomString(random.randint(4, 15))}.{Format}'
 
-def UploadSrcImageWorkSample(instance,path):
+
+def UploadSrcImageWorkSample(instance, path):
     Format = str(path).split('.')[1]
     return f'Images/Members/{instance.id}/Profile/WorkSamples/{RandomString(random.randint(6, 15))}.{Format}'
 
 
 class LikeWorkSample(models.Model):
-    Owner = models.ForeignKey('User.User',on_delete=models.CASCADE)
-    WorkSample = models.ForeignKey('MemberGroup.WorkSample',on_delete=models.CASCADE)
+    Owner = models.ForeignKey('User.User', on_delete=models.CASCADE)
+    WorkSample = models.ForeignKey('MemberGroup.WorkSample', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.Owner.UserNameFamily or 'Unknwon'
 
+
 class LikeMember(models.Model):
-    Owner = models.ForeignKey('User.User',on_delete=models.CASCADE)
-    Member = models.ForeignKey('MemberGroup.MemberGroup',on_delete=models.CASCADE)
+    Owner = models.ForeignKey('User.User', on_delete=models.CASCADE)
+    Member = models.ForeignKey('MemberGroup.MemberGroup', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.Member.GetNameAndFamily() or 'Unknwon'
 
 
-
-
 class Skill(models.Model):
-    Owner = models.ForeignKey('MemberGroup.MemberGroup',on_delete=models.CASCADE)
+    Owner = models.ForeignKey('MemberGroup.MemberGroup', on_delete=models.CASCADE)
     Title = models.CharField(max_length=100)
     ValueSkill = models.IntegerField()
-    Description = models.TextField(null=True,blank=True)
+    Description = models.TextField(null=True, blank=True)
+
     def __str__(self):
         return self.Title
 
     def Remove(self):
         self.delete()
 
+
 class WorkSample(models.Model):
-    Owner = models.ForeignKey('MemberGroup.MemberGroup',on_delete=models.CASCADE)
+    Owner = models.ForeignKey('MemberGroup.MemberGroup', on_delete=models.CASCADE)
     Title = models.CharField(max_length=100)
     Address = models.CharField(max_length=150)
     TimeElapsed = models.CharField(max_length=20)
@@ -72,8 +76,7 @@ class WorkSample(models.Model):
         return self.Image.url
 
     def ListIDUserLiked(self):
-        return [ O.id for O in [I.Owner for I in LikeWorkSample.objects.filter(WorkSample_id=self.id)]]
-
+        return [O.id for O in [I.Owner for I in LikeWorkSample.objects.filter(WorkSample_id=self.id)]]
 
 
 class MemberGroup(models.Model):
@@ -84,12 +87,14 @@ class MemberGroup(models.Model):
     NationalCode = models.CharField(max_length=30, null=True, blank=True)
     TitleJob = models.CharField(max_length=300, null=True, blank=True)
     Address = models.TextField(null=True, blank=True)
+    Github = models.CharField(max_length=300,null=True,blank=True)
     AboutMe = models.TextField(null=True, blank=True)
-    Image = models.ImageField(null=True, blank=True,upload_to=UploadSrcImageInfo)
+    Image = models.ImageField(null=True, blank=True, upload_to=UploadSrcImageInfo)
     UserActive = models.BooleanField(default=True)
     DateTimeJoin = models.DateTimeField()
     UserName = models.CharField(max_length=100)
     Password = models.CharField(max_length=100)
+    Is_Active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.UserNameFamily or 'User'
@@ -97,14 +102,15 @@ class MemberGroup(models.Model):
     def GetNameAndFamily(self):
         return self.UserNameFamily or 'User'
 
-
-    def SubmitAndUpdateInfo(self, UserNameFamily, PhoneNumber, Phone, Email, NationalCode, TitleJob, Address, AboutMe, Image=None):
+    def SubmitAndUpdateInfo(self, UserNameFamily, PhoneNumber, Phone, Email, NationalCode, TitleJob, Github, Address,
+                            AboutMe, Image=None):
         self.UserNameFamily = UserNameFamily
         self.PhoneNumber = PhoneNumber
         self.Phone = Phone
         self.Email = Email
         self.NationalCode = NationalCode
         self.TitleJob = TitleJob
+        self.Github = Github
         self.Address = Address
         self.AboutMe = AboutMe
         if Image is not None:
@@ -134,7 +140,7 @@ class MemberGroup(models.Model):
 
     def GetSkillsWithValue(self):
         Skills = Skill.objects.filter(Owner_id=self.id) or []
-        return [j for j in [{"Value": i.ValueSkill , "Title": i.Title} for i in Skills]]
+        return [j for j in [{"Value": i.ValueSkill, "Title": i.Title} for i in Skills]]
 
     def GetLenSkills(self):
         return len(Skill.objects.filter(Owner_id=self.id)) or 0
@@ -169,6 +175,3 @@ class MemberGroup(models.Model):
 
     def GetTitleUserModel(self):
         return 'Member'
-
-
-

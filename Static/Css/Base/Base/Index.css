@@ -188,6 +188,11 @@ html, body {
     font-family: 'KalameBlack';
 }
 
+.Optional{
+    color: #777777;
+    font-size: 80%;
+}
+
 
 .ContainerBlur {
     position: absolute;

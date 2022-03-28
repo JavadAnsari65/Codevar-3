@@ -96,9 +96,9 @@
 }
 
 .TitleLabelSample {
-    font-size: 75%;
+    font-size: 80%;
     color: #a9a9a9;
-    width: 80px;
+    width: 85px;
     text-align: right;
 }
 
@@ -177,21 +177,9 @@
     text-align: right !important;
 }
 
-.Sample {
-    text-align: left;
-    overflow: hidden;
-    display: inline-block;
-    width: 380px;
-    height: 350px;
-    margin: 10px;
-    perspective: 1000px;
-    direction: ltr;
-    border-radius: 20px;
-    position: relative;
-    border: 1px solid #d0d0d0;
-    /*box-shadow: 0 0 25px rgb(74 255 163 / 10%);*/
-    background: #ffffff;
-}
+
+
+
 
 .BtnLikeWorkSample {
     font-size: 160%;
@@ -199,16 +187,9 @@
     cursor: pointer;
 }
 
-.LikeWorkSample p {
-    font-size: 80%;
-    padding-top: 5px;
-    color: #888888;
-    display: inline-block;
-}
-
 .Sample .ItemsHeader {
     position: absolute;
-    left: 10px;
+    right: 10px;
     top: 10px;
     background: #fff;
     border: 1px solid #dddddd;
@@ -231,29 +212,9 @@
 .ItemsHeader .fa-trash {
     color: #ff626f;
     border-right: 1px solid #e2e2e2;
+    padding-right: 30px!important;
 }
 
-.TimePastSimple {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    font-size: 65%;
-    color: rgb(122, 122, 122);
-    background: white;
-    padding: 3px 7px;
-    border-radius: 10px;
-    border: 1px solid #eeeeee;
-}
-
-.ContentSample {
-    border-radius: 8px
-}
-
-.ContentSample img {
-    width: 100%;
-    height: 220px;
-    border-radius: 20px 20px 0 0;
-}
 
 .LabelTitle {
     font-size: 82%;
@@ -263,16 +224,105 @@
 }
 
 
-.ContentSample .TitleSample {
+
+.Sample {
+    text-align: left;
+    overflow: hidden;
+    display: inline-block;
+    width: 380px;
+    height: 350px;
+    margin: 10px;
+    perspective: 1000px;
+    direction: ltr;
+    border-radius: 20px;
+    position: relative;
+    /*border: 1px solid rgba(0, 255, 140, 0.05);*/
+    box-shadow: 0 0 25px rgba(74, 255, 163, 0.1);
+    background: #ffffff;
+}
+
+.Sample img {
+    width: 100%;
+    height: 240px;
+    border-radius: 20px 20px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ContentWorkSample {
+    margin-bottom: -5px;
+}
+
+
+.ContentWorkSample p {
+    margin: 0;
+}
+
+
+.TitleSample {
     text-align: right;
     direction: rtl;
     font-size: 105%;
-    min-height: 57px;
-    overflow: auto;
+    height: 37px;
     font-weight: bold;
     color: #565656;
     padding: 5px;
 }
+
+.ItemLikeTimeSample {
+    text-align: left;
+    float: left;
+    display: inline-block;
+}
+
+.TimePastSample {
+    font-size: 85%;
+    color: rgb(122, 122, 122);
+    background: white;
+    padding: 3px 7px;
+    border-radius: 10px;
+}
+
+.TimePastSample p {
+    direction: rtl;
+    display: inline-block;
+    margin: 0;
+    font-size: 85%;
+}
+
+.TimePastSample i {
+    font-size: 110%;
+    animation: AnimationRotateClock 9s infinite;
+}
+
+
+.LikeWorkSample {
+    text-align: center;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 70px;
+    height: 46px;
+    background: #ffffff;
+    border: 1px solid rgba(145, 145, 145, 0.25);
+    padding: 8px 4px;
+    border-radius: 18px 6px 6px 6px;
+    z-index: 1;
+}
+
+.LikeWorkSample p {
+    font-size: 80%;
+    padding-top: 5px;
+    color: #888888;
+    display: inline-block;
+}
+
+.BtnLikeWorkSample {
+    font-size: 160%;
+    color: #ff4e5e;
+    cursor: pointer;
+}
+
 
 
 @media screen and (max-width: 1500px) {

@@ -33,6 +33,7 @@ def SubmitInfo(request):
         Email = Data.get('Email') or None
         NationalCode = Data.get('NationalCode') or None
         TitleJob = Data.get('TitleJob') or None
+        Github = Data.get('Github') or None
         Address = Data.get('Address') or None
         AboutMe = Data.get('AboutMe') or None
         Image = request.FILES.get('Image') or None
@@ -49,7 +50,7 @@ def SubmitInfo(request):
                         (AboutMe is not None)):
                     if ImageState == 'MostGet':
                         if Image is not None:
-                            User.SubmitAndUpdateInfo(UserNameFamily, PhoneNumber, Phone, Email, NationalCode, TitleJob,
+                            User.SubmitAndUpdateInfo(UserNameFamily, PhoneNumber, Phone, Email, NationalCode, TitleJob,Github,
                                                      Address, AboutMe, Image)
                             return Set_Cookie_Functionality(" اطلاعات شما با موفقیت ذخیره شدند ", 'Success', '7000',
                                                             '3', '/M/Profile?Info')
@@ -58,7 +59,7 @@ def SubmitInfo(request):
                             return Set_Cookie_Functionality("مشکلی در دریافت عکس وجود دارد ", 'Error', '7000',
                                                             '3', '/M/Profile?Info')
                     else:
-                        User.SubmitAndUpdateInfo(UserNameFamily, PhoneNumber, Phone, Email, NationalCode, TitleJob,
+                        User.SubmitAndUpdateInfo(UserNameFamily, PhoneNumber, Phone, Email, NationalCode, TitleJob,Github,
                                                  Address, AboutMe)
                         return Set_Cookie_Functionality(" اطلاعات شما با موفقیت ذخیره شدند ", 'Success', '7000', '3',
                                                         '/M/Profile?Info')

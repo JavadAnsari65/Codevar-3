@@ -195,6 +195,10 @@ function CheckInputValidations(Input, Bigger, Less, SetIn = 'Input', Type = 'Tex
         State = false
     }
 
+    if (Bigger < 0 && Type == 'Text'){
+        State = true
+    }
+
 
     if (SetIn != 'None') {
         if (SetIn == 'Container') {
