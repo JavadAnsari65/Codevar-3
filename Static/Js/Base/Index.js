@@ -252,41 +252,106 @@ window.onscroll = function () {
 }
 
 //////////////////////////////////                Functionality Cookie         ///////////////////////////////////////////////
-
-function SetCookieFunctionality_ShowNotification(Text, Type, Timer, LevelOfNecessity) {
-    document.cookie = `Functionality_N=${Text}~${Type}~${Timer}~${LevelOfNecessity};path=/`
+function SetCookieFunctionality_ShowNotification(Text, Type, Timer = 5000, LevelOfNecessity = 2) {
+    document.cookie = `Functionality_N=${ConvertCharPersianToEnglishDecode(Text)}~${Type}~${Timer}~${LevelOfNecessity};path=/`
 }
 
 
+
 function GetCookieFunctionality_ShowNotification() {
-    let AllCookies = document.cookie.split(';')
-    let Cookie_Key
-    let Cookie_Val
-    for (let Co of AllCookies) {
-        let Key = Co.split('=')[0]
-        let Value = Co.split('=')[1]
-        if (Key == 'Functionality_N' || Key == ' Functionality_N' || Key == ' Functionality_N ') {
-            Cookie_Key = Key
-            Cookie_Val = Value
+    setTimeout(function () {
+        let AllCookies = document.cookie.split(';')
+        let Cookie_Key
+        let Cookie_Val
+        for (let Co of AllCookies) {
+            let Key = Co.split('=')[0]
+            let Value = Co.split('=')[1]
+            if (Key == 'Functionality_N' || Key == ' Functionality_N' || Key == ' Functionality_N ') {
+                Cookie_Key = Key
+                Cookie_Val = Value
+            }
+        }
+        let Text
+        let Type
+        let Timer
+        let LevelOfNecessity
+        try {
+            Text = Cookie_Val.split('~')[0] || 'نا مشخص'
+            Text = Text.replace('"', '')
+            Text = Text.replace("'", '')
+            Type = Cookie_Val.split('~')[1] || 'Warning'
+            Timer = Cookie_Val.split('~')[2] || 8000
+            LevelOfNecessity = Cookie_Val.split('~')[3] || 2
+        } catch (e) {
+        }
+        if (Cookie_Key == 'Functionality_N' || Cookie_Key == ' Functionality_N' || Cookie_Key == ' Functionality_N ') {
+            let TextResult = ConvertCharEnglishToPersianDecode(Text)
+            ShowNotificationMessage(TextResult, Type, Timer, LevelOfNecessity)
+        }
+        document.cookie = `${Cookie_Key}=Closed; expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/`
+    })
+}
+
+/////////////  Convert English Char & Persian Decode //////////////////////////
+
+function ConvertCharEnglishToPersianDecode(Text) {
+    let Dict_Char_Persian_English = {
+        'ا': 'a1',
+        'آ': 'a2',
+        'ب': 'b1',
+        'پ': 'p1',
+        'ت': 't1',
+        'ث': 'c1',
+        'ج': 'j1',
+        'چ': 'ch',
+        'ح': 'h1',
+        'خ': 'kh',
+        'د': 'd1',
+        'ذ': 'z1',
+        'ر': 'r1',
+        'ز': 'z2',
+        'ژ': 'zh',
+        'س': 'c2',
+        'ش': 'sh',
+        'ص': 'c3',
+        'ض': 'z3',
+        'ط': 't2',
+        'ظ': 'z4',
+        'ع': 'a3',
+        'غ': 'g_',
+        'ف': 'f1',
+        'ق': 'g5',
+        'ک': 'k1',
+        'گ': 'k2',
+        'ل': 'l1',
+        'م': 'm1',
+        'ن': 'n1',
+        'و': 'v1',
+        'ه': 'h2',
+        'ی': 'e2',
+        ' ': '11',
+        '': '22',
+    }
+    let CharEn = Object.keys(Dict_Char_Persian_English)
+    let TextResult = ''
+    for (let Index = 0; Index < Text.length; Index++) {
+        if (Index % 2 == 0) {
+            TextResult += GetKeyByValue(Dict_Char_Persian_English, Text[Index] + Text[Index + 1])
         }
     }
-    let Text
-    let Type
-    let Timer
-    let LevelOfNecessity
-    try {
-        Text = Cookie_Val.split('~')[0] || 'نا مشخص'
-        Text = Text.replace('"', '')
-        Text = Text.replace("'", '')
-        Type = Cookie_Val.split('~')[1] || 'Warning'
-        Timer = Cookie_Val.split('~')[2] || 8000
-        LevelOfNecessity = Cookie_Val.split('~')[3] || 2
-    } catch (e) {
+    return TextResult
+}
+
+
+function ConvertCharPersianToEnglishDecode(Text) {
+    let Res = ''
+    for (let i of Text){
+        try {
+            Res += Dict_Char_Persian_English[i]
+        }catch (e) {
+        }
     }
-    if (Cookie_Key == 'Functionality_N' || Cookie_Key == ' Functionality_N' || Cookie_Key == ' Functionality_N ') {
-        ShowNotificationMessage(Text, Type, Timer, LevelOfNecessity)
-    }
-    document.cookie = `${Cookie_Key}=Closed; expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/`
+    return Res
 }
 
 
@@ -975,111 +1040,11 @@ function SignOutAccountMenu() {
 }
 
 
-function SetCookieFunctionality_ShowNotification(Text, Type, Timer = 5000, LevelOfNecessity = 2) {
-    document.cookie = `Functionality_N=${ConvertCharPersianToEnglishDecode(Text)}~${Type}~${Timer}~${LevelOfNecessity};path=/`
-}
-
-function GetCookieFunctionality_ShowNotification() {
-    setTimeout(function () {
-        let AllCookies = document.cookie.split(';')
-        let Cookie_Key
-        let Cookie_Val
-        for (let Co of AllCookies) {
-            let Key = Co.split('=')[0]
-            let Value = Co.split('=')[1]
-            if (Key == 'Functionality_N' || Key == ' Functionality_N' || Key == ' Functionality_N ') {
-                Cookie_Key = Key
-                Cookie_Val = Value
-            }
-        }
-        let Text
-        let Type
-        let Timer
-        let LevelOfNecessity
-        try {
-            Text = Cookie_Val.split('~')[0] || 'نا مشخص'
-            Text = Text.replace('"', '')
-            Text = Text.replace("'", '')
-            Type = Cookie_Val.split('~')[1] || 'Warning'
-            Timer = Cookie_Val.split('~')[2] || 8000
-            LevelOfNecessity = Cookie_Val.split('~')[3] || 2
-        } catch (e) {
-        }
-        if (Cookie_Key == 'Functionality_N' || Cookie_Key == ' Functionality_N' || Cookie_Key == ' Functionality_N ') {
-            let TextResult = Text
-            ShowNotificationMessage(TextResult, Type, Timer, LevelOfNecessity)
-        }
-        document.cookie = `${Cookie_Key}=Closed; expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/`
-    })
-}
 
 function GetKeyByValue(Obj, Val) {
     return Object.keys(Obj).find(K => Obj[K] === Val);
 }
 
-
-/////////////  Convert English Char & Persian Decode //////////////////////////
-
-function ConvertCharEnglishToPersianDecode(Text) {
-    let Dict_Char_Persian_English = {
-        'ا': 'a1',
-        'آ': 'a2',
-        'ب': 'b1',
-        'پ': 'p1',
-        'ت': 't1',
-        'ث': 'c1',
-        'ج': 'j1',
-        'چ': 'ch',
-        'ح': 'h1',
-        'خ': 'kh',
-        'د': 'd1',
-        'ذ': 'z1',
-        'ر': 'r1',
-        'ز': 'z2',
-        'ژ': 'zh',
-        'س': 'c2',
-        'ش': 'sh',
-        'ص': 'c3',
-        'ض': 'z3',
-        'ط': 't2',
-        'ظ': 'z4',
-        'ع': 'a3',
-        'غ': 'g_',
-        'ف': 'f1',
-        'ق': 'g5',
-        'ک': 'k1',
-        'گ': 'k2',
-        'ل': 'l1',
-        'م': 'm1',
-        'ن': 'n1',
-        'و': 'v1',
-        'ه': 'h2',
-        'ی': 'e2',
-        ' ': '11',
-        '': '22',
-    }
-    let CharEn = Object.keys(Dict_Char_Persian_English)
-    let TextResult = ''
-    for (let Index = 0; Index < Text.length; Index++) {
-        if (Index % 2 == 0) {
-            TextResult += GetKeyByValue(Dict_Char_Persian_English, Text[Index] + Text[Index + 1])
-        }
-    }
-    return TextResult
-}
-
-
-function ConvertCharPersianToEnglishDecode(Text) {
-    let Res = ''
-    for (let i of Text) {
-        try {
-            Res += Dict_Char_Persian_English[i]
-        } catch (e) {
-            Res += i
-        }
-    }
-    return Res
-}
 
 
 function SendAjax(Url, Data = {}, Method = 'POST', Success, Failed) {

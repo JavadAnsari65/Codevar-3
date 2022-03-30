@@ -5,6 +5,54 @@ from django.http import HttpResponse
 import re
 
 
+Dict_Char_Persian_English = {
+    'ا':'a1',
+    'آ':'a2',
+    'ب':'b1',
+    'پ':'p1',
+    'ت':'t1',
+    'ث':'c1',
+    'ج':'j1',
+    'چ':'ch',
+    'ح':'h1',
+    'خ':'kh',
+    'د':'d1',
+    'ذ':'z1',
+    'ر':'r1',
+    'ز':'z2',
+    'ژ':'zh',
+    'س':'c2',
+    'ش':'sh',
+    'ص':'c3',
+    'ض':'z3',
+    'ط':'t2',
+    'ظ':'z4',
+    'ع':'a3',
+    'غ':'g_',
+    'ف':'f1',
+    'ق':'g5',
+    'ک':'k1',
+    'گ':'k2',
+    'ل':'l1',
+    'م':'m1',
+    'ن':'n1',
+    'و':'v1',
+    'ه':'h2',
+    'ی':'e2',
+    ' ':'11',
+    '':'22',
+}
+
+def ConvertPersianCharToEnglish(Text):
+    Res = ''
+    for i in Text:
+        try:
+            Res += Dict_Char_Persian_English[i]
+        except:
+            Res += i
+    return Res
+
+
 def Set_Cookie(response, key, value, days_expire=7):
     if days_expire is None:
         max_age = 365 * 24 * 60 * 60  # one year
@@ -26,10 +74,10 @@ def Set_Cookie(response, key, value, days_expire=7):
 
 def Set_Cookie_Functionality(Text,Type,Timer='5000',LevelOfNecessity='2',RedirectTo=None):
     if RedirectTo == None:
-        Res = HttpResponse('<script>window.history.go(-1);</script>')
+        Res = HttpResponse('<script>setTimeout(()=>{window.history.back();},50);</script>')
     else:
         Res =  HttpResponse(f"<script>location.href='{RedirectTo}';</script>")
-    Set_Cookie(Res,'Functionality_N',f'{Text}~{Type}~{Timer}~{LevelOfNecessity}',1)
+    Set_Cookie(Res,'Functionality_N',f"{ConvertPersianCharToEnglish(Text)}~{Type}~{Timer}~{LevelOfNecessity}",1)
     return Res
 
 
