@@ -7,80 +7,184 @@
         }
 
         [ContainerItemMenu='Profile'] {
-            width: 95%;
+            width: 90%;
             margin: 20px auto;
             border-radius: 10px;
             background: none !important;
         }
 
-        .ShortInfoProfile {
-            background: #f4f4f4;
+        .Skill {
+            height: 280px;
         }
 
-        .InfoProfile {
-            background: #f4f4f4;
+        @media screen and (max-width: 1001px) {
+
+            .HeaderProfile {
+                flex-direction: column;
+            }
+
+            .ShortInfoProfile {
+                width: 100%;
+                height: auto;
+                margin: 7px;
+            }
+
+            .HeaderProfile img {
+                margin: 7px;
+                width: 70%;
+                order: -1;
+            }
+
+            .AboutMeProfile {
+                height: auto;
+                width: 97%;
+            }
         }
+
+        @media screen and (max-width: 700px) {
+
+
+            [ContainerItemMenu='Profile'] {
+                width: 100%;
+                padding: 0 !important;
+            }
+
+            .ShortInfoProfile {
+                height: auto;
+            }
+
+            .AboutMeProfile {
+                height: auto;
+                width: 97%;
+            }
+
+            .HeaderProfile img {
+                margin: 7px;
+                width: 100%;
+                order: -1;
+            }
+
+            .HeaderShortInfoProfile {
+                flex-direction: column;
+                text-align: right;
+                margin-bottom: 25px;
+            }
+
+            .ContainerItemsLeftHeaderInfo {
+                order: -1;
+                width: 100%;
+                text-align: left;
+            }
+
+            .ContainerItemsLeftHeaderInfo > div {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            .HeaderShortInfoProfile > div {
+                width: 100%;
+            }
+
+            .TitleJobProfile {
+                margin-top: -15px;
+            }
+
+            .NameAndFamilyMember {
+                width: 100%;
+                margin-top: 15px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .Skills {
+                text-align: center;
+                width: 100%;
+                padding: 0;
+            }
+
+            .Skill {
+                margin: 7px auto;
+                width: 100%;
+            }
+
+            .Skill canvas {
+                width: 100% !important;
+            }
+        }
+
     </style>
 {% endif %}
 
+
 <div class="ContainerItemAsideMenu ContainerItemMenuIsActive AnimationTopToBottom" ContainerItemMenu="Profile">
     <div class="ContanierProfile">
-        {% if MemberProfile.Image != '' %}
-            <img src="{{ MemberProfile.Image.url }}" alt="{{ MemberProfile.GetNameAndFamily }}"
-                 class="ImageUserProfile">
-        {% else %}
-            <img src="/Static/Img/Img-Default/ImageDefaultMember.jpg" alt="{{ MemberProfile.GetNameAndFamily }}"
-                 class="ImageUserProfile">
-        {% endif %}
-        <div class="ShortInfoProfile">
-            <p class="NameAndFamilyMember">
-                {{ MemberProfile.GetNameAndFamily }}
-            </p>
-            <p class="TitleJobProfile">
-                {{ MemberProfile.TitleJob|NoneVal:'' }}
-            </p>
-            <div class="TimeJoinToTeamProfile">
-                <p>زمان عضویت :</p>
-                <div class="ResultField">
-                    {{ MemberProfile.DateTimeJoin.date }}
-                    <b>({{ MemberProfile.GetTimeJoined }})</b>
+        <div class="HeaderProfile">
+            <div class="ShortInfoProfile">
+                <div class="HeaderShortInfoProfile">
+                    <div>
+                        <p class="NameAndFamilyMember">
+                            {{ MemberProfile.GetNameAndFamily }}
+                        </p>
+                        <p class="TitleJobProfile">
+                            {{ MemberProfile.TitleJob|NoneVal:'' }}
+                        </p>
+                    </div>
+                    <div class="ContainerItemsLeftHeaderInfo">
+                        <div class="LikeMemberProfile" dir="ltr">
+                            {% if OnlyUserIsLogin %}
+                                <div class="LikeMember"
+                                     Liked="{{ MemberProfile.GetListIDUsersLiked|ValInList:User.id }}">
+                                    <i class="{% if MemberProfile.GetListIDUsersLiked|ValInList:User.id == 'true' %}fa{% else %}far{% endif %} fa-heart BtnLikeMember"
+                                       {% if UserIsLogin %}BtnLikeMember{% endif %}
+                                       IDMember="{{ MemberProfile.id }}" BtnLikeMember></i>
+                                    <p class="SplitNumber NumberLikeMember"
+                                       Number="{{ MemberProfile.GetLenLikeMember }}"
+                                       NumberLikeMember>{{ MemberProfile.GetLenLikeMember }}</p>
+                                </div>
+                            {% else %}
+                                <div class="LikeMember"
+                                     Liked="false">
+                                    <i class="far fa-heart BtnLikeMember CursorDefault"
+                                       IDMember="{{ MemberProfile.id }}"></i>
+                                    <p class="SplitNumber NumberLikeMember"
+                                       Number="{{ MemberProfile.GetLenLikeMember }}"
+                                       NumberLikeMember>{{ MemberProfile.GetLenLikeMember }}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% if MemberProfile.Github %}
+                            <div>
+                                <a href="{{ MemberProfile.Github }}" class="IconGithub" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        {% endif %}
+                        <div class="TimeJoinToTeamProfile">
+                            <i class="fal fa-clock IconShowTimeJoinTeam"
+                               title="زمان عضویت : {{ MemberProfile.GetTimeJoined }}" data-toggle="tooltip"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="LabelTitle">
+                        درباره من
+                    </p>
+                    <p class="ResultField AboutMeProfile">
+                        {{ MemberProfile.AboutMe|NoneVal:'من عضو مجموعه کدوار هستم' }}
+                    </p>
                 </div>
             </div>
-            <div class="LikeMemberProfile" dir="ltr">
-                {% if OnlyUserIsLogin %}
-                    <div class="LikeMember"
-                         Liked="{{ MemberProfile.GetListIDUsersLiked|ValInList:User.id }}">
-                        <i class="{% if MemberProfile.GetListIDUsersLiked|ValInList:User.id == 'true' %}fa{% else %}far{% endif %} fa-heart BtnLikeMember"
-                           {% if UserIsLogin %}BtnLikeMember{% endif %}
-                           IDMember="{{ MemberProfile.id }}" BtnLikeMember></i>
-                        <p class="SplitNumber NumberLikeMember"
-                           Number="{{ MemberProfile.GetLenLikeMember }}"
-                           NumberLikeMember>{{ MemberProfile.GetLenLikeMember }}</p>
-                    </div>
-                {% else %}
-                    <div class="LikeMember"
-                         Liked="false">
-                        <i class="far fa-heart BtnLikeMember CursorDefault"
-                           IDMember="{{ MemberProfile.id }}"></i>
-                        <p class="SplitNumber NumberLikeMember"
-                           Number="{{ MemberProfile.GetLenLikeMember }}"
-                           NumberLikeMember>{{ MemberProfile.GetLenLikeMember }}</p>
-                    </div>
-                {% endif %}
-            </div>
+            {% if MemberProfile.Image != '' %}
+                <img src="{{ MemberProfile.Image.url }}" alt="{{ MemberProfile.GetNameAndFamily }}"
+                     class="ImageUserProfile">
+            {% else %}
+                <img src="/Static/Img/Img-Default/ImageDefaultMember.jpg" alt="{{ MemberProfile.GetNameAndFamily }}"
+                     class="ImageUserProfile">
+            {% endif %}
         </div>
         <div class="InfoProfile">
-            <p class="LabelTitle">
-                درباره من
-            </p>
-            <p class="ResultField AboutMeProfile">
-                {{ MemberProfile.AboutMe|NoneVal:'من عضو مجموعه کدوار هستم' }}
-            </p>
-            <hr>
             <div class="ContainerPropryProfile ContainerItemInfoProfile">
-                <p class="LabelTitle">
-                    خصوصیات :
-                </p>
                 <div class="ItemPropryProfile">
                     <div>
                         <img src="/Static/Img/Img-Design/Img-Blobs/Blob_3.jpg" alt="Blob">
@@ -112,9 +216,11 @@
                     </p>
                 </div>
             </div>
-            <p class="LabelTitle">
-                نمونه کار ها :
-            </p>
+            <div class="ContainerTitleProfile">
+                <p>
+                    نمونه کار ها
+                </p>
+            </div>
             <div class="ContainerWorkSamplesProfile ContainerItemInfoProfile">
                 <div class="Samples">
                     {% for Sample in MemberProfile.GetWorkSamples %}
@@ -166,16 +272,44 @@
                     {% endfor %}
                 </div>
             </div>
-            <p class="LabelTitle">
-                مجموع مهارت های من :
-            </p>
-            <div class="ContainerSkillsProfile ContainerItemInfoProfile">
-                {% if MemberProfile.GetSkills|ListIsNone == False %}
-                    <div id="ContainerChartSkillsProfile"></div>
-                {% else %}
-                    <p class="ResultField">تاکنون مهارتی ثبت نکرده ام</p>
-                {% endif %}
+            <div class="ContainerTitleProfile">
+                <p>
+                    مهارت ها
+                </p>
             </div>
+            <div class="Skills" id="ContainerSkillsProfile">
+                {% for Skill in MemberProfile.GetSkills %}
+                    <div class="Skill" Skill>
+                        <div class="TitleSkill">
+                            <p TitleSkill>{{ Skill.Title }}</p>
+                        </div>
+                        <div class="ContainerChartSkill">
+                            <canvas ChartSkill TitleSkill="{{ Skill.Title }}"
+                                    ValuePercent="{{ Skill.ValueSkill }}"></canvas>
+                            <p class="PercentageValueSkill">{{ Skill.ValueSkill }}%</p>
+                        </div>
+                        <div class="ContainerDescriptionSkill">
+                            <p>{{ Skill.Description|NoneVal:'توضیحی وجود ندارد' }}</p>
+                        </div>
+                        {% if ViewBy == 'Member' %}
+                            <div class="ContainerEditDeleteSkill">
+                                <button class="BtnRemoveSkill"
+                                        onclick="RemoveSkill({{ Skill.id }},this.parentNode.parentNode)">
+                                    <p>حذف</p>
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% empty %}
+                    <div class="ContainerNotFoundContent">
+                        <div>
+                            مهارتی یافت نشد
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
         </div>
     </div>
 </div>

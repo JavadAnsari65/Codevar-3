@@ -7,35 +7,41 @@
 }
 
 .ContainerBase {
-    position: absolute;
+    /*position: absolute;*/
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(3px);
+
+
 }
 
 .ContainerForm {
-    position: absolute;
+    /*position: absolute;*/
     height: auto;
     top: 20%;
     left: 0;
     padding: 5px;
+    margin: auto;
     padding-bottom: 10px;
-    background: rgba(234, 234, 234, 0.92);
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    /*border: 1px solid #eee;*/
     text-align: right;
     border-radius: 8px;
     perspective: 2000px;
+    transform: translateY(-250px);
+    box-shadow: 0 3px 30px rgb(203 255 220 / 45%);
 }
 
 .HeaderForm {
-    font-family: IranSens;
+    font-family: KalameBlack;
     margin-bottom: 15px;
     margin-top: 0;
     padding-bottom: 5px;
     padding-right: 10px;
     padding-top: 5px;
-    border-bottom: 1px solid rgba(23, 195, 178, 0.7);
+    border-bottom: 3px solid var(--ColorBase);
 }
 
 .HeaderForm * {
@@ -54,15 +60,15 @@
     width: 200px;
     padding: 7px 5px;
     border-radius: 5px;
-    background: #ababab;
+    background: #e5e5e5;
     opacity: .6;
     cursor: not-allowed;
 }
 
 .ContainerButtonFormButtonActive {
-    box-shadow: 0 7px 8px #aaaaaa;
+    box-shadow: 0 3px 8px rgba(224, 255, 225, 0.4);
     cursor: pointer;
-    background: #55b69b;
+    background: var(--ColorBase);
     color: white;
     opacity: 1;
 }
@@ -179,4 +185,30 @@
 .ContainerFormCreateActiveHideFormLogin .ContainerFormLogin {
     display: none;
 }
+
+@media screen and (max-width: 1300px) {
+    .ContainerBase {
+        transform: translateY(70px);
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .ContainerBase {
+        transform: translateY(150px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .ContainerBase {
+        transform: translateY(200px);
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .ContainerBase {
+        transform: translateY(250px);
+    }
+}
+
 

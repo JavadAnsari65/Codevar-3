@@ -1,6 +1,6 @@
 
-body{
-    background: #f9f9f9!important;
+body {
+    background: #f9f9f9 !important;
 }
 
 .ContainerItemAsideMenu[ContainerItemMenu="Profile"] {
@@ -22,55 +22,83 @@ body{
     text-align: right;
 }
 
+
+
+.HeaderProfile {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .ImageUserProfile {
-    border-radius: 20px;
-    width: 180px;
-    height: 170px;
+    border-radius: 15px;
+    width: 300px;
+    height: 300px;
     border: 1px solid #ededed;
-    position: absolute;
-    left: 5px;
-    top: 5px;
     /* box-shadow: 0 0 25px #f3f3f3;*/
     background: white;
 }
 
 .ShortInfoProfile {
-    background: #efefef;
-    box-shadow: 0 6px 10px #e3e3e3, 0 -6px 10px #fcfcfc;
-    padding: 8px;
+    text-align: right;
+    background: #fafafa;
+    box-shadow: 0 0 20px rgb(173 255 213 / 20%);
+    border: 1px solid #eee;
+    padding: 15px;
     border-radius: 10px;
-    border: 1px solid #e8e8e8;
+    width: calc(100% - 315px);
+    height: 300px;
+}
+
+.HeaderShortInfoProfile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .NameAndFamilyMember {
-    font-size: 120%;
+    font-size: 150%;
     margin: 0;
-    color: #f83e50;
+    margin-top: -50px;
+    color: #666666;
 }
 
 .TitleJobProfile {
     margin: 0;
     margin-top: -3px;
-    font-size: 65%;
-    color: #959595;
+    font-size: 95%;
+    color: #90958f;
 }
 
-.TimeJoinToTeamProfile {
-    margin: 10px 0;
-    font-size: 70%;
+.ContainerItemsLeftHeaderInfo {
+    position: relative;
 }
 
-.TimeJoinToTeamProfile p {
-    margin: 0;
-    color: #aaaaaa;
+.ContainerItemsLeftHeaderInfo > div {
+    margin: 10px;
+    height: 30px;
+    padding: 5px;
+    text-align: center;
 }
+
+.ContainerItemsLeftHeaderInfo > div i {
+    font-size: 160%;
+}
+
+.IconGithub {
+    color: #444444;
+}
+
+.IconShowTimeJoinTeam {
+    color: #666666;
+}
+
 
 .LikeMemberProfile {
-    position: absolute;
-    left: 210px;
-    top: 20px;
     text-align: left;
 }
+
 
 .LikeMemberProfile i {
     font-size: 160%;
@@ -87,21 +115,23 @@ body{
 }
 
 .InfoProfile {
-    width: 90%;
-    padding: 5px;
+    width: 100%;
+    padding: 15px;
     padding-bottom: 15px;
-    background: #f2f2f2;
-    box-shadow: 0 -6px 10px #e3e3e3, 0 6px 10px #fcfcfc;
-    margin-top: 25px;
-    border: 1px solid #e8e8e8;
+    background: #fafafa;
+    box-shadow: 0 0 20px rgb(173 255 213 / 20%);
+    border: 1px solid #eee;
+    margin-top: 10px;
     border-radius: 5px;
 }
 
 .AboutMeProfile {
     color: #666666;
-    width: 96%;
     margin: 7px 15px !important;
-    word-break: break-all;
+    word-break: break-word;
+    height: 110px;
+    line-height: 34px;
+    overflow-y: auto;
 }
 
 .InfoProfile hr {
@@ -118,22 +148,35 @@ body{
     text-align: right;
 }
 
+.ContainerTitleProfile {
+    text-align: center;
+    margin: 60px auto;
+    margin-bottom: 30px;
+}
+
+.ContainerTitleProfile p {
+    font-size: 220%;
+    font-family: 'KalameBlack';
+    color: #555555;
+}
+
 
 .ItemPropryProfile {
     display: inline-block;
-    margin: 10px;
-    width: 130px;
+    margin: 15px;
+    width: 180px;
     padding: 15px;
-    background: #f4f4f4;
+    background: #fff;
+    border: 1px solid #ecffea;
     border-radius: 10px;
-    box-shadow: -6px -6px 13px #ffffff, 6px 6px 13px #d2d2d2;
+    box-shadow: 0 3px 35px rgb(173 255 213 / 10%);
 }
 
 .ItemPropryProfile > div {
     position: relative;
     display: inline-block;
     width: 50px;
-    height: 50px;
+    height: 80px;
 }
 
 .ItemPropryProfile > p {
@@ -149,19 +192,19 @@ body{
 .ItemPropryProfile img {
     position: absolute;
     left: 0;
-    top: 10%;
+    top: 15%;
     height: 90%;
     width: 100%;
-    opacity: .12;
+    opacity: .1;
     transform: rotate(12deg);
 }
 
 .ItemPropryProfile i {
     color: #444444;
-    font-size: 230%;
+    font-size: 290%;
     position: absolute;
     height: 30%;
-    top: 15%;
+    top: 25%;
     width: 30%;
     left: 55%;
     z-index: 2;
@@ -169,10 +212,7 @@ body{
 
 .TitleProprtyProfile {
     margin: 0;
-    background: red;
 }
-
-
 
 
 #ContainerChartSkillsProfile {
@@ -189,21 +229,21 @@ body{
     fill: none;
 }
 
-.ContainerItemInfoProfile{
+.ContainerItemInfoProfile {
     margin: 15px;
 }
 
 
 @media screen and (max-width: 700px) {
-    .ContainerItemInfoProfile{
+    .ContainerItemInfoProfile {
         text-align: center;
         margin: 5px 0;
     }
 }
 
 @media screen and (max-width: 440px) {
-    .ImageUserProfile{
-        width: 95%!important;
-        height: 250px!important;
+    .ImageUserProfile {
+        width: 95% !important;
+        height: 250px !important;
     }
 }

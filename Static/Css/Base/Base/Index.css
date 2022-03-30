@@ -133,7 +133,11 @@ table {
 body {
     background: #f8f8f8;
     direction: rtl;
-    text-align: right;
+    text-align: right !important;
+}
+
+html {
+    direction: ltr;
 }
 
 html, body {
@@ -188,7 +192,7 @@ html, body {
     font-family: 'KalameBlack';
 }
 
-.Optional{
+.Optional {
     color: #777777;
     font-size: 80%;
 }
@@ -459,6 +463,11 @@ input[type=number] {
     color: #ffffff !important;
 }
 
+.BtnStyle_10:focus{
+    outline: none;
+    border: none;
+}
+
 .BtnStyle_10:after {
     content: "";
     position: absolute;
@@ -494,6 +503,11 @@ input[type=number] {
 
 .BtnStyle_10_OutLine:hover p {
     color: white !important;
+}
+
+.BtnStyle_10_OutLine:focus{
+    outline: none;
+    border: none;
 }
 
 .BtnStyle_4 {
@@ -704,7 +718,7 @@ input[type=number] {
 
 .Label {
     font-size: 80%;
-    color: #666666;
+    color: #888888;
     margin: 0;
     margin-left: 2px;
     display: inline-block;
@@ -1155,8 +1169,8 @@ button:focus {
     display: inline-block;
     padding: 5px 8px;
     border-radius: 15px;
-    background: rgba(106, 155, 204, 0.2);
-    box-shadow: 0 3px 6px #aaaaaa, 0 -3px 10px #ffffff;
+    background: #fff;
+    border: 1px solid #eee;
 }
 
 .ContainerRememberMe * {
@@ -1216,7 +1230,7 @@ button:focus {
 .LabelInput {
     margin: 0;
     margin-bottom: 2px;
-    color: #656565;
+    color: #707070;
     margin-right: 6%;
     font-size: 90%;
 }
@@ -1271,19 +1285,42 @@ button:focus {
 .ContainerButtonFormButton {
     display: inline-block;
     width: 200px;
-    padding: 7px 5px;
+    padding: 9px 5px;
     border-radius: 5px;
-    background: #ababab;
+    background: #e5e5e5;
     opacity: .6;
     cursor: not-allowed;
+    border: none;
+    outline: none;
 }
 
+.ContainerButtonFormButton p {
+    display: inline-block;
+    margin: 0;
+}
+
+.ContainerButtonFormButton:hover {
+    border: none;
+    outline: none;
+}
+
+.ContainerButtonFormButton:focus {
+    border: none;
+    outline: none;
+}
+
+
 .ContainerButtonFormButtonActive {
-    box-shadow: 0 7px 8px #aaaaaa;
+    box-shadow: 0 3px 8px rgba(224, 255, 225, 0.4);
     cursor: pointer;
-    background: #55b69b;
-    color: white;
+    background: #00EEB6;
+    color: #fff;
     opacity: 1;
+}
+
+.ContainerButtonFormButtonActive:focus {
+    box-shadow: 0 3px 8px rgba(224, 255, 225, 0.8);
+    background: #00e0a7;
 }
 
 .ContainerButtonForm .ContainerButtonFormButtonActive:hover i {
@@ -1294,7 +1331,7 @@ button:focus {
     transform: scale(.98);
 }
 
-.ContainerButtonForm div p {
+.ContainerButtonForm button p {
     display: inline-block;
     margin: 0;
     width: 80%;
@@ -1302,7 +1339,7 @@ button:focus {
     font-size: 110%;
 }
 
-.ContainerButtonForm div i {
+.ContainerButtonForm button i {
     vertical-align: middle;
     width: 15%;
     text-align: center;

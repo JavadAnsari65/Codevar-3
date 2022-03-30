@@ -53,7 +53,7 @@ def SubmitInfo(request):
                             User.SubmitAndUpdateInfo(UserNameFamily, PhoneNumber, Phone, Email, NationalCode, TitleJob,Github,
                                                      Address, AboutMe, Image)
                             return Set_Cookie_Functionality(" اطلاعات شما با موفقیت ذخیره شدند ", 'Success', '7000',
-                                                            '3', '/M/Profile?Info')
+                                                            '3', '/M/Profile')
                         else:
                     
                             return Set_Cookie_Functionality("مشکلی در دریافت عکس وجود دارد ", 'Error', '7000',
@@ -360,7 +360,7 @@ def LikeDisLikeMember(request):
 def ShowProfileMember(request, ID):
     if ID.isdigit():
         Context = {}
-        MemberProfile = MemberGroup.objects.filter(id=ID).first()
+        MemberProfile = MemberGroup.objects.filter(id=ID,Is_Active=True).first()
         if MemberProfile != None:
             User = GetUser_ByMODEL(request, 'User')
             Member = GetUser_ByMODEL(request, 'MemberGroup')

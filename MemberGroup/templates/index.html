@@ -297,24 +297,7 @@
     <script src="{% static 'Js/Member/Profile-Ws/index.js' %}"></script>
     <script src="/Static/Js/Member/Panel/index.js"></script>
     <script>
-        //  Chart Skills Profile
-        anychart.onDocumentReady(function () {
-            let Container = document.getElementById('ContainerChartSkillsProfile')
-            let DataChartSkillsProfile = []
-            {% for Skill in User.GetSkills %}
-                DataChartSkillsProfile.push(
-                    {x: "{{ Skill.Title }}", value: "{{ Skill.ValueSkill }}"}
-                )
-            {% endfor %}
-            let Chart = anychart.pie();
-            Chart.data(DataChartSkillsProfile);
-            Chart.container(Container);
-            Chart.draw();
-            Chart.legend().position("left");
-            Chart.legend().itemsLayout("vertical");
-        });
-
-
+        //  Chart Skills
         let AllChartSkills = document.querySelectorAll('[ChartSkill]')
         for (let Skill of AllChartSkills) {
             ChartSkills(Skill)

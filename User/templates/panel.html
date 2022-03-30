@@ -11,50 +11,50 @@
 {% endblock %}
 
 {% block Content %}
-    <div id="ContainerMenuHamburger" class="MenuIsClose _ContainerMenu">
-        <div class="ContentMenu">
-            <div class="ContainerInfoMenu">
-                <div class="ContainerTitleAndSignOutMenu">
-                    <span>{{ User.GetNameAndFamily }}</span>
-                    <span>
-                        <i class="far fa-sign-out-alt" title="خروج" ClickFunc="SignOutAccountIconMenu()"></i>
-                    </span>
-                </div>
-                <div class="ContainerMainMenu">
-                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerProjectSubmit')">
-                        <p>ثبت پروژه</p>
-                        <i class="far fa-file-plus"></i>
-                    </div>
-                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerProjectChecking')">
-                        <p>پروژه های در حال بررسی</p>
-                        <i class="far fa-file-edit"></i>
-                    </div>
-                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerProjectCompleting')">
-                        <p>پروژه های در حال انجام</p>
-                        <i class="far fa-spinner"></i>
-                    </div>
-                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerProjectCompleted')">
-                        <p>پروژه های تمام شده</p>
-                        <i class="far fa-file-check"></i>
-                    </div>
-                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerInfo')">
-                        <p>اطلاعات</p>
-                        <i class="far fa-info"></i>
-                    </div>
-                    <div class="ItemBtnMenu" ClickFunc="GoToUrl(/)">
-                        <p>خانه</p>
-                        <i class="far fa-home"></i>
-                    </div>
-                </div>
-            
-            </div>
-        </div>
-    </div>
+    {% include 'Base/Header/Header.html' with Style='Type3' Place='Other' Items='Logo,Account,WorkSamples,GroupMembers,ContactUs,BtnSubmitProject,BtnJoinToTeam,Home' User=User %}
+    {#    <div id="ContainerMenuHamburger" class="MenuIsClose _ContainerMenu d-none">#}
+    {#        <div class="ContentMenu">#}
+    {#            <div class="ContainerInfoMenu">#}
+    {#                <div class="ContainerTitleAndSignOutMenu">#}
+    {#                    <span>{{ User.GetNameAndFamily }}</span>#}
+    {#                    <span>#}
+    {#                        <i class="far fa-sign-out-alt" title="خروج" ClickFunc="SignOutAccountIconMenu()"></i>#}
+    {#                    </span>#}
+    {#                </div>#}
+    {#                <div class="ContainerMainMenu">#}
+    {#                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerProjectSubmit')">#}
+    {#                        <p>ثبت پروژه</p>#}
+    {#                        <i class="far fa-file-plus"></i>#}
+    {#                    </div>#}
+    {#                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerProjectChecking')">#}
+    {#                        <p>پروژه های در حال بررسی</p>#}
+    {#                        <i class="far fa-file-edit"></i>#}
+    {#                    </div>#}
+    {#                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerProjectCompleting')">#}
+    {#                        <p>پروژه های در حال انجام</p>#}
+    {#                        <i class="far fa-spinner"></i>#}
+    {#                    </div>#}
+    {#                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerProjectCompleted')">#}
+    {#                        <p>پروژه های تمام شده</p>#}
+    {#                        <i class="far fa-file-check"></i>#}
+    {#                    </div>#}
+    {#                    <div class="ItemBtnMenu" onclick="ClickShowContainerMenu('ContainerInfo')">#}
+    {#                        <p>اطلاعات</p>#}
+    {#                        <i class="far fa-info"></i>#}
+    {#                    </div>#}
+    {#                    <div class="ItemBtnMenu" ClickFunc="GoToUrl(/)">#}
+    {#                        <p>خانه</p>#}
+    {#                        <i class="far fa-home"></i>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
     <div class="ContainerAside">
-        <div class="ItemAside">
-            <i class="far fa-bars IconHamburgerMenu" id="IconHamburgerMenu"
-               ClickFunc="OpenMenuHamburgerID(ContainerMenuHamburger)"></i>
-        </div>
+        {#        <div class="ItemAside">#}
+        {#            <i class="far fa-bars IconHamburgerMenu" id="IconHamburgerMenu"#}
+        {#               ClickFunc="OpenMenuHamburgerID(ContainerMenuHamburger)"></i>#}
+        {#        </div>#}
         <div class="ItemAside ItemAsideSignOut" ClickFunc="SignOutAccount()" AnimationScroll="AnimationTopToBottom">
             <p>خروج</p>
             <i class="far fa-sign-out-alt"></i>
@@ -146,64 +146,67 @@
             <div class="ContainerTitle">
                 <p>ثبت پروژه</p>
             </div>
-            <div class="ContainerSubmitProject">
-                <div class="ItemForm">
-                    <p class="LabelInput">عنوان پروژه</p>
-                    <div class="ItemFormInput">
-                        <input type="text" InputTitleSubmitProject InputForm InputFormSubmitProject
-                               oninput="CheckInputValidations(this,'4','65','Icon','Text');StateButtonSubmitProject()">
-                        <i class="far fa-times-circle"></i>
+            <div class="ContainerSubmitProjectAndDescription">
+                <div class="ContainerSubmitProject">
+                    <div class="ItemForm">
+                        <p class="LabelInput">عنوان پروژه</p>
+                        <div class="ItemFormInput">
+                            <input type="text" InputTitleSubmitProject InputForm InputFormSubmitProject
+                                   oninput="CheckInputValidations(this,'4','65','Icon','Text');StateButtonSubmitProject()">
+                            <i class="far fa-times-circle"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="ItemForm">
-                    <p class="LabelInput">تکنولوژی ها</p>
-                    <div class="ItemFormInput">
-                        <input type="text" InputTechnologiesSubmitProject InputForm InputFormSubmitProject
-                               onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
-                               oninput="CheckInputValidations(this,'4','100','Icon','Text');StateButtonSubmitProject()">
-                        <i class="far fa-times-circle"></i>
+                    <div class="ItemForm">
+                        <p class="LabelInput">تکنولوژی ها</p>
+                        <div class="ItemFormInput">
+                            <input type="text" InputTechnologiesSubmitProject InputForm InputFormSubmitProject
+                                   onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
+                                   oninput="CheckInputValidations(this,'4','100','Icon','Text');StateButtonSubmitProject()">
+                            <i class="far fa-times-circle"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="ItemForm">
-                    <p class="LabelInput">مهلت تحویل (روز)</p>
-                    <div class="ItemFormInput">
-                        <input type="number" InputNumberDeadLineSubmitProject InputForm InputFormSubmitProject
-                               onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
-                               oninput="CheckInputValidations(this,'0','5','Icon','Number');StateButtonSubmitProject()"
-                               onkeypress="ValidationAlphabet(event)">
-                        <i class="far fa-times-circle"></i>
+                    <div class="ItemForm">
+                        <p class="LabelInput">مهلت تحویل (روز)</p>
+                        <div class="ItemFormInput">
+                            <input type="number" InputNumberDeadLineSubmitProject InputForm InputFormSubmitProject
+                                   onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
+                                   oninput="CheckInputValidations(this,'0','5','Icon','Number');StateButtonSubmitProject()"
+                                   onkeypress="ValidationAlphabet(event)">
+                            <i class="far fa-times-circle"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="ItemForm">
-                    <p class="LabelInput">بودجه (تومان)</p>
-                    <div class="ItemFormInput">
-                        <input type="number" InputBudgetSubmitProject InputForm InputFormSubmitProject
-                               onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
-                               oninput="CheckInputValidations(this,'2','50','Icon','Number');StateButtonSubmitProject();SetPriceInP(this.value)"
-                               onkeypress="ValidationAlphabet(event)">
-                        <i class="far fa-times-circle"></i>
+                    <div class="ItemForm">
+                        <p class="LabelInput">بودجه (تومان)</p>
+                        <div class="ItemFormInput">
+                            <input type="number" InputBudgetSubmitProject InputForm InputFormSubmitProject
+                                   onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
+                                   oninput="CheckInputValidations(this,'2','50','Icon','Number');StateButtonSubmitProject();SetPriceInP(this.value)"
+                                   onkeypress="ValidationAlphabet(event)">
+                            <i class="far fa-times-circle"></i>
+                        </div>
+                        <p class="PriceForProject text-left SplitPriceNumber" PriceForSubmitProject></p>
                     </div>
-                    <p class="PriceForProject text-left SplitPriceNumber" PriceForSubmitProject></p>
-                </div>
-                <div class="ItemForm">
-                    <p class="LabelInput">توضیحات</p>
-                    <div class="ItemFormInput">
+                    <div class="ItemForm">
+                        <p class="LabelInput">توضیحات</p>
+                        <div class="ItemFormInput">
                         <textarea rows="5" InputDescriptionSubmitProject InputForm InputFormSubmitProject
                                   onfocusout="ClearEffectOnItemFormInput(this.parentNode)"
                                   oninput="CheckInputValidations(this,'1','5000','Icon','Text');StateButtonSubmitProject()"></textarea>
-                        <i class="far fa-times-circle"></i>
+                            <i class="far fa-times-circle"></i>
+                        </div>
+                    </div>
+                    <div class="ContainerBtnSubmit">
+                        <button class="BtnStyle_5 Disabled" id="BtnSubmitProject">ثبت</button>
                     </div>
                 </div>
-                <div class="ContainerBtnSubmit">
-                    <button class="BtnStyle_5 Disabled" id="BtnSubmitProject">ثبت</button>
+                <div class="ContainerDesignSubmitProject">
+                    <h2> با ما آسوده خاطر باشید</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, eaque?
+                    </p>
+                    <img src="/Static/Img/Img-Design/Img-Background/BackgroundPanel1.jpg" alt="Image Design"
+                         loading="lazy">
                 </div>
-            </div>
-            <div class="ContainerDesignSubmitProject">
-                <h2> با ما آسوده خاطر باشید</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, eaque?
-                </p>
-                <img src="/Static/Img/Img-Design/Img-Background/BackgroundPanel1.jpg" alt="Image Design" loading="lazy">
             </div>
         </div>
         <div class="ContainerBaseContent" ContainerItemMenu="ProjectChecking" id="ContainerProjectChecking">
@@ -433,8 +436,7 @@
             </div>
         </div>
     </div>
-
-
+    {% include 'Base/Footer/index.html' %}
 {% endblock %}
 
 {% block Js %}

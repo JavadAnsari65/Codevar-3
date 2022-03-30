@@ -4,7 +4,7 @@ function ShowAndPayProject(ID, Type) {
         let Object = response.Object
         if (Status == '200') {
             let Container = CreateContainerBlur('Default', 'ContainerProjectDetail')
-            ClickOutSideContainer(Container, DeleteContainerBlur,'OutSide')
+            ClickOutSideContainer(Container, DeleteContainerBlur, 'OutSide')
             let Node = `
                   <div class="Project ShowProject" ProjectID="${Object.id}">
         <div class="InfoProject">
@@ -71,12 +71,20 @@ function ShowAndPayProject(ID, Type) {
             </div>
             <div class="ContainerContactUs">
                 <p class="Label">راه های ارتباطی با ما</p>
-                <div class="ItemsContactUs">
-                    <i class="fab fa-telegram" Telegram></i>
-                    <i class="fab fa-instagram" Instagram></i>
-                    <i class="fa fa-envelope" Email></i>
-                    <i class="fa fa-phone" Phone></i>
-                </div>
+                <div class="ContainerItemsContactShowProject">
+                <a class="ItemContact AnimationBottomToTop" Instagram animationscroll="AnimationBottomToTop" href="https://www.instagram.com/codevar.ir/">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="ItemContact AnimationTopToBottom" Telegram animationscroll="AnimationTopToBottom" href="https://t.me/Codevar">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <a class="ItemContact AnimationBottomToTop" Email animationscroll="AnimationBottomToTop" href="mailto:codevar.ir@gmail.com">
+                    <i class="far fa-envelope"></i>
+                </a>
+                <a class="ItemContact AnimationTopToBottom" Phone animationscroll="AnimationTopToBottom" href="tel:09399558747">
+                    <i class="far fa-phone"></i>
+                </a>
+            </div>
             </div>
             ${Type == 'WaitPay' ? '<div class="ContainerBuyProject"><button class="BtnStyle_5" onclick="alert(\'انتقال به درگاه بانکی\')">پرداخت</button></div>' : ''}
         </div>

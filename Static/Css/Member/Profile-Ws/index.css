@@ -135,7 +135,7 @@
 }
 
 .LabelTitle {
-    font-size: 70% !important;
+    font-size: 90% !important;
     margin: 0;
     margin-right: 2px;
     color: #aaaaaa;
@@ -321,6 +321,122 @@
     font-size: 160%;
     color: #ff4e5e;
     cursor: pointer;
+}
+
+
+
+.Skills {
+    margin-top: 20px;
+    padding: 25px 0;
+    text-align: center;
+}
+
+.Skill {
+    border-radius: 5px;
+    margin: 10px;
+    /*padding: 7px;*/
+    background: #fafafa;
+    text-align: center;
+    border: 1px solid #dddddd;
+    display: inline-block;
+    vertical-align: middle;
+    width: 320px;
+    height: 327px;
+    /*   box-shadow: 0 3px 2px #e5e5e5;*/
+}
+
+.ContainerEditDeleteSkill {
+    text-align: left;
+    padding: 7px;
+}
+
+
+.BtnRemoveSkill {
+    border-radius: 5px;
+    width: 80px;
+    padding: 3px;
+    background: none;
+    border: 1px solid #ff6f60;
+    color: #ff6f60;
+    outline: none;
+    display: inline-block;
+    transition: all .15s;
+}
+
+.BtnRemoveSkill:hover {
+    background: #ff6f60;
+    color: #fff;
+}
+
+.BtnRemoveSkill:focus {
+    background: #ff6f60;
+    color: #fff;
+}
+
+.ContainerEditDeleteSkill p {
+    display: inline-block;
+    margin: 0;
+}
+
+
+.TitleSkill {
+    margin-bottom: 20px !important;
+    background: #ffffff;
+    color: #666666;
+    text-align: center;
+    font-size: 120%;
+    border-radius: 5px 5px 0 0;
+    margin: 1px;
+
+}
+
+.TitleSkill p {
+    margin: 0;
+    display: inline-block;
+}
+
+
+.ContainerChartSkill {
+    display: block;
+    position: relative;
+}
+
+[ChartSkill] {
+    width: 320px !important;
+    height: 150px !important;
+}
+
+.PercentageValueSkill {
+    position: absolute;
+    top: 43%;
+    width: 100%;
+    left: 1%;
+    color: #777777;
+    font-weight: bold;
+}
+
+.ContainerAddSkillBlur {
+    width: 40%;
+    right: 30%;
+}
+
+.ContainerDescriptionSkill {
+    text-align: right;
+    width: 100%;
+    margin-top: 4px;
+    height: 75px;
+    padding: 3px 7px;
+    overflow: auto;
+}
+
+.ContainerDescriptionSkill::-webkit-scrollbar {
+    width: 3px;
+}
+
+.ContainerDescriptionSkill p {
+    font-size: 90%;
+    margin: 0;
+    color: #656565;
 }
 
 

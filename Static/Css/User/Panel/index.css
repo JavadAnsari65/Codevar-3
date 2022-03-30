@@ -1,16 +1,35 @@
+body{
+    background: #f2f2f2;
+}
+
 .ContainerAside {
     width: 100%;
     position: fixed;
-    top: 0;
+    top: 64px;
+    padding: 10px;
     background: white;
+    text-align: center;
     overflow: hidden;
+    overflow-x: auto;
     z-index: 1;
+    white-space: nowrap;
+}
+
+.ContainerAside::-webkit-scrollbar{
+    height: 4px;
+}
+
+
+.HeaderFixed{
+    background: #fff!important;
+    border-bottom: none!important;
+    box-shadow: none!important;
 }
 
 .ItemAside {
     display: inline-block;
     padding: 8px;
-    margin: 5px 2px;
+    margin: 5px 7px;
     cursor: pointer;
     color: #777777;
     font-size: 90%;
@@ -49,13 +68,14 @@
 }
 
 .ContainerTitle p {
-    font-size: 105%;
+    font-size: 115%;
     margin: 0;
     color: #888888;
     font-family: 'Yekan';
     display: inline-block;
     border-right: 3px solid #78c0c7;
     padding-right: 10px;
+    font-weight: bold;
 }
 
 .ContainerMain {
@@ -65,12 +85,17 @@
 
 .ContainerBaseContent {
     width: 98%;
-    background: #f8f8f8;
-    box-shadow: 0 0 5px #e5e5e5;
+    background: #fff;
+    border: 1px solid #eee;
     padding: 10px;
-    margin: auto;
+    margin: 120px auto;
     display: none;
-    border-radius: 3px;
+    border-radius: 7px;
+    min-height: 300px;
+}
+
+.ContainerNotFoundContent {
+    font-size: 110%;
 }
 
 .ContainerContentIsShow {
@@ -136,10 +161,9 @@
     display: inline-block;
     background: white;
     margin: 7px;
-    box-shadow: 0 0 50px #e3e3e3;
-    border-radius: 5px;
+    border-radius: 7px;
     vertical-align: top;
-    border: 1px solid #e2e2e2;
+    border: 1px solid #eee;
     transition: all .2s;
 }
 
@@ -180,6 +204,7 @@
 }
 
 .TitleProject {
+    padding: 5px;
     width: 70%;
     font-size: 95%;
     color: #333333;
@@ -302,11 +327,6 @@
     width: 90%;
 }
 
-.IconHamburgerMenu {
-    display: none;
-    margin: 0 50px;
-    margin-right: 5px;
-}
 
 
 .ContainerTitleAndSignOutMenu {
@@ -372,52 +392,71 @@
     width: 100%;
 }
 
-.ContainerContactUs {
+.ContainerItemsContactShowProject {
     text-align: center;
-}
-
-.ContainerContactUs i {
-    margin: 3px;
-    font-size: 130%;
-    background: #ededed;
     padding: 10px;
-    border-radius: 50%;
-    box-shadow: 1px 2px 2px #cccccc;
-    cursor: pointer;
-    transition: all .1s;
+    width: 100%;
 }
 
-.ContainerContactUs i:hover {
+.ContainerItemsContactShowProject .ItemContact i{
+    display: inline-block;
+    margin: 3px;
+    background: #ffffff;
+    padding:10px;
+    font-size: 160%;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    cursor: pointer;
     box-shadow: none;
 }
 
-.ContainerContactUs i:active {
-    box-shadow: inset 1px 1px 2px #cccccc;
+
+.ItemContact[Instagram] {
+    color: #ff4f48;
 }
 
-.ContainerContactUs i[Phone] {
-    color: #2c2c2c;
+.ItemContact[Telegram] {
+    color: #104aff;
 }
 
-.ContainerContactUs i[Telegram] {
-    color: #214fd4;
+.ItemContact[Email] {
+    color: #ff1015;
 }
 
-.ContainerContactUs i[Instagram] {
-    color: #d44c54;
+.ItemContact[Phone] {
+    color: #3c3c3c;
 }
 
-.ContainerContactUs i[Email] {
-    color: #ee3136;
+.ContainerSubmitProjectAndDescription{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.ContainerProjectDetail{
+    text-align: center;
+    padding: 0!important;
+}
 
+.ContainerContentBlur{
+    width: 100%;
+}
+
+.ShowProject{
+    width: 100%;
+    margin: auto;
+}
 
 @media screen and (max-width: 1100px) {
+
+    .ContainerSubmitProjectAndDescription{
+        flex-direction: column;
+    }
+
     .ContainerDesignSubmitProject {
         display: block;
         width: 100%;
-        transform: translateY(-20px);
+        order: -1;
     }
 
     .ContainerDesignSubmitProject img {
@@ -439,50 +478,15 @@
 }
 
 @media screen and (max-width: 800px) {
-    .IconHamburgerMenu {
-        display: block;
-    }
 
-    .ItemAsideProjectCompleted { /* Btn Project Completing */
-        display: none;
-    }
-
-    .ItemAsideProjectCompleting { /* Btn Project Completed */
-        display: none;
-    }
-
-    .ItemAsideProjectChecking {
-        display: none;
-    }
-
-    .ItemAsideSignOut { /* Sign Out */
-        display: none;
-    }
-
-    .ItemAsideHome { /* Btn Home */
-        display: none;
-    }
-
-    .ItemAsideInfo { /* Btn Info */
-        display: none;
-    }
-
-    .ContainerAside {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .ItemSubmitProject {
-        margin: 0;
-        margin-left: 10px;
-        padding: 8px 10px;
-        border-radius: 10px;
-        background: rgb(35, 151, 204);
-        box-shadow: 0 5px 8px rgba(35, 151, 204, 0.3);
-        color: white !important;
-    }
-
+    /*.ItemSubmitProject {*/
+    /*    margin: 0;*/
+    /*    margin-left: 10px;*/
+    /*    padding: 8px 10px;*/
+    /*    border-radius: 7px;*/
+    /*    border: 1px solid #eee;*/
+    /*    color:#666!important;*/
+    /*}*/
 
 }
 

@@ -1,3 +1,7 @@
+body {
+    min-height: 150vh !important;
+}
+
 #svg {
     position: relative;
     width: 100%;
@@ -12,7 +16,7 @@
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(20px);
     border-radius: 5px;
-    box-shadow: 0 8px 10px #e7caeb;
+    box-shadow: 0 3px 30px rgba(203, 255, 220, 0.4);
 }
 
 .ContainerLogin {
@@ -66,41 +70,60 @@
     top: 15%;
     left: 3%;
     width: 50%;
+    text-align: center;
+    background: #fff;
+    padding: 15px 10px;
+    border-radius: 10px;
 }
 
-.ContainerMessage h2 {
+.ContainerMessage h1 {
     font-family: 'B-NasimBold';
     color: #20ebc4;
+    text-align: right;
 }
 
-.ContainerMessage h2 span {
+.ContainerMessage h1 span {
     color: #434747;
 }
 
 .ContainerMessage p {
     margin: 0;
-    color: white;
+    color: #555555;
+}
+
+.ContainerFooter {
+    margin-top: 60vh;
+}
+
+.HeaderForm{
+    font-family: 'KalameBlack';
 }
 
 
 @media screen and (max-width: 1000px) {
     .ContainerBase {
-        top: 35%;
+        top: 20%;
         width: 55%;
         right: 22.5%;
     }
 
     .ContainerMessage {
+        display: none;
         right: 3%;
         width: 70%;
     }
+
+    .ContainerFooter {
+        margin-top: 75vh;
+    }
+
 }
 
 @media screen and (max-width: 650px) {
     .ContainerBase {
         width: 70%;
         right: 15%;
-        top: 33%;
+        top: 19%;
     }
 
     .ContainerMessage {
@@ -131,7 +154,6 @@
     .ContainerBase {
         width: 90%;
         right: 5%;
-        top: 38%;
     }
 
     .ContainerMessage {
@@ -143,5 +165,9 @@
         border-radius: 10px;
         padding: 5px;
         font-size: 88%;
+    }
+
+    .ContainerFooter {
+        margin-top: 80vh;
     }
 }

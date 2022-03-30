@@ -9,31 +9,87 @@
 {% block Css %}
     <link rel="stylesheet" href="/Static/Css/Member/Profile-Ws/index.css">
     <link rel="stylesheet" href="/Static/Css/Member/Components/Profile/index.css">
+    <style>
+        .ContanierProfile {
+            background: #fff;
+            padding: 10px;
+        }
+    </style>
 {% endblock %}
 {% block Content %}
-    {% include 'Base/Header/Header.html' with Items='BtnSubmitProject,BtnJoinToTeam,Home,WorkSamples,GroupMembers,Logo,Account' Place='Other' Style='Type1' User=User_Member %}
+    {% include 'Base/Header/Header.html' with Items='BtnSubmitProject,BtnJoinToTeam,Home,WorkSamples,GroupMembers,Logo,Account,ContactUs' Place='Other' Style='Type1' User=User_Member %}
     {% include 'Components/Profile/Profile.html' with ViewBy='User' MemberProfile=MemberProfile TypeInclude='Member' %}
-    <h1>Fazel</h1>
+    {% include 'Base/Footer/index.html' %}
 {% endblock %}
 {% block Js %}
+    <script src="/Static/Js/Chart/anychart-core.min.js"></script>
+    <script src="/Static/Js/Chart/Chart.js"></script>
+    <script src="/Static/Js/Chart/anychart-pie.min.js"></script>
+    <script src="/Static/Js/Chart/plugin-chart.js"></script>
     <script src="/Static/Js/Member/Profile-Ws/index.js"></script>
     <script src="/Static/Js/Member/Index-profile/index.js"></script>
     <script>
-        //  Chart Skills Profile
-        anychart.onDocumentReady(function () {
-            let Container = document.getElementById('ContainerChartSkillsProfile')
-            let DataChartSkillsProfile = []
-            {% for Skill in MemberProfile.GetSkills %}
-                DataChartSkillsProfile.push(
-                    {x: "{{ Skill.Title }}", value: "{{ Skill.ValueSkill }}"}
-                )
-            {% endfor %}
-            let Chart = anychart.pie();
-            Chart.data(DataChartSkillsProfile);
-            Chart.container(Container);
-            Chart.draw();
-            Chart.legend().position("left");
-            Chart.legend().itemsLayout("vertical");
-        });
+        let AllChartSkills = document.querySelectorAll('[ChartSkill]')
+        for (let Skill of AllChartSkills) {
+            ChartSkills(Skill)
+        }
+
+        function ChartSkills(Canvas) {
+            if (Canvas) {
+                let Label = Canvas.getAttribute('TitleSkill') || 'Unknown'
+                let ValuePercent = parseInt(Canvas.getAttribute('ValuePercent'))
+                let backgroundColor = '#00eeb6'
+                if (ValuePercent < 71 && ValuePercent > 50) {
+                    backgroundColor = '#92e6ee'
+                } else if (ValuePercent < 51 && ValuePercent > 30) {
+                    backgroundColor = '#ffea57'
+                } else if (ValuePercent < 31 && ValuePercent > 15) {
+                    backgroundColor = '#ffa646'
+                } else if (ValuePercent < 16) {
+                    backgroundColor = '#ff5b5f'
+                }
+                let ChartCircle = new Chart(Canvas, {
+                    type: 'doughnut',
+                    data: {
+                        labels: [Label, ''],
+                        datasets: [{
+                            label: "%",
+                            backgroundColor: [backgroundColor],
+                            data: [ValuePercent, 100 - ValuePercent]
+                        }]
+                    },
+                    plugins: [{
+                        /*beforeDraw: function (chart) {
+                            var width = chart.chart.width,
+                                height = chart.chart.height,
+                                ctx = chart.chart.ctx;
+
+                            ctx.restore();
+                            var fontSize = (height / 150).toFixed(2);
+                            ctx.font = fontSize + "em sans-serif";
+                            ctx.fillStyle = "#9b9b9b";
+                            ctx.textBaseline = "middle";
+                            var text = "",
+                                textX = Math.round((width - ctx.measureText(text).width) / 2),
+                                textY = height / 2;
+
+                            ctx.fillText(text, textX, textY);
+                            ctx.save();
+                        }*/
+                    }],
+                    options: {
+                        legend: {
+                            display: false,
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutoutPercentage: 60
+                    }
+                });
+            }
+        }
+
     </script>
+
+
 {% endblock %}

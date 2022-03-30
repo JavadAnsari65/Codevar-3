@@ -11,8 +11,8 @@ def Home(request):
     Context['User'] = User
     Context['Member'] = Member
     Context['User_Member'] = User or Member
-    Context['WorkSamples'] = WorkSample.objects.all()[::-1][:2]
-    Context['Members'] = MemberGroup.objects.all()[::-1][:3]
+    Context['WorkSamples'] = WorkSample.objects.filter(Owner__Is_Active=True)[::-1][:2]
+    Context['Members'] = MemberGroup.objects.filter(Is_Active=True)[::-1][:3]
     return render(request, 'Home/index.html', Context)
 
 
@@ -24,7 +24,7 @@ def WorkSamples(request):
     Context['User'] = User
     Context['Member'] = Member
     Context['User_Member'] = User or Member
-    Context['WorkSamples'] = WorkSample.objects.all()[::-1]
+    Context['WorkSamples'] = WorkSample.objects.filter(Owner__Is_Active=True)[::-1]
     return render(request, 'WorkSample/index.html', Context)
 
 
@@ -36,7 +36,7 @@ def Members(request):
     Context['User'] = User
     Context['Member'] = Member
     Context['User_Member'] = User or Member
-    Context['Members'] = sorted(MemberGroup.objects.all(), key=lambda O: O.GetLenLikeMember())[::-1]
+    Context['Members'] = sorted(MemberGroup.objects.filter(Is_Active=True), key=lambda O: O.GetLenLikeMember())[::-1]
     return render(request, 'Members/index.html', Context)
 
 

@@ -616,13 +616,13 @@ img[src=""] {
     background: #298371 !important;
 }
 
-.Sample{
+.Sample {
     box-shadow: none;
     border: 1px solid #dddddd;
     border-radius: 10px;
 }
 
-.Sample img{
+.Sample img {
     border-radius: 10px 10px 0 0;
 }
 
@@ -722,7 +722,6 @@ img[src=""] {
 }
 
 
-
 .ButtonIconDelete {
     background: #ffe4e3;
     border: 1px solid rgba(255, 172, 169, 0.5);
@@ -780,6 +779,28 @@ img[src=""] {
 
 
 @media screen and (max-width: 1000px) {
+
+    .HeaderProfile {
+        flex-direction: column;
+    }
+
+    .ShortInfoProfile {
+        width: 100% !important;
+        height: auto !important;
+        margin: 7px;
+    }
+
+    .AboutMeProfile {
+        height: auto !important;
+        width: 97%;
+    }
+
+    .HeaderProfile img {
+        margin: 7px;
+        width: 70%;
+        order: -1;
+    }
+
 
     #ContainerMain {
         width: 82%;
@@ -924,6 +945,56 @@ img[src=""] {
         width: 75%;
         right: 12.5%;
     }
+
+    [ContainerItemMenu='Profile'] {
+        width: 100%;
+        padding: 0 !important;
+    }
+
+    .ShortInfoProfile {
+        height: auto;
+    }
+
+    .AboutMeProfile {
+        height: auto;
+        width: 97%;
+
+    }
+
+    .HeaderProfile img {
+        margin: 7px;
+        width: 100%;
+        order: -1;
+    }
+
+    .HeaderShortInfoProfile {
+        flex-direction: column !important;
+        text-align: right !important;
+        margin-bottom: 25px !important;
+        width: 100% !important;
+    }
+
+    .HeaderShortInfoProfile > div {
+        width: 100%;
+    }
+
+
+    .ContainerItemsLeftHeaderInfo {
+        order: -1 !important;
+        width: 100%;
+        text-align: left;
+    }
+
+    .ContainerItemsLeftHeaderInfo > div {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .NameAndFamilyMember {
+        margin-top: 15px !important;
+        margin-bottom: 10px !important;
+        width: 100% ;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -948,6 +1019,7 @@ img[src=""] {
         right: 5%;
     }
 }
+
 
 @media screen and (max-width: 400px) {
     .Skills {
